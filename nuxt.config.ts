@@ -4,6 +4,11 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss'
   ],
+  nitro: {
+    prerender: {
+      routes: ['/']
+    }
+  },
   app: {
     head: {
       link: [
