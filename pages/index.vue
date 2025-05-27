@@ -9,7 +9,7 @@
     <div class="container mx-auto px-4 py-8 grid grid-cols-12 gap-4">
       <!-- Header/Logo -->
       <div class="col-span-6 md:col-span-3 lg:col-span-2">
-        <span class="text-lg font-semibold"><span class="text-[#768B9B]">DESIGN</span>SNACK</span>
+        <span class="text-2xl font-semibold"><span class="text-[#768B9B]">DESIGN</span>SNACK</span>
       </div>
 
       <!-- Circular element -->
@@ -160,9 +160,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
-// Power4 and Elastic easings are part of the GSAP core, so direct import might not be needed
-// but if you encounter issues, you might need to import them specifically if using a modular GSAP setup
-// import { Power4, Elastic } from 'gsap/all'; // Example if specific import is needed
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { SplitText } from 'gsap/SplitText'
@@ -171,7 +168,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText)
 
 const circleElement = ref(null)
 const headingElement = ref(null)
-// const cursor = ref(null) // Removed
+
 let lastScrollTop = 0
 let rotationValue = 0
 let splitHeading = null;
@@ -189,7 +186,7 @@ class ElasticButton {
     this.cursorX = 0;
     this.cursorY = 0;
     this.magneticPullX = 0.4;
-    this.magneticPullY = 0.4; // Adjusted for a more uniform pull
+    this.magneticPullY = 0.4; 
     this.isHovering = false;
 
     // Bind methods to ensure 'this' context is correct
@@ -299,9 +296,6 @@ class ElasticButton {
 
   destroy() {
     document.body.removeEventListener("mousemove", this.handleMouseMove);
-    // Remove other listeners if any were added directly to the button by this instance
-    // For example, the click listener for ripple if it was added.
-    // This part needs careful management if you add more direct listeners.
   }
 }
 
@@ -374,7 +368,7 @@ const initHeadingAnimation = () => {
     duration: 0.6,
     stagger: 0.01,
     ease: "power4.out",
-    delay: 0.3
+    delay: 3
   })
 }
 
