@@ -55,103 +55,99 @@
           Auswahl unserer Projekte
         </h2>
         
-        <!-- First row - Right to Left scrolling -->
-        <div class="project-container" ref="projectContainer">
-          <div class="project-row">
-            <!-- Project 1 -->
-            <div class="project-item">
-              <div class="w-full h-full">
-                <img 
-                  src="/img/dashboard-design.png" 
-                  alt="Dashboard Design" 
-                  class="w-full h-full rounded-2xl object-cover project-image"
-                >
-              </div>
-            </div>
-            
-            <!-- Project 2 -->
-            <div class="project-item">
-              <div class="w-full h-full">
-                <img 
-                  src="/img/app-design.png" 
-                  alt="App Design" 
-                  class="w-full h-full rounded-2xl object-cover project-image"
-                >
-              </div>
-            </div>
-            
-            <!-- Project 3 -->
-            <div class="project-item">
-              <div class="w-full h-full">
-                <img 
-                  src="/img/design-system.png" 
-                  alt="Design System" 
-                  class="w-full h-full rounded-2xl object-cover project-image"
-                >
-              </div>
-            </div>
-            
-            <!-- Project 4 -->
-            <div class="project-item">
-              <div class="w-full h-full">
-                <img 
-                  src="/img/football-app-design.png" 
-                  alt="Football App Design" 
-                  class="w-full h-full rounded-2xl object-cover project-image"
-                >
-              </div>
-            </div>
+        <!-- Simple Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Row 1 -->
+          <div class="project-card">
+            <img 
+              src="/img/dashboard-design.png" 
+              alt="Dashboard Design" 
+              class="w-full h-64 rounded-2xl object-cover"
+            >
+          </div>
+          
+          <div class="project-card">
+            <img 
+              src="/img/app-design.png" 
+              alt="App Design" 
+              class="w-full h-64 rounded-2xl object-cover"
+            >
+          </div>
+          
+          <div class="project-card">
+            <img 
+              src="/img/design-system.png" 
+              alt="Design System" 
+              class="w-full h-64 rounded-2xl object-cover"
+            >
+          </div>
+          
+          <div class="project-card">
+            <img 
+              src="/img/football-app-design.png" 
+              alt="Football App Design" 
+              class="w-full h-64 rounded-2xl object-cover"
+            >
+          </div>
+          
+          <!-- Row 2 -->
+          <div class="project-card">
+            <img 
+              src="/img/landing-page-design.png" 
+              alt="Landing Page Design" 
+              class="w-full h-64 rounded-2xl object-cover"
+            >
+          </div>
+          
+          <div class="project-card">
+            <img 
+              src="/img/mobile-app-design.png" 
+              alt="Mobile App Design" 
+              class="w-full h-64 rounded-2xl object-cover"
+            >
+          </div>
+          
+          <div class="project-card">
+            <img 
+              src="/img/quiz-app-design.png" 
+              alt="Quiz App Design" 
+              class="w-full h-64 rounded-2xl object-cover"
+            >
+          </div>
+          
+          <div class="project-card">
+            <img 
+              src="/img/scouting-app-design.png" 
+              alt="Scouting App Design" 
+              class="w-full h-64 rounded-2xl object-cover"
+            >
           </div>
         </div>
-        
-        <!-- Second row - Left to Right scrolling -->
-        <div class="project-container mt-16" ref="projectContainer2">
-          <div class="project-row project-row-reverse">
-            <!-- Project 1 -->
-            <div class="project-item">
-              <div class="w-full h-full">
-                <img 
-                  src="/img/landing-page-design.png" 
-                  alt="Dashboard Design" 
-                  class="w-full h-full rounded-2xl object-cover project-image"
-                >
-              </div>
-            </div>
-            
-            <!-- Project 2 -->
-            <div class="project-item">
-              <div class="w-full h-full">
-                <img 
-                  src="/img/mobile-app-design.png" 
-                  alt="App Design" 
-                  class="w-full h-full rounded-2xl object-cover project-image"
-                >
-              </div>
-            </div>
-            
-            <!-- Project 3 -->
-            <div class="project-item">
-              <div class="w-full h-full">
-                <img 
-                  src="/img/quiz-app-design.png" 
-                  alt="Design System" 
-                  class="w-full h-full rounded-2xl object-cover project-image"
-                >
-              </div>
-            </div>
-            
-            <!-- Project 4 -->
-            <div class="project-item">
-              <div class="w-full h-full">
-                <img 
-                  src="/img/scouting-app-design.png" 
-                  alt="Football App Design" 
-                  class="w-full h-full rounded-2xl object-cover project-image"
-                >
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+
+    <!-- Spacer -->
+    <div class="h-32"></div>
+
+    <!-- Typography Section - Based on CodePen example -->
+    <div ref="typographySection" class="w-full h-screen bg-[#768B9B] flex items-center justify-center relative z-10">
+      <div class="flex items-center gap-8">
+        <!-- Right side - Scrolling text -->
+        <div ref="scrollingText" class="text-[#697C8B] text-5xl md:text-7xl font-medium text-center px-20">
+          DESIGNSNACK bringt erfahrene UX/UI Designer in Ihr Produktteam - schnell. Keine Recruiter, kein Overhead, kein Unsinn. Nur eingebettete, kampferprobte UX-Expertise für Fintech-, Bank- und Versicherungsteams, die schneller vorankommen müssen.
         </div>
+      </div>
+    </div>
+    
+    <!-- Next Section Placeholder -->
+    <div class="next-section">
+      <div class="container mx-auto px-4 py-32">
+        <h2 class="text-6xl font-semibold text-black text-center">
+          Ready to work together?
+        </h2>
+        <p class="text-2xl text-gray-600 text-center mt-8">
+          Let's create something amazing.
+        </p>
       </div>
     </div>
   </div>
@@ -168,11 +164,15 @@ gsap.registerPlugin(ScrollTrigger, SplitText)
 
 const circleElement = ref(null)
 const headingElement = ref(null)
+const typographySection = ref(null)
+const scrollingText = ref(null)
 
 let lastScrollTop = 0
 let rotationValue = 0
-let splitHeading = null;
+// let splitHeading = null; // This was for a different animation, can be kept or removed if not used elsewhere
 let elasticButtonInstances = [];
+let typographyTimeline = null; // To store the timeline for cleanup
+let splitTextInstance = null; // To store the SplitText instance for cleanup
 
 class ElasticButton {
   constructor(HTMLButtonElement) {
@@ -299,209 +299,125 @@ class ElasticButton {
   }
 }
 
-function initElasticButtons() {
-  const buttons = document.querySelectorAll(".elastic-btn");
-  buttons.forEach(button => {
-    elasticButtonInstances.push(new ElasticButton(button));
-  });
-  // Initialize ripple effect for each button if you're keeping it
-  elasticButtonInstances.forEach(instance => instance.createRipple());
-}
+const initElasticButtons = () => {
+  const buttons = document.querySelectorAll('.elastic-btn');
+  elasticButtonInstances = Array.from(buttons).map(btn => new ElasticButton(btn));
+};
 
-const projectContainer = ref(null)
-const projectContainer2 = ref(null)
-
-// Define the handleScroll function
 const handleScroll = () => {
-  if (!circleElement.value) return;
-
   const st = window.pageYOffset || document.documentElement.scrollTop;
-  if (st > lastScrollTop) {
-    // Downscroll
-    rotationValue += 2; // Increment rotation
-  } else {
-    // Upscroll
-    rotationValue -= 2; // Decrement rotation
+  if (circleElement.value) {
+    if (st > lastScrollTop) {
+      // Downscroll
+      rotationValue += 2; // Adjust rotation speed as needed
+    } else {
+      // Upscroll
+      rotationValue -= 2; // Adjust rotation speed as needed
+    }
+    gsap.to(circleElement.value, {
+      rotation: rotationValue,
+      duration: 0.3,
+      ease: 'power2.out'
+    });
   }
-  gsap.to(circleElement.value, {
-    rotation: rotationValue,
-    duration: 0.3,
-    ease: 'power2.out'
-  });
   lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
 };
 
+
 onMounted(() => {
-  // Initialize circle rotation
-  window.addEventListener('scroll', handleScroll)
-  
-  // Initialize heading text animation
-  initHeadingAnimation()
-  
-  // Initialize project images animations
-  initProjectAnimations()
+  window.addEventListener('scroll', handleScroll);
+  initElasticButtons();
 
-  // Initialize elastic buttons
-  initElasticButtons() 
-})
+  // GSAP animation for typography section
+  if (typographySection.value && scrollingText.value) {
+    splitTextInstance = new SplitText(scrollingText.value, { type: "words" });
 
-const initHeadingAnimation = () => {
-  // Create the SplitText instance
-  splitHeading = new SplitText(headingElement.value, {
-    type: "lines,chars",
-    linesClass: "line-mask",
-    charsClass: "char"
-  })
-  
-  // Set initial state - hide all characters
-  gsap.set(splitHeading.chars, {
-    y: 120,
-    skewY: 10,
-    opacity: 0
-  })
-  
-  // Create the animation
-  gsap.to(splitHeading.chars, {
-    y: 0,
-    skewY: 0,
-    opacity: 1,
-    duration: 0.6,
-    stagger: 0.01,
-    ease: "power4.out",
-    delay: 3
-  })
-}
+    typographyTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: typographySection.value,
+        start: "top top",
+        end: "bottom top", 
+        pin: true,
+        pinSpacing: true,
+        pinType: "transform",
+        scrub: 0.75, // Increased scrub value slightly for potentially smoother updates
+      }
+    })
+    .to(splitTextInstance.words, {
+      color: "#fff", 
+      stagger: 0.1, 
+      duration: 0.2, // This duration is relative to the timeline's progress through the scrub
+    });
+  }
 
-const initProjectAnimations = () => {
-  // First row - Right to Left scrolling
-  const projectRow = document.querySelector('.project-row')
-  
-  // Set initial position
-  gsap.set(projectRow, {
-    x: '0%'
-  })
-  
-  // Create scroll trigger for the first row
-  ScrollTrigger.create({
-    trigger: projectContainer.value,
-    start: "top bottom",
-    end: "bottom top",
-    markers: false,
-    scrub: 0.5,
-    pin: false,
-    onUpdate: (self) => {
-      const progress = self.progress;
-      const totalWidth = projectRow.scrollWidth - projectContainer.value.offsetWidth;
-      const xPosition = -(progress * totalWidth);
-      
-      gsap.set(projectRow, {
-        x: xPosition
-      });
-    }
-  });
-  
-  // Second row - Left to Right scrolling
-  const projectRowReverse = document.querySelector('.project-row-reverse')
-  
-  // Set initial position (off-screen to the left)
-  gsap.set(projectRowReverse, {
-    x: '-100%'
-  })
-  
-  // Create scroll trigger for the second row
-  ScrollTrigger.create({
-    trigger: projectContainer2.value,
-    start: "top bottom",
-    end: "bottom top",
-    markers: false,
-    scrub: 0.5,
-    pin: false,
-    onUpdate: (self) => {
-      const progress = self.progress;
-      const totalWidth = projectRowReverse.scrollWidth - projectContainer2.value.offsetWidth;
-      // For left to right, we start negative and move toward positive
-      const xPosition = -totalWidth + (progress * totalWidth);
-      
-      gsap.set(projectRowReverse, {
-        x: xPosition
-      });
-    }
-  });
-}
+  // Initialize heading animation if headingElement exists
+  if (headingElement.value) {
+    // Assuming splitHeading was intended for this, or create a new SplitText instance
+    // For now, I'll comment out the splitHeading logic as it's not fully defined in the previous context
+    /*
+    splitHeading = new SplitText(headingElement.value, { type: "lines", linesClass: "heading-line-wrapper" });
+    gsap.from(splitHeading.lines, {
+      y: 100,
+      opacity: 0,
+      stagger: 0.1,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: headingElement.value,
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    });
+    */
+  }
+});
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  elasticButtonInstances.forEach(instance => instance.destroy());
+  elasticButtonInstances = [];
 
-  
-  // Restore default cursor
-  document.body.style.cursor = 'auto'; // Ensure this is present
-  
-  // Clean up SplitText
+  // Cleanup GSAP animations and SplitText
+  if (typographyTimeline) {
+    typographyTimeline.kill();
+    typographyTimeline = null;
+  }
+  if (splitTextInstance) {
+    splitTextInstance.revert(); // Reverts the DOM changes made by SplitText
+    splitTextInstance = null;
+  }
+  // If splitHeading was used, clean it up too
+  /*
   if (splitHeading) {
     splitHeading.revert();
   }
-})
+  */
+  // It's also a good idea to kill all ScrollTriggers associated with the component
+  ScrollTrigger.getAll().forEach(trigger => {
+    // Check if the trigger is associated with elements in this component
+    // This is a bit broad; ideally, you'd only kill triggers created by this component.
+    // For now, this is a general cleanup. If you have global ScrollTriggers, be more specific.
+    if (trigger.trigger === typographySection.value || (headingElement.value && trigger.trigger === headingElement.value)) {
+        trigger.kill();
+    }
+  });
+});
+
 </script>
 
-<style scoped>
+<style>
 body, html {
   overflow-x: hidden;
-  width: 100%;
-  position: relative;
+  /* width: 100%; // Consider if this is strictly needed with overflow-x: hidden */
+  /* position: relative; // This might interact with fixed pinning; test with and without if issues persist with pinType: 'transform' */
 }
 
-.container {
-  overflow-x: visible; /* Allow content to flow outside for the horizontal scroll effect */
+.project-card {
+  transition: transform 0.3s ease;
 }
 
-.projects-section {
-  position: relative;
-  overflow: hidden; /* This will hide the overflow from the project rows */
-  width: 100%;
-}
-
-.project-container {
-  position: relative;
-  width: 100%;
-  height: 60vh;
-  overflow: visible; /* Allow the row to extend beyond the container */
-  margin-bottom: 4rem;
-}
-
-.project-row {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  height: 100%;
-  will-change: transform;
-  gap: 2rem;
-  width: max-content;
-}
-
-
-.project-item {
-  flex: 0 0 40vw;
-  height: 100%;
-  padding: 0;
-}
-
-.project-image {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-  .project-item {
-    flex: 0 0 80vw;
-  }
-  
-  .project-container {
-    height: 50vh;
-  }
+.project-card:hover {
+  transform: translateY(-4px);
 }
 
 /* Make sure the cursor is visible on all elements */

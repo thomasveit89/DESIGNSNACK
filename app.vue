@@ -26,6 +26,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// Add this line early, before other ScrollTrigger setups if possible
+ScrollTrigger.normalizeScroll(true);
+
 const loadingSection = ref<HTMLElement>()
 const mainContent = ref<HTMLElement>()
 
@@ -33,6 +36,8 @@ onMounted(() => {
   // Start at top and disable scrolling during loading
   window.scrollTo(0, 0)
   document.body.style.overflow = 'hidden'
+  // It might be beneficial to refresh ScrollTrigger here too, before loading animations
+  // ScrollTrigger.refresh(); // Optional: refresh once before initial animations
 })
 
 const onLoadingComplete = () => {
@@ -72,6 +77,7 @@ const onLoadingComplete = () => {
       if (loadingSection.value) {
         loadingSection.value.style.display = 'none'
       }
+      // This refresh is crucial and seems correctly placed
       ScrollTrigger.refresh()
     })
 }
@@ -97,6 +103,8 @@ const onLoadingComplete = () => {
   min-height: 100vh;
   width: 100%;
   transform: translateY(100vh);
+  /* Consider adding will-change during the animation phase if performance is an issue */
+  /* will-change: transform; */ 
 }
 
 body {
