@@ -16,11 +16,21 @@
     >
       <LoadingScreen @complete="onLoadingComplete" />
     </div>
+
+     <!-- Moved Circular element -->
+     <div class="fixed top-8 right-24 z-50">
+      <img 
+        src="/img/circle-type.svg" 
+        alt="DESIGNSNACK EST 2025 CH" 
+        class="w-24 h-24 hidden md:block"
+        ref="circleElement"
+      >
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -31,11 +41,38 @@ ScrollTrigger.normalizeScroll(true);
 
 const loadingSection = ref<HTMLElement>()
 const mainContent = ref<HTMLElement>()
+const circleElement = ref<HTMLElement>()
+
+let lastScrollTop = 0
+let rotationValue = 0
+
+const handleScroll = () => {
+  const st = window.pageYOffset || document.documentElement.scrollTop;
+  if (circleElement.value) {
+    if (st > lastScrollTop) {
+      // Downscroll
+      rotationValue += 2; // Adjust rotation speed as needed
+    } else {
+      // Upscroll
+      rotationValue -= 2; // Adjust rotation speed as needed
+    }
+    gsap.to(circleElement.value, {
+      rotation: rotationValue,
+      duration: 0.3,
+      ease: 'power2.out'
+    });
+  }
+  lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+};
 
 onMounted(() => {
   // Start at top and disable scrolling during loading
   window.scrollTo(0, 0)
   document.body.style.overflow = 'hidden'
+  
+  // Initialize circle scroll animation
+  window.addEventListener('scroll', handleScroll)
+  
   // It might be beneficial to refresh ScrollTrigger here too, before loading animations
   // ScrollTrigger.refresh(); // Optional: refresh once before initial animations
 })
@@ -81,6 +118,10 @@ const onLoadingComplete = () => {
       ScrollTrigger.refresh()
     })
 }
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <style>

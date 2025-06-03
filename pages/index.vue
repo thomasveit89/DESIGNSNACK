@@ -1,25 +1,10 @@
 <template>
   <div class="relative min-h-screen">
-    <!-- Custom cursor element -->
-    <div class="cursor" ref="cursor"></div>
-    
-    <!-- Background elements/shapes would go here -->
-    <!-- We can add these later -->
 
     <div class="container mx-auto px-4 py-8 grid grid-cols-12 gap-4">
       <!-- Header/Logo -->
       <div class="col-span-6 md:col-span-3 lg:col-span-2">
         <span class="text-2xl font-semibold"><span class="text-[#768B9B]">DESIGN</span>SNACK</span>
-      </div>
-
-      <!-- Circular element -->
-      <div class="col-span-6 md:col-span-9 lg:col-span-10 relative">
-        <img 
-          src="/img/circle-type.svg" 
-          alt="DESIGNSNACK EST 2025 CH" 
-          class="fixed right-24 w-24 h-24 hidden md:block"
-          ref="circleElement"
-        >
       </div>
 
       <!-- Main Content Area -->
@@ -132,13 +117,86 @@
     <!-- Typography Section - Based on CodePen example -->
     <div ref="typographySection" class="w-full h-screen bg-[#768B9B] flex items-center justify-center relative z-10">
       <div class="flex items-center gap-8">
-        <!-- Right side - Scrolling text -->
-        <div ref="scrollingText" class="text-[#697C8B] text-5xl md:text-7xl font-medium text-center px-20">
+        <div ref="scrollingText" class="text-[#697C8B] text-2xl md:text-4xl font-medium text-center px-4 sm:px-6 md:px-8 lg:max-w-4xl xl:max-w-5xl">
           DESIGNSNACK bringt erfahrene UX/UI Designer in Ihr Produktteam - schnell. Keine Recruiter, kein Overhead, kein Unsinn. Nur eingebettete, kampferprobte UX-Expertise für Fintech-, Bank- und Versicherungsteams, die schneller vorankommen müssen.
         </div>
       </div>
     </div>
     
+    <!-- Service Pillars Section -->
+    <div ref="servicePillarsSection" class="w-full min-h-screen bg-white py-32">
+      <div class="container mx-auto px-4">
+        <h2 class="text-5xl md:text-6xl font-semibold text-black text-center mb-20">
+          Service Pillars
+        </h2>
+        
+        <!-- Staggered Cards Container -->
+        <div class="relative max-w-6xl mx-auto">
+          <!-- Card 1 - Embedded UX/UI Designer -->
+          <div ref="card1" class="service-card bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200">
+            <div class="card-header">
+              <span class="card-icon">💡</span>
+              <h3 class="card-title">Embedded UX/UI Designer</h3>
+              <p class="card-subtitle">(your Finnova model)</p>
+            </div>
+            
+            <div class="card-content">
+              <div class="card-feature">
+                <span class="feature-icon">💡</span>
+                <span class="feature-text">Ideal for large companies in Scrum/SAFe environments.</span>
+              </div>
+              
+              <div class="card-feature">
+                <span class="feature-icon">💰</span>
+                <span class="feature-text">CHF 1'100–1'300 per day</span>
+              </div>
+              
+              <div class="card-feature">
+                <span class="feature-icon">📅</span>
+                <span class="feature-text">3–6 months minimum, 2–5 days/week</span>
+              </div>
+              
+              <div class="card-feature">
+                <span class="feature-icon">✅</span>
+                <span class="feature-text">You join their team like an employee — but with freedom.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 - Design Subscription Lite -->
+          <div ref="card2" class="service-card bg-gradient-to-br from-green-50 to-green-100 border border-green-200">
+            <div class="card-header">
+              <span class="card-icon">📦</span>
+              <h3 class="card-title">Design Subscription Lite</h3>
+              <p class="card-subtitle">Perfect for agile teams</p>
+            </div>
+            
+            <div class="card-content">
+              <div class="card-feature">
+                <span class="feature-icon">💡</span>
+                <span class="feature-text">Great for startups or small businesses.</span>
+              </div>
+              
+              <div class="card-feature">
+                <span class="feature-icon">💰</span>
+                <span class="feature-text">CHF 2'900–4'900/month</span>
+              </div>
+              
+              <div class="card-feature">
+                <span class="feature-icon">📦</span>
+                <span class="feature-text">Async, Slack/Notion-based communication</span>
+              </div>
+              
+              <div class="card-feature">
+                <span class="feature-icon">✅</span>
+                <span class="feature-text">Fixed number of tasks per week</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Next Section Placeholder -->
     <div class="next-section">
       <div class="container mx-auto px-4 py-32">
@@ -162,10 +220,12 @@ import { SplitText } from 'gsap/SplitText'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
-const circleElement = ref(null)
 const headingElement = ref(null)
 const typographySection = ref(null)
 const scrollingText = ref(null)
+const servicePillarsSection = ref(null)
+const card1 = ref(null)
+const card2 = ref(null)
 
 let lastScrollTop = 0
 let rotationValue = 0
@@ -304,28 +364,9 @@ const initElasticButtons = () => {
   elasticButtonInstances = Array.from(buttons).map(btn => new ElasticButton(btn));
 };
 
-const handleScroll = () => {
-  const st = window.pageYOffset || document.documentElement.scrollTop;
-  if (circleElement.value) {
-    if (st > lastScrollTop) {
-      // Downscroll
-      rotationValue += 2; // Adjust rotation speed as needed
-    } else {
-      // Upscroll
-      rotationValue -= 2; // Adjust rotation speed as needed
-    }
-    gsap.to(circleElement.value, {
-      rotation: rotationValue,
-      duration: 0.3,
-      ease: 'power2.out'
-    });
-  }
-  lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-};
 
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
   initElasticButtons();
 
   // GSAP animation for typography section
@@ -350,30 +391,83 @@ onMounted(() => {
     });
   }
 
-  // Initialize heading animation if headingElement exists
-  if (headingElement.value) {
-    // Assuming splitHeading was intended for this, or create a new SplitText instance
-    // For now, I'll comment out the splitHeading logic as it's not fully defined in the previous context
-    /*
-    splitHeading = new SplitText(headingElement.value, { type: "lines", linesClass: "heading-line-wrapper" });
-    gsap.from(splitHeading.lines, {
-      y: 100,
-      opacity: 0,
-      stagger: 0.1,
-      duration: 0.8,
-      ease: 'power2.out',
+  // Initialize service cards animation
+  if (servicePillarsSection.value && card1.value && card2.value) {
+    // Set initial state - cards stacked
+    gsap.set(card1.value, { 
+      x: 0, 
+      y: 0, 
+      rotation: 0, 
+      scale: 1,
+      opacity: 0
+    })
+    
+    gsap.set(card2.value, { 
+      x: 0, 
+      y: 20, 
+      rotation: 3, 
+      scale: 0.95,
+      opacity: 0
+    })
+    
+    // Create timeline for cards animation
+    const cardsTimeline = gsap.timeline({
       scrollTrigger: {
-        trigger: headingElement.value,
-        start: 'top 80%',
-        toggleActions: 'play none none none'
+        trigger: servicePillarsSection.value,
+        start: "top 70%",
+        end: "center center",
+        scrub: 1,
+        onEnter: () => {
+          // Initial reveal animation
+          gsap.to([card1.value, card2.value], {
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.2,
+            ease: "power2.out"
+          })
+        }
       }
-    });
-    */
+    })
+    
+    // Separate and position cards
+    cardsTimeline
+      .to(card1.value, {
+        x: window.innerWidth > 768 ? -200 : 0,
+        y: window.innerWidth > 768 ? -50 : -100,
+        rotation: -2,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out"
+      }, 0)
+      .to(card2.value, {
+        x: window.innerWidth > 768 ? 200 : 0,
+        y: window.innerWidth > 768 ? 50 : 100,
+        rotation: 2,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out"
+      }, 0)
+    
+    // Add hover animations
+    card1.value.addEventListener('mouseenter', () => {
+      gsap.to(card1.value, { scale: 1.05, rotation: -1, duration: 0.3, ease: "power2.out" })
+    })
+    
+    card1.value.addEventListener('mouseleave', () => {
+      gsap.to(card1.value, { scale: 1, rotation: -2, duration: 0.3, ease: "power2.out" })
+    })
+    
+    card2.value.addEventListener('mouseenter', () => {
+      gsap.to(card2.value, { scale: 1.05, rotation: 1, duration: 0.3, ease: "power2.out" })
+    })
+    
+    card2.value.addEventListener('mouseleave', () => {
+      gsap.to(card2.value, { scale: 1, rotation: 2, duration: 0.3, ease: "power2.out" })
+    })
   }
 });
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
   elasticButtonInstances.forEach(instance => instance.destroy());
   elasticButtonInstances = [];
 
@@ -386,12 +480,7 @@ onUnmounted(() => {
     splitTextInstance.revert(); // Reverts the DOM changes made by SplitText
     splitTextInstance = null;
   }
-  // If splitHeading was used, clean it up too
-  /*
-  if (splitHeading) {
-    splitHeading.revert();
-  }
-  */
+
   // It's also a good idea to kill all ScrollTriggers associated with the component
   ScrollTrigger.getAll().forEach(trigger => {
     // Check if the trigger is associated with elements in this component
@@ -418,6 +507,65 @@ body, html {
 
 .project-card:hover {
   transform: translateY(-4px);
+}
+
+/* Service Cards Styling */
+.service-card {
+  @apply p-8 rounded-2xl shadow-lg backdrop-blur-sm;
+  position: absolute;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.card-header {
+  @apply text-center mb-8;
+}
+
+.card-icon {
+  @apply text-4xl mb-4 block;
+}
+
+.card-title {
+  @apply text-2xl font-bold text-gray-800 mb-2;
+}
+
+.card-subtitle {
+  @apply text-lg text-gray-600 italic;
+}
+
+.card-content {
+  @apply space-y-4;
+}
+
+.card-feature {
+  @apply flex items-start gap-3 p-3 bg-white/50 rounded-lg;
+}
+
+.feature-icon {
+  @apply text-xl flex-shrink-0 mt-0.5;
+}
+
+.feature-text {
+  @apply text-gray-700 leading-relaxed;
+}
+
+/* Initial stacked state */
+.service-card:nth-child(1) {
+  z-index: 2;
+}
+
+.service-card:nth-child(2) {
+  z-index: 1;
+  transform: translateY(20px) rotate(3deg);
+}
+
+@media (min-width: 768px) {
+  .service-card {
+    max-width: 600px;
+  }
 }
 
 /* Make sure the cursor is visible on all elements */
