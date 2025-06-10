@@ -34,78 +34,74 @@
     </div>
 
     <!-- Projects Section -->
-    <div class="projects-section mt-32">
+    <div class="projects-section mt-32 overflow-hidden">
       <div class="container mx-auto px-4">
         <h2 class="text-[2rem] font-semibold text-black mb-12">
           Auswahl unserer Projekte
         </h2>
+      </div>
+      
+      <!-- Infinite Marquee -->
+      <div class="marquee-container">
+        <!-- First Row - Right to Left -->
+        <div class="marquee-row">
+          <div class="marquee-content marquee-rtl">
+            <div class="project-item">
+              <img src="/img/dashboard-design.png" alt="Dashboard Design" class="project-image">
+            </div>
+            <div class="project-item">
+              <img src="/img/app-design.png" alt="App Design" class="project-image">
+            </div>
+            <div class="project-item">
+              <img src="/img/design-system.png" alt="Design System" class="project-image">
+            </div>
+            <div class="project-item">
+              <img src="/img/football-app-design.png" alt="Football App Design" class="project-image">
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="project-item">
+              <img src="/img/dashboard-design.png" alt="Dashboard Design" class="project-image">
+            </div>
+            <div class="project-item">
+              <img src="/img/app-design.png" alt="App Design" class="project-image">
+            </div>
+            <div class="project-item">
+              <img src="/img/design-system.png" alt="Design System" class="project-image">
+            </div>
+            <div class="project-item">
+              <img src="/img/football-app-design.png" alt="Football App Design" class="project-image">
+            </div>
+          </div>
+        </div>
         
-        <!-- Simple Grid Layout -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Row 1 -->
-          <div class="project-card">
-            <img 
-              src="/img/dashboard-design.png" 
-              alt="Dashboard Design" 
-              class="w-full h-64 rounded-2xl object-cover"
-            >
-          </div>
-          
-          <div class="project-card">
-            <img 
-              src="/img/app-design.png" 
-              alt="App Design" 
-              class="w-full h-64 rounded-2xl object-cover"
-            >
-          </div>
-          
-          <div class="project-card">
-            <img 
-              src="/img/design-system.png" 
-              alt="Design System" 
-              class="w-full h-64 rounded-2xl object-cover"
-            >
-          </div>
-          
-          <div class="project-card">
-            <img 
-              src="/img/football-app-design.png" 
-              alt="Football App Design" 
-              class="w-full h-64 rounded-2xl object-cover"
-            >
-          </div>
-          
-          <!-- Row 2 -->
-          <div class="project-card">
-            <img 
-              src="/img/landing-page-design.png" 
-              alt="Landing Page Design" 
-              class="w-full h-64 rounded-2xl object-cover"
-            >
-          </div>
-          
-          <div class="project-card">
-            <img 
-              src="/img/mobile-app-design.png" 
-              alt="Mobile App Design" 
-              class="w-full h-64 rounded-2xl object-cover"
-            >
-          </div>
-          
-          <div class="project-card">
-            <img 
-              src="/img/quiz-app-design.png" 
-              alt="Quiz App Design" 
-              class="w-full h-64 rounded-2xl object-cover"
-            >
-          </div>
-          
-          <div class="project-card">
-            <img 
-              src="/img/scouting-app-design.png" 
-              alt="Scouting App Design" 
-              class="w-full h-64 rounded-2xl object-cover"
-            >
+        <!-- Second Row - Left to Right -->
+        <div class="marquee-row">
+          <div class="marquee-content marquee-ltr">
+            <div class="project-item">
+              <img src="/img/landing-page-design.png" alt="Landing Page Design" class="project-image">
+            </div>
+            <div class="project-item">
+              <img src="/img/mobile-app-design.png" alt="Mobile App Design" class="project-image">
+            </div>
+            <div class="project-item">
+              <img src="/img/quiz-app-design.png" alt="Quiz App Design" class="project-image">
+            </div>
+            <div class="project-item">
+              <img src="/img/scouting-app-design.png" alt="Scouting App Design" class="project-image">
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="project-item">
+              <img src="/img/landing-page-design.png" alt="Landing Page Design" class="project-image">
+            </div>
+            <div class="project-item">
+              <img src="/img/mobile-app-design.png" alt="Mobile App Design" class="project-image">
+            </div>
+            <div class="project-item">
+              <img src="/img/quiz-app-design.png" alt="Quiz App Design" class="project-image">
+            </div>
+            <div class="project-item">
+              <img src="/img/scouting-app-design.png" alt="Scouting App Design" class="project-image">
+            </div>
           </div>
         </div>
       </div>
@@ -115,9 +111,9 @@
     <div class="h-32"></div>
 
     <!-- Typography Section - Based on CodePen example -->
-    <div ref="typographySection" class="w-full h-screen bg-[#768B9B] flex items-center justify-center relative z-10">
+    <div ref="typographySection" class="w-full h-screen flex items-center justify-center relative z-10">
       <div class="flex items-center gap-8">
-        <div ref="scrollingText" class="text-[#697C8B] text-2xl md:text-4xl font-medium text-center px-4 sm:px-6 md:px-8 lg:max-w-4xl xl:max-w-5xl">
+        <div ref="scrollingText" class="text-gray-200 text-4xl md:text-5xl font-medium text-center px-4 sm:px-6 md:px-8 lg:max-w-4xl xl:max-w-5xl">
           DESIGNSNACK bringt erfahrene UX/UI Designer in Ihr Produktteam - schnell. Keine Recruiter, kein Overhead, kein Unsinn. Nur eingebettete, kampferprobte UX-Expertise für Fintech-, Bank- und Versicherungsteams, die schneller vorankommen müssen.
         </div>
       </div>
@@ -130,10 +126,10 @@
           Service Pillars
         </h2>
         
-        <!-- Staggered Cards Container -->
-        <div class="relative max-w-6xl mx-auto">
-          <!-- Card 1 - Embedded UX/UI Designer -->
-          <div ref="card1" class="service-card bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200">
+        <!-- Cards Grid Container -->
+        <div class="grid grid-cols-12 gap-8">
+          <!-- Card 1 - Embedded UX/UI Designer - Full Width -->
+          <div ref="card1" class="col-span-12 service-card bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200">
             <div class="card-header">
               <span class="card-icon">💡</span>
               <h3 class="card-title">Embedded UX/UI Designer</h3>
@@ -163,8 +159,8 @@
             </div>
           </div>
 
-          <!-- Card 2 - Design Subscription Lite -->
-          <div ref="card2" class="service-card bg-gradient-to-br from-green-50 to-green-100 border border-green-200">
+          <!-- Card 2 - Design Subscription Lite - Full Width -->
+          <div ref="card2" class="col-span-12 service-card bg-gradient-to-br from-green-50 to-green-100 border border-green-200">
             <div class="card-header">
               <span class="card-icon">📦</span>
               <h3 class="card-title">Design Subscription Lite</h3>
@@ -385,7 +381,7 @@ onMounted(() => {
       }
     })
     .to(splitTextInstance.words, {
-      color: "#fff", 
+      color: "#000", 
       stagger: 0.1, 
       duration: 0.2, // This duration is relative to the timeline's progress through the scrub
     });
@@ -501,21 +497,76 @@ body, html {
   /* position: relative; // This might interact with fixed pinning; test with and without if issues persist with pinType: 'transform' */
 }
 
-.project-card {
+/* Marquee Styles */
+.marquee-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.marquee-row {
+  margin-bottom: 2rem;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-flex;
+  gap: 2rem;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.marquee-rtl {
+  animation: marquee-rtl 30s linear infinite;
+}
+
+.marquee-ltr {
+  animation: marquee-ltr 35s linear infinite;
+}
+
+.project-item {
+  flex-shrink: 0;
   transition: transform 0.3s ease;
 }
 
-.project-card:hover {
-  transform: translateY(-4px);
+.project-item:hover {
+  transform: scale(1.1);
+}
+
+.project-image {
+  max-width: none;
+  width: auto;
+  height: 400px;
+  border-radius: 1rem;
+}
+
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-ltr {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Pause animation on hover */
+.marquee-content:hover {
+  animation-play-state: paused;
 }
 
 /* Service Cards Styling */
 .service-card {
   @apply p-8 rounded-2xl shadow-lg backdrop-blur-sm;
-  position: absolute;
+  position: relative;
   width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
   transform-origin: center;
   will-change: transform;
 }
