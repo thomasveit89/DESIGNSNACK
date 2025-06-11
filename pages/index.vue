@@ -11,7 +11,7 @@
       <div class="col-span-12 grid grid-cols-12 gap-4 mt-32">
         <!-- Heading - full width (12 columns) -->
         <div class="col-span-12 mb-8">
-          <h1 ref="headingElement" class="text-8xl font-medium leading-none overflow-hidden hoverable">
+          <h1 ref="headingElement" class="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-none overflow-hidden hoverable">
             <span class="heading-line text-gray-900">Leckerbissen für intuitive</span><br>
             <span class="heading-line text-[#768B9B]">User Experience</span>
           </h1>
@@ -19,14 +19,14 @@
 
         <!-- Button and Description - 6 columns each -->
         <div class="col-span-12 md:col-span-6">
-          <button class="bg-black text-white px-12 py-6 rounded-full text-xl font-medium flex items-center elastic-btn">
+          <button class="bg-black text-white px-8 md:px-12 py-4 md:py-6 rounded-full text-lg md:text-xl font-medium flex items-center elastic-btn">
             Let's chat
-            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            <svg class="ml-2 w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
           </button>
         </div>
 
         <div class="col-span-12 md:col-span-6 mt-8 md:mt-0">
-          <p class="text-3xl text-gray-700">
+          <p class="text-lg md:text-2xl lg:text-3xl text-gray-700 leading-relaxed">
             Wir konzipieren und entwickeln digitale Produkte, die nicht nur gut aussehen, sondern auch hervorragend funktionieren.
           </p>
         </div>
@@ -120,73 +120,57 @@
     </div>
     
     <!-- Service Pillars Section -->
-    <div ref="servicePillarsSection" class="w-full min-h-screen bg-white py-32">
-      <div class="container mx-auto px-4">
-        <h2 class="text-5xl md:text-6xl font-semibold text-black text-center mb-20">
-          Service Pillars
-        </h2>
-        
-        <!-- Cards Grid Container -->
-        <div class="grid grid-cols-12 gap-8">
-          <!-- Card 1 - Embedded UX/UI Designer - Full Width -->
-          <div ref="card1" class="col-span-12 service-card bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200">
-            <div class="card-header">
-              <span class="card-icon">💡</span>
-              <h3 class="card-title">Embedded UX/UI Designer</h3>
-              <p class="card-subtitle">(your Finnova model)</p>
-            </div>
-            
-            <div class="card-content">
-              <div class="card-feature">
-                <span class="feature-icon">💡</span>
-                <span class="feature-text">Ideal for large companies in Scrum/SAFe environments.</span>
-              </div>
-              
-              <div class="card-feature">
-                <span class="feature-icon">💰</span>
-                <span class="feature-text">CHF 1'100–1'300 per day</span>
-              </div>
-              
-              <div class="card-feature">
-                <span class="feature-icon">📅</span>
-                <span class="feature-text">3–6 months minimum, 2–5 days/week</span>
-              </div>
-              
-              <div class="card-feature">
-                <span class="feature-icon">✅</span>
-                <span class="feature-text">You join their team like an employee — but with freedom.</span>
-              </div>
+    <div ref="servicePillarsSection" class="w-full bg-white py-32">
+      <div class="w-full px-8 md:px-16 lg:px-32 xl:px-48">
+        <!-- Services List -->
+        <div class="flex flex-col w-full">
+          <!-- Service 1 -->
+          <div ref="service1" class="border-b border-gray-200 py-8 last:border-b-0 transition-all duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-16 items-start">
+              <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight m-0">UX/UI & Product Design</h3>
+              <p class="text-lg md:text-xl text-gray-600 leading-relaxed m-0 md:col-span-2">
+                Wir gestalten digitale Produkte, die intuitiv funktionieren und gut aussehen. Von der ersten Idee bis zum getesteten Prototyp – schnell und eingebettet in Ihr Team.
+              </p>
             </div>
           </div>
 
-          <!-- Card 2 - Design Subscription Lite - Full Width -->
-          <div ref="card2" class="col-span-12 service-card bg-gradient-to-br from-green-50 to-green-100 border border-green-200">
-            <div class="card-header">
-              <span class="card-icon">📦</span>
-              <h3 class="card-title">Design Subscription Lite</h3>
-              <p class="card-subtitle">Perfect for agile teams</p>
+          <!-- Service 2 -->
+          <div ref="service2" class="border-b border-gray-200 py-8 last:border-b-0 transition-all duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-16 items-start">
+              <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight m-0">Design Systeme</h3>
+              <p class="text-lg md:text-xl text-gray-600 leading-relaxed m-0 md:col-span-2">
+                Einheitliche Komponenten, konsistente UI und saubere Dokumentation. Wir bauen Design-Systeme, die skalieren – für Startups oder Enterprise-Teams.
+              </p>
             </div>
-            
-            <div class="card-content">
-              <div class="card-feature">
-                <span class="feature-icon">💡</span>
-                <span class="feature-text">Great for startups or small businesses.</span>
-              </div>
-              
-              <div class="card-feature">
-                <span class="feature-icon">💰</span>
-                <span class="feature-text">CHF 2'900–4'900/month</span>
-              </div>
-              
-              <div class="card-feature">
-                <span class="feature-icon">📦</span>
-                <span class="feature-text">Async, Slack/Notion-based communication</span>
-              </div>
-              
-              <div class="card-feature">
-                <span class="feature-icon">✅</span>
-                <span class="feature-text">Fixed number of tasks per week</span>
-              </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div ref="service3" class="border-b border-gray-200 py-8 last:border-b-0 transition-all duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-16 items-start">
+              <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight m-0">SaaS MVPs & Prototypen</h3>
+              <p class="text-lg md:text-xl text-gray-600 leading-relaxed m-0 md:col-span-2">
+                Sie haben eine Idee? Wir helfen, daraus in wenigen Wochen ein testbares Produkt zu bauen. Ideal für Startups, Side Projects und Indie Hacker.
+              </p>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div ref="service4" class="border-b border-gray-200 py-8 last:border-b-0 transition-all duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-16 items-start">
+              <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight m-0">Workshops & Crashkurse</h3>
+              <p class="text-lg md:text-xl text-gray-600 leading-relaxed m-0 md:col-span-2">
+                Ob Inhouse oder Remote: Wir zeigen Ihrem Team, wie UX funktioniert, wie man mit KI baut, oder wie man Prototyping & Testing effektiv einsetzt.
+              </p>
+            </div>
+          </div>
+
+          <!-- Service 5 -->
+          <div ref="service5" class="border-b border-gray-200 py-8 last:border-b-0 transition-all duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-16 items-start">
+              <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight m-0">Embedded Design Support</h3>
+              <p class="text-lg md:text-xl text-gray-600 leading-relaxed m-0 md:col-span-2">
+                Temporäre UX-Verstärkung für Ihr Team – ohne lange Einarbeitung oder Overhead. Sofort einsatzbereit und auf Augenhöhe mit Produkt & Tech.
+              </p>
             </div>
           </div>
         </div>
@@ -220,8 +204,11 @@ const headingElement = ref(null)
 const typographySection = ref(null)
 const scrollingText = ref(null)
 const servicePillarsSection = ref(null)
-const card1 = ref(null)
-const card2 = ref(null)
+const service1 = ref(null)
+const service2 = ref(null)
+const service3 = ref(null)
+const service4 = ref(null)
+const service5 = ref(null)
 
 let lastScrollTop = 0
 let rotationValue = 0
@@ -387,78 +374,21 @@ onMounted(() => {
     });
   }
 
-  // Initialize service cards animation
-  if (servicePillarsSection.value && card1.value && card2.value) {
-    // Set initial state - cards stacked
-    gsap.set(card1.value, { 
-      x: 0, 
-      y: 0, 
-      rotation: 0, 
-      scale: 1,
-      opacity: 0
-    })
-    
-    gsap.set(card2.value, { 
-      x: 0, 
-      y: 20, 
-      rotation: 3, 
-      scale: 0.95,
-      opacity: 0
-    })
-    
-    // Create timeline for cards animation
-    const cardsTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: servicePillarsSection.value,
-        start: "top 70%",
-        end: "center center",
-        scrub: 1,
-        onEnter: () => {
-          // Initial reveal animation
-          gsap.to([card1.value, card2.value], {
-            opacity: 1,
-            duration: 0.6,
-            stagger: 0.2,
-            ease: "power2.out"
-          })
-        }
+  // Services section - Interactive hover animations
+  if (servicePillarsSection.value) {
+    const serviceItems = [service1.value, service2.value, service3.value, service4.value, service5.value]
+    serviceItems.forEach(item => {
+      if (item) {
+        item.addEventListener('mouseenter', () => {
+          gsap.to(item.querySelector('h3'), { x: 10, duration: 0.3, ease: "power2.out" })
+          gsap.to(item.querySelector('p'), { x: -10, duration: 0.3, ease: "power2.out" })
+        })
+        
+        item.addEventListener('mouseleave', () => {
+          gsap.to(item.querySelector('h3'), { x: 0, duration: 0.3, ease: "power2.out" })
+          gsap.to(item.querySelector('p'), { x: 0, duration: 0.3, ease: "power2.out" })
+        })
       }
-    })
-    
-    // Separate and position cards
-    cardsTimeline
-      .to(card1.value, {
-        x: window.innerWidth > 768 ? -200 : 0,
-        y: window.innerWidth > 768 ? -50 : -100,
-        rotation: -2,
-        scale: 1,
-        duration: 1,
-        ease: "power2.out"
-      }, 0)
-      .to(card2.value, {
-        x: window.innerWidth > 768 ? 200 : 0,
-        y: window.innerWidth > 768 ? 50 : 100,
-        rotation: 2,
-        scale: 1,
-        duration: 1,
-        ease: "power2.out"
-      }, 0)
-    
-    // Add hover animations
-    card1.value.addEventListener('mouseenter', () => {
-      gsap.to(card1.value, { scale: 1.05, rotation: -1, duration: 0.3, ease: "power2.out" })
-    })
-    
-    card1.value.addEventListener('mouseleave', () => {
-      gsap.to(card1.value, { scale: 1, rotation: -2, duration: 0.3, ease: "power2.out" })
-    })
-    
-    card2.value.addEventListener('mouseenter', () => {
-      gsap.to(card2.value, { scale: 1.05, rotation: 1, duration: 0.3, ease: "power2.out" })
-    })
-    
-    card2.value.addEventListener('mouseleave', () => {
-      gsap.to(card2.value, { scale: 1, rotation: 2, duration: 0.3, ease: "power2.out" })
     })
   }
 });
@@ -562,62 +492,6 @@ body, html {
   animation-play-state: paused;
 }
 
-/* Service Cards Styling */
-.service-card {
-  @apply p-8 rounded-2xl shadow-lg backdrop-blur-sm;
-  position: relative;
-  width: 100%;
-  transform-origin: center;
-  will-change: transform;
-}
-
-.card-header {
-  @apply text-center mb-8;
-}
-
-.card-icon {
-  @apply text-4xl mb-4 block;
-}
-
-.card-title {
-  @apply text-2xl font-bold text-gray-800 mb-2;
-}
-
-.card-subtitle {
-  @apply text-lg text-gray-600 italic;
-}
-
-.card-content {
-  @apply space-y-4;
-}
-
-.card-feature {
-  @apply flex items-start gap-3 p-3 bg-white/50 rounded-lg;
-}
-
-.feature-icon {
-  @apply text-xl flex-shrink-0 mt-0.5;
-}
-
-.feature-text {
-  @apply text-gray-700 leading-relaxed;
-}
-
-/* Initial stacked state */
-.service-card:nth-child(1) {
-  z-index: 2;
-}
-
-.service-card:nth-child(2) {
-  z-index: 1;
-  transform: translateY(20px) rotate(3deg);
-}
-
-@media (min-width: 768px) {
-  .service-card {
-    max-width: 600px;
-  }
-}
 
 /* Make sure the cursor is visible on all elements */
 *, *::before, *::after {
