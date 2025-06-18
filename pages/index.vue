@@ -20,15 +20,14 @@
         <!-- Button and Description - 6 columns each -->
         <div class="col-span-12 md:col-span-6">
           <button class="bg-black text-white px-8 md:px-12 py-4 md:py-6 rounded-full text-lg md:text-xl font-medium flex items-center elastic-btn">
-            Let's chat
+            Lass uns sprechen
             <svg class="ml-2 w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
           </button>
         </div>
 
         <div class="col-span-12 md:col-span-6 mt-8 md:mt-0">
           <p class="text-lg md:text-2xl lg:text-3xl text-gray-700 leading-relaxed">
-            Wir konzipieren und entwickeln digitale Produkte, die nicht nur gut aussehen, sondern auch hervorragend funktionieren.
-          </p>
+            Ich helfe deinem Produktteam, intuitive Interfaces zu bauen – als eingebetteter UX/UI-Designer oder flexibel im Design-Abo.          </p>
         </div>
       </div>
     </div>
@@ -46,30 +45,40 @@
         <!-- First Row - Right to Left -->
         <div class="marquee-row">
           <div class="marquee-content marquee-rtl">
-            <div class="project-item">
-              <img src="/img/dashboard-design.png" alt="Dashboard Design" class="project-image">
-            </div>
-            <div class="project-item">
-              <img src="/img/app-design.png" alt="App Design" class="project-image">
-            </div>
-            <div class="project-item">
-              <img src="/img/design-system.png" alt="Design System" class="project-image">
-            </div>
-            <div class="project-item">
-              <img src="/img/football-app-design.png" alt="Football App Design" class="project-image">
+            <div
+              v-for="item in firstRowData"
+              :key="item.id"
+              class="project-item"
+              @mouseenter="onProjectHover"
+              @mouseleave="onProjectLeave"
+            >
+              <div class="project-image-container">
+                <img :src="item.image" :alt="item.title" class="project-image">
+                <div class="project-overlay">
+                  <div class="project-info">
+                    <h3 class="project-title">{{ item.title }}</h3>
+                    <p class="project-description">{{ item.description }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
             <!-- Duplicate for seamless loop -->
-            <div class="project-item">
-              <img src="/img/dashboard-design.png" alt="Dashboard Design" class="project-image">
-            </div>
-            <div class="project-item">
-              <img src="/img/app-design.png" alt="App Design" class="project-image">
-            </div>
-            <div class="project-item">
-              <img src="/img/design-system.png" alt="Design System" class="project-image">
-            </div>
-            <div class="project-item">
-              <img src="/img/football-app-design.png" alt="Football App Design" class="project-image">
+            <div
+              v-for="item in firstRowData"
+              :key="`dup-${item.id}`"
+              class="project-item"
+              @mouseenter="onProjectHover"
+              @mouseleave="onProjectLeave"
+            >
+              <div class="project-image-container">
+                <img :src="item.image" :alt="item.title" class="project-image">
+                <div class="project-overlay">
+                  <div class="project-info">
+                    <h3 class="project-title">{{ item.title }}</h3>
+                    <p class="project-description">{{ item.description }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -77,30 +86,40 @@
         <!-- Second Row - Left to Right -->
         <div class="marquee-row">
           <div class="marquee-content marquee-ltr">
-            <div class="project-item">
-              <img src="/img/landing-page-design.png" alt="Landing Page Design" class="project-image">
-            </div>
-            <div class="project-item">
-              <img src="/img/mobile-app-design.png" alt="Mobile App Design" class="project-image">
-            </div>
-            <div class="project-item">
-              <img src="/img/quiz-app-design.png" alt="Quiz App Design" class="project-image">
-            </div>
-            <div class="project-item">
-              <img src="/img/scouting-app-design.png" alt="Scouting App Design" class="project-image">
+            <div
+              v-for="item in secondRowData"
+              :key="item.id"
+              class="project-item"
+              @mouseenter="onProjectHover"
+              @mouseleave="onProjectLeave"
+            >
+              <div class="project-image-container">
+                <img :src="item.image" :alt="item.title" class="project-image">
+                <div class="project-overlay">
+                  <div class="project-info">
+                    <h3 class="project-title">{{ item.title }}</h3>
+                    <p class="project-description">{{ item.description }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
             <!-- Duplicate for seamless loop -->
-            <div class="project-item">
-              <img src="/img/landing-page-design.png" alt="Landing Page Design" class="project-image">
-            </div>
-            <div class="project-item">
-              <img src="/img/mobile-app-design.png" alt="Mobile App Design" class="project-image">
-            </div>
-            <div class="project-item">
-              <img src="/img/quiz-app-design.png" alt="Quiz App Design" class="project-image">
-            </div>
-            <div class="project-item">
-              <img src="/img/scouting-app-design.png" alt="Scouting App Design" class="project-image">
+            <div
+              v-for="item in secondRowData"
+              :key="`dup-${item.id}`"
+              class="project-item"
+              @mouseenter="onProjectHover"
+              @mouseleave="onProjectLeave"
+            >
+              <div class="project-image-container">
+                <img :src="item.image" :alt="item.title" class="project-image">
+                <div class="project-overlay">
+                  <div class="project-info">
+                    <h3 class="project-title">{{ item.title }}</h3>
+                    <p class="project-description">{{ item.description }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -199,6 +218,84 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { SplitText } from 'gsap/SplitText'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
+
+const portfolioData = ref([
+  {
+    id: 1,
+    image: '/img/cvsnack.png',
+    title: 'CVSnack Dashboard',
+    description: 'Modern dashboard design for CV creation platform'
+  },
+  {
+    id: 2,
+    image: '/img/app-design.png',
+    title: 'Mobile App Design',
+    description: 'Clean and intuitive mobile application interface'
+  },
+  {
+    id: 3,
+    image: '/img/design-system.png',
+    title: 'Design System',
+    description: 'Comprehensive design system and component library'
+  },
+  {
+    id: 4,
+    image: '/img/football-app-design.png',
+    title: 'Football App',
+    description: 'Sports application with real-time match tracking'
+  },
+  {
+    id: 5,
+    image: '/img/landing-page-design.png',
+    title: 'Landing Page',
+    description: 'High-converting landing page with modern design'
+  },
+  {
+    id: 6,
+    image: '/img/mobile-app-design.png',
+    title: 'Mobile Experience',
+    description: 'Cross-platform mobile application design'
+  },
+  {
+    id: 7,
+    image: '/img/quiz-app-design.png',
+    title: 'Quiz Application',
+    description: 'Interactive quiz platform with gamification'
+  },
+  {
+    id: 8,
+    image: '/img/scouting-app-design.png',
+    title: 'Scouting Platform',
+    description: 'Professional scouting and talent management system'
+  }
+])
+
+const firstRowData = ref(portfolioData.value.slice(0, 4))
+const secondRowData = ref(portfolioData.value.slice(4, 8))
+
+const onProjectHover = (event) => {
+  // GSAP animation for overlay fade-in
+  const overlay = event.currentTarget.querySelector('.project-overlay')
+  if (overlay) {
+    gsap.to(overlay, {
+      opacity: 1,
+      duration: 0.1,
+      ease: "power2.out"
+    })
+  }
+}
+
+const onProjectLeave = (event) => {
+  // GSAP animation for overlay fade-out
+  const overlay = event.currentTarget.querySelector('.project-overlay')
+  if (overlay) {
+    gsap.to(overlay, {
+      opacity: 0,
+      duration: 0.1,
+      ease: "power2.out"
+    })
+  }
+}
 
 const headingElement = ref(null)
 const typographySection = ref(null)
@@ -453,13 +550,24 @@ body, html {
   animation: marquee-ltr 35s linear infinite;
 }
 
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
 .project-item {
   flex-shrink: 0;
+  cursor: pointer;
+}
+
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
   transition: transform 0.3s ease;
 }
 
-.project-item:hover {
-  transform: scale(1.1);
+.project-image-container:hover {
+  transform: scale(1.05);
 }
 
 .project-image {
@@ -467,6 +575,50 @@ body, html {
   width: auto;
   height: 400px;
   border-radius: 1rem;
+  display: block;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: opacity 0.3s ease;
+}
+
+.project-info {
+  color: white;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.project-overlay:hover .project-info {
+  transform: translateY(0);
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.project-description {
+  font-size: 1rem;
+  line-height: 1.4;
+  opacity: 0.9;
 }
 
 @keyframes marquee-rtl {
@@ -485,11 +637,6 @@ body, html {
   100% {
     transform: translateX(0);
   }
-}
-
-/* Pause animation on hover */
-.marquee-content:hover {
-  animation-play-state: paused;
 }
 
 
