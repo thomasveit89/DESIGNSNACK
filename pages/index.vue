@@ -1,6 +1,5 @@
 <template>
   <div class="relative min-h-screen">
-
     <div class="container mx-auto px-4 py-8 grid grid-cols-12 gap-4">
       <!-- Header/Logo -->
       <div class="col-span-6 md:col-span-3 lg:col-span-2">
@@ -126,6 +125,78 @@
       </div>
     </div>
 
+    <!-- Packages Section -->
+    <div class="packages-section py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl lg:text-4xl font-bold text-black mb-4">
+          Wie du mit mir arbeiten kannst
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed mb-16">
+          Ich biete zwei Modelle an – je nachdem, wie viel Integration du brauchst:
+        </p>
+      </div>
+
+      <!-- Each Package = One Section -->
+      <div
+        v-for="(package_, index) in packagesData"
+        :key="package_.id"
+        class="single-package-section"
+      >
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-12 gap-8">
+            <!-- Left: Package Info (5 columns) -->
+            <div class="col-span-12 lg:col-span-5">
+              <div :ref="el => packageLeftRefs[index] = el" class="package-left-side">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-3xl">
+                    {{ package_.icon }}
+                  </div>
+                  <div>
+                    <h3 class="text-2xl font-bold text-black mb-3">
+                      {{ package_.title }}
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                      {{ package_.subtitle }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Cards (7 columns) -->
+            <div class="col-span-12 lg:col-span-7">
+              <div :ref="el => packageRightRefs[index] = el" class="package-right-side py-8">
+                <div
+                  v-for="(card, cardIndex) in package_.cards"
+                  :key="cardIndex"
+                  class="package-card bg-gray-100 rounded-2xl p-8 mb-8"
+                >
+                  <h4 class="font-semibold text-black mb-4 text-xl">{{ card.title }}</h4>
+                  
+                  <!-- List items -->
+                  <ul v-if="card.items" class="space-y-3">
+                    <li
+                      v-for="item in card.items"
+                      :key="item"
+                      class="flex items-start gap-3 text-gray-700 text-lg"
+                    >
+                      <span class="text-gray-500 mt-1">–</span>
+                      <span>{{ item }}</span>
+                    </li>
+                  </ul>
+                  
+                  <!-- Simple content -->
+                  <p v-if="card.content" class="text-gray-700 text-lg leading-relaxed">
+                    {{ card.content }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Spacer -->
     <div class="h-32"></div>
 
@@ -139,7 +210,7 @@
     </div>
     
     <!-- Service Pillars Section -->
-    <div ref="servicePillarsSection" class="w-full bg-white py-32">
+    <div ref="servicePillarsSection" class="w-full py-32">
       <div class="w-full px-8 md:px-16 lg:px-32 xl:px-48">
         <!-- Services List -->
         <div class="flex flex-col w-full">
@@ -273,6 +344,80 @@ const portfolioData = ref([
 const firstRowData = ref(portfolioData.value.slice(0, 4))
 const secondRowData = ref(portfolioData.value.slice(4, 8))
 
+const packagesData = ref([
+  {
+    id: 1,
+    icon: '🧩',
+    title: 'Integriert ins Team',
+    subtitle: 'Du suchst UX/UI-Verstärkung direkt in deinem Produktteam? Ich arbeite embedded – als Teil deines Scrum- oder Projektteams, auf Augenhöhe mit Dev, PO & Stakeholdern',
+    cards: [
+      {
+        title: 'Was du bekommst:',
+        items: [
+          'Schnelle Einarbeitung',
+          'Direkte Kommunikation (Slack, Jira, Miro etc.)',
+          'UX-Know-how ohne Agentur-Overhead',
+          'Erfahrung mit komplexen Produkten im Corporate-Kontext (z.B. Finanzen, Versicherungen)'
+        ]
+      },
+      {
+        title: 'Typischer Einsatz:',
+        items: [
+          '2–5 Tage pro Woche',
+          'Laufzeit: 3-12 Monate',
+          'Remote oder hybrid möglich'
+        ]
+      },
+      {
+        title: 'Geeignet für:',
+        items: [
+          'Produktteams in grossen Unternehmen',
+          'Scrum- oder Projekt-Setups',
+          'Langfristige UX-Begleitung mit Fokus auf Effizienz & Klarheit'
+        ]
+      },
+      {
+        title: 'Beispielhafte Kunden:',
+        content: 'AXA, Swica, OKK, Generali'
+      }
+    ]
+  },
+  {
+    id: 2,
+    icon: '🧩',
+    title: 'Design-Abo (Integration light)',
+    subtitle: 'Du brauchst UX/UI-Support – aber flexibel ohne langfristige Verpflichtung? Ich kümmere mich um deine Design-Aufgaben im Monatsabo.',
+    cards: [
+      {
+        title: 'Was du bekommst:',
+        items: [
+          'Schnelle Einarbeitung',
+          'Direkte Kommunikation (Slack, Jira, Miro etc.)',
+          'UX-Know-how ohne Agentur-Overhead',
+          'Erfahrung mit komplexen Produkten im Corporate-Kontext (z.B. Finanzen, Versicherungen)'
+        ]
+      },
+      {
+        title: 'Fixe Stunden pro Monat',
+        content: 'Du buchst 10, 20 oder 40 Stunden pro Monat – ich bin in dieser Zeit für dich da.'
+      },
+      {
+        title: 'Geeignet für:',
+        items: [
+          'Innovationsteams',
+          'Interne Tools & Dashboards',
+          'Start von neuen Produkten',
+          'Kleine bis mittlere Unternehmen'
+        ]
+      },
+      {
+        title: 'Beispielhafte Kunden:',
+        content: 'AXA, Swica, OKK, Generali'
+      }
+    ]
+  }
+])
+
 const onProjectHover = (event) => {
   // GSAP animation for overlay fade-in
   const overlay = event.currentTarget.querySelector('.project-overlay')
@@ -306,6 +451,8 @@ const service2 = ref(null)
 const service3 = ref(null)
 const service4 = ref(null)
 const service5 = ref(null)
+const packageLeftRefs = ref([])
+const packageRightRefs = ref([])
 
 let lastScrollTop = 0
 let rotationValue = 0
@@ -449,6 +596,33 @@ const initElasticButtons = () => {
 onMounted(() => {
   initElasticButtons();
 
+  // Super simple: pin left when right hits top, unpin when right ends
+  console.log('🔍 Debugging packages:', {
+    packagesDataLength: packagesData.value.length,
+    packageLeftRefs: packageLeftRefs.value,
+    packageRightRefs: packageRightRefs.value
+  });
+
+
+  // Create individual ScrollTriggers for each package section
+  packagesData.value.forEach((_, index) => {
+    const leftEl = packageLeftRefs.value[index]
+    const rightEl = packageRightRefs.value[index]
+    
+    if (leftEl && rightEl) {
+      ScrollTrigger.create({
+        trigger: rightEl,
+        start: "top+=100 center",
+        end: "bottom-=150 center",
+        pin: leftEl,
+        pinSpacing: false,
+        pinType: "transform"
+      })
+    }
+  })
+  
+
+
   // GSAP animation for typography section
   if (typographySection.value && scrollingText.value) {
     splitTextInstance = new SplitText(scrollingText.value, { type: "words" });
@@ -520,8 +694,6 @@ onUnmounted(() => {
 <style>
 body, html {
   overflow-x: hidden;
-  /* width: 100%; // Consider if this is strictly needed with overflow-x: hidden */
-  /* position: relative; // This might interact with fixed pinning; test with and without if issues persist with pinType: 'transform' */
 }
 
 /* Marquee Styles */
@@ -637,6 +809,23 @@ body, html {
   100% {
     transform: translateX(0);
   }
+}
+
+.single-package-section {
+  margin-bottom: 4rem;
+}
+
+.package-left-side {
+  padding: 2rem 0;
+  align-self: flex-start;
+}
+
+.package-right-side {
+  /* Normal scrolling */
+}
+
+.package-card {
+  /* Content-based height with padding */
 }
 
 
