@@ -131,67 +131,209 @@
         <h2 class="text-3xl lg:text-4xl font-bold text-black mb-4">
           Wie du mit mir arbeiten kannst
         </h2>
-        <p class="text-lg text-gray-600 leading-relaxed mb-16">
-          Ich biete zwei Modelle an – je nachdem, wie viel Integration du brauchst:
+        <p class="text-xl text-gray-600 leading-relaxed mb-16">
+          Ich helfe Unternehmen, digitale Produkte klar und nutzerzentriert zu gestalten. Ob als eingebundenes Teammitglied oder flexibel per Design-Abo – du entscheidest, wie wir zusammenarbeiten.
         </p>
+        
+        <!-- Services Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="border-b border-gray-200">
+                <th class="text-left py-4 px-6 bg-white"></th>
+                <th class="text-left py-4 px-6 bg-white">
+                  <h3 class="text-2xl font-semibold text-black">Team-Integration</h3>
+                </th>
+                <th class="text-left py-4 px-6 bg-white">
+                  <h3 class="text-2xl font-semibold text-black">Design-Abo</h3>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-100">
+                <td class="py-4 px-6 font-medium text-gray-900 text-lg">Modell</td>
+                <td class="py-4 px-6 text-gray-700 text-lg">Als Teil deines Teams</td>
+                <td class="py-4 px-6 text-gray-700 text-lg">Flexibel buchbares Design-Abo</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-4 px-6 font-medium text-gray-900 text-lg">Zusammenarbeit</td>
+                <td class="py-4 px-6 text-gray-700 text-lg">Langfristig, projekt- oder sprintbasiert</td>
+                <td class="py-4 px-6 text-gray-700 text-lg">Monatlich kündbar, on-demand</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-4 px-6 font-medium text-gray-900 text-lg">Kommunikation</td>
+                <td class="py-4 px-6 text-gray-700 text-lg">Regulärer Austausch, Meetings & Workshops</td>
+                <td class="py-4 px-6 text-gray-700 text-lg">Asynchrone Zusammenarbeit, Tools & Mails</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-4 px-6 font-medium text-gray-900 text-lg">Flexibilität</td>
+                <td class="py-4 px-6 text-gray-700 text-lg">Fixe Tage pro Woche, planbar</td>
+                <td class="py-4 px-6 text-gray-700 text-lg">Volle Flexibilität, du buchst je nach Bedarf</td>
+              </tr>
+              <tr class="border-b border-gray-100">
+                <td class="py-4 px-6 font-medium text-gray-900 text-lg">Kostenmodell</td>
+                <td class="py-4 px-6 text-gray-700 text-lg">Tagessatz</td>
+                <td class="py-4 px-6 text-gray-700 text-lg">Monatliche Pauschale (Abo)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Services List -->
+        <div class="mt-16">
+          <h3 class="text-xl font-semibold text-black mb-8">Leistungen</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">UX Research</span>
+            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">Usability Testing</span>
+            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">Prototyping</span>
+            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">UI Design</span>
+            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">Design Systems</span>
+            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">Design Reviews & Sparring</span>
+            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">Developer Handover & Support</span>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <!-- Each Package = One Section -->
-      <div
-        v-for="(package_, index) in packagesData"
-        :key="package_.id"
-        class="single-package-section"
-      >
-        <div class="container mx-auto px-4">
-          <div class="grid grid-cols-12 gap-8">
-            <!-- Left: Package Info (5 columns) -->
-            <div class="col-span-12 lg:col-span-5">
-              <div :ref="el => packageLeftRefs[index] = el" class="package-left-side">
-                <div class="flex items-start gap-4">
-                  <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-3xl">
-                    {{ package_.icon }}
+    <!-- Price Calculator Section -->
+    <div class="price-calculator-section py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl lg:text-4xl font-bold text-black mb-4 text-center">
+          Preisrechner
+        </h2>
+        <p class="text-xl text-gray-600 leading-relaxed mb-12 text-center">
+          Berechne den Preis für deine individuelle Zusammenarbeit
+        </p>
+        
+        <!-- Calculator Form -->
+        <div class="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+          <!-- Step 1: Choose collaboration type -->
+          <div class="mb-8">
+            <h3 class="text-xl font-semibold text-black mb-4">Art der Zusammenarbeit wählen</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all" 
+                     :class="calculatorData.collaborationType === 'design-abo' ? 'border-black bg-gray-50' : 'border-gray-200 hover:border-gray-300'">
+                <input type="radio" v-model="calculatorData.collaborationType" value="design-abo" class="sr-only">
+                <div>
+                  <div class="font-medium text-black">Design-Abo</div>
+                  <div class="text-sm text-gray-600">monatlich, flexibel</div>
+                </div>
+              </label>
+              <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
+                     :class="calculatorData.collaborationType === 'team-integration' ? 'border-black bg-gray-50' : 'border-gray-200 hover:border-gray-300'">
+                <input type="radio" v-model="calculatorData.collaborationType" value="team-integration" class="sr-only">
+                <div>
+                  <div class="font-medium text-black">Team-Integration</div>
+                  <div class="text-sm text-gray-600">tageweise, eingebunden im Team</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Design-Abo Options -->
+          <div v-if="calculatorData.collaborationType === 'design-abo'" class="mb-8">
+            <h3 class="text-xl font-semibold text-black mb-4">Design-Abo Konfiguration</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Stundenpaket pro Monat</label>
+                <div class="relative">
+                  <select v-model.number="calculatorData.designAbo.hours" class="w-full p-3 border border-gray-300 rounded-lg appearance-none bg-white pr-10 focus:ring-2 focus:ring-black focus:border-black transition-all">
+                    <option :value="8">8h / Monat</option>
+                    <option :value="16">16h / Monat</option>
+                    <option :value="24">24h / Monat</option>
+                    <option :value="32">32h / Monat</option>
+                    <option :value="40">40h / Monat</option>
+                  </select>
+                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                   </div>
-                  <div>
-                    <h3 class="text-2xl font-bold text-black mb-3">
-                      {{ package_.title }}
-                    </h3>
-                    <p class="text-gray-700 leading-relaxed">
-                      {{ package_.subtitle }}
-                    </p>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Laufzeit</label>
+                <div class="relative">
+                  <select v-model.number="calculatorData.designAbo.duration" class="w-full p-3 border border-gray-300 rounded-lg appearance-none bg-white pr-10 focus:ring-2 focus:ring-black focus:border-black transition-all">
+                    <option :value="1">1 Monat (flexibel, kein Rabatt)</option>
+                    <option :value="3">3 Monate (-5%)</option>
+                    <option :value="6">6 Monate (-10%)</option>
+                    <option :value="12">12 Monate (-15%)</option>
+                  </select>
+                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- Right: Cards (7 columns) -->
-            <div class="col-span-12 lg:col-span-7">
-              <div :ref="el => packageRightRefs[index] = el" class="package-right-side py-8">
-                <div
-                  v-for="(card, cardIndex) in package_.cards"
-                  :key="cardIndex"
-                  class="package-card bg-gray-100 rounded-2xl p-8 mb-8"
-                >
-                  <h4 class="font-semibold text-black mb-4 text-xl">{{ card.title }}</h4>
-                  
-                  <!-- List items -->
-                  <ul v-if="card.items" class="space-y-3">
-                    <li
-                      v-for="item in card.items"
-                      :key="item"
-                      class="flex items-start gap-3 text-gray-700 text-lg"
-                    >
-                      <span class="text-gray-500 mt-1">–</span>
-                      <span>{{ item }}</span>
-                    </li>
-                  </ul>
-                  
-                  <!-- Simple content -->
-                  <p v-if="card.content" class="text-gray-700 text-lg leading-relaxed">
-                    {{ card.content }}
-                  </p>
+          <!-- Team-Integration Options -->
+          <div v-if="calculatorData.collaborationType === 'team-integration'" class="mb-8">
+            <h3 class="text-xl font-semibold text-black mb-4">Team-Integration Konfiguration</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Anzahl gewünschter Tage pro Woche</label>
+                <div class="relative">
+                  <select v-model.number="calculatorData.teamIntegration.daysPerWeek" class="w-full p-3 border border-gray-300 rounded-lg appearance-none bg-white pr-10 focus:ring-2 focus:ring-black focus:border-black transition-all">
+                    <option :value="1">1 Tag / Woche</option>
+                    <option :value="2">2 Tage / Woche</option>
+                    <option :value="3">3 Tage / Woche</option>
+                    <option :value="4">4 Tage / Woche</option>
+                  </select>
+                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Projektdauer</label>
+                <div class="relative">
+                  <select v-model.number="calculatorData.teamIntegration.duration" class="w-full p-3 border border-gray-300 rounded-lg appearance-none bg-white pr-10 focus:ring-2 focus:ring-black focus:border-black transition-all">
+                    <option :value="1">1 Monat</option>
+                    <option :value="3">3 Monate (-5%)</option>
+                    <option :value="6">6 Monate (-10%)</option>
+                    <option :value="12">12 Monate (-15%)</option>
+                  </select>
+                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+
+
+          <!-- Price Display -->
+          <div v-if="calculatorData.collaborationType" class="bg-gray-50 rounded-lg p-6 mt-8">
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-lg font-medium text-gray-700">Monatlicher Preis:</span>
+              <span class="text-2xl font-bold text-black">{{ formatPrice(calculatePrice()) }} CHF</span>
+            </div>
+            <div v-if="getDurationDiscount() > 0" class="text-sm text-gray-600">
+              Preis inkl. {{ getDurationDiscount() }}% Rabatt für 
+              {{ calculatorData.collaborationType === 'team-integration' ? calculatorData.teamIntegration.duration : calculatorData.designAbo.duration }} 
+              Monate Laufzeit
+            </div>
+            <div v-if="calculatorData.collaborationType === 'design-abo'" class="text-sm text-gray-600">
+              Preis für {{ calculatorData.designAbo.hours }} Stunden pro Monat
+            </div>
+            <div v-if="calculatorData.collaborationType === 'team-integration'" class="text-sm text-gray-600">
+              Preis für {{ calculatorData.teamIntegration.daysPerWeek }} Tag{{ calculatorData.teamIntegration.daysPerWeek > 1 ? 'e' : '' }} pro Woche
+            </div>
+          </div>
+
+          <!-- Call to Action -->
+          <div v-if="calculatorData.collaborationType" class="mt-8 text-center">
+            <button class="bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors">
+              Angebot anfordern
+            </button>
           </div>
         </div>
       </div>
@@ -344,79 +486,97 @@ const portfolioData = ref([
 const firstRowData = ref(portfolioData.value.slice(0, 4))
 const secondRowData = ref(portfolioData.value.slice(4, 8))
 
-const packagesData = ref([
-  {
-    id: 1,
-    icon: '🧩',
-    title: 'Integriert ins Team',
-    subtitle: 'Du suchst UX/UI-Verstärkung direkt in deinem Produktteam? Ich arbeite embedded – als Teil deines Scrum- oder Projektteams, auf Augenhöhe mit Dev, PO & Stakeholdern',
-    cards: [
-      {
-        title: 'Was du bekommst:',
-        items: [
-          'Schnelle Einarbeitung',
-          'Direkte Kommunikation (Slack, Jira, Miro etc.)',
-          'UX-Know-how ohne Agentur-Overhead',
-          'Erfahrung mit komplexen Produkten im Corporate-Kontext (z.B. Finanzen, Versicherungen)'
-        ]
-      },
-      {
-        title: 'Typischer Einsatz:',
-        items: [
-          '2–5 Tage pro Woche',
-          'Laufzeit: 3-12 Monate',
-          'Remote oder hybrid möglich'
-        ]
-      },
-      {
-        title: 'Geeignet für:',
-        items: [
-          'Produktteams in grossen Unternehmen',
-          'Scrum- oder Projekt-Setups',
-          'Langfristige UX-Begleitung mit Fokus auf Effizienz & Klarheit'
-        ]
-      },
-      {
-        title: 'Beispielhafte Kunden:',
-        content: 'AXA, Swica, OKK, Generali'
-      }
-    ]
+// Calculator data
+const calculatorData = ref({
+  collaborationType: null,
+  designAbo: {
+    hours: 16,
+    duration: 3
   },
-  {
-    id: 2,
-    icon: '🧩',
-    title: 'Design-Abo (Integration light)',
-    subtitle: 'Du brauchst UX/UI-Support – aber flexibel ohne langfristige Verpflichtung? Ich kümmere mich um deine Design-Aufgaben im Monatsabo.',
-    cards: [
-      {
-        title: 'Was du bekommst:',
-        items: [
-          'Schnelle Einarbeitung',
-          'Direkte Kommunikation (Slack, Jira, Miro etc.)',
-          'UX-Know-how ohne Agentur-Overhead',
-          'Erfahrung mit komplexen Produkten im Corporate-Kontext (z.B. Finanzen, Versicherungen)'
-        ]
-      },
-      {
-        title: 'Fixe Stunden pro Monat',
-        content: 'Du buchst 10, 20 oder 40 Stunden pro Monat – ich bin in dieser Zeit für dich da.'
-      },
-      {
-        title: 'Geeignet für:',
-        items: [
-          'Innovationsteams',
-          'Interne Tools & Dashboards',
-          'Start von neuen Produkten',
-          'Kleine bis mittlere Unternehmen'
-        ]
-      },
-      {
-        title: 'Beispielhafte Kunden:',
-        content: 'AXA, Swica, OKK, Generali'
-      }
-    ]
+  teamIntegration: {
+    daysPerWeek: 2,
+    duration: 3
+  },
+  options: {
+    workshops: false,
+    onsite: false
   }
-])
+})
+
+// Calculator methods
+const calculatePrice = () => {
+  if (!calculatorData.value.collaborationType) return 0
+  
+  const dailyRate = 1160 // CHF
+  const weeksPerMonth = 4.33
+  const teamIntegrationHourlyRate = 145 // CHF (1160 / 8 hours)
+  const designAboHourlyRate = 165 // CHF (premium for flexibility)
+  
+  let basePrice = 0
+  let durationDiscount = 0
+  let additionalCosts = 0
+  
+  if (calculatorData.value.collaborationType === 'team-integration') {
+    // Team integration calculation
+    basePrice = dailyRate * calculatorData.value.teamIntegration.daysPerWeek * weeksPerMonth
+    
+    // Duration discount for team integration
+    switch (calculatorData.value.teamIntegration.duration) {
+      case 3: durationDiscount = 0.05; break
+      case 6: durationDiscount = 0.10; break
+      case 12: durationDiscount = 0.15; break
+      default: durationDiscount = 0
+    }
+    
+    // Team integration additional options
+    if (calculatorData.value.options.workshops) additionalCosts += 500
+    if (calculatorData.value.options.onsite) additionalCosts += 300
+    
+  } else if (calculatorData.value.collaborationType === 'design-abo') {
+    // Design-Abo calculation
+    const hours = calculatorData.value.designAbo.hours
+    
+    basePrice = designAboHourlyRate * hours
+    
+    // Duration discount for design-abo
+    switch (calculatorData.value.designAbo.duration) {
+      case 3: durationDiscount = 0.05; break
+      case 6: durationDiscount = 0.10; break
+      case 12: durationDiscount = 0.15; break
+      default: durationDiscount = 0
+    }
+    
+    // No additional options for Design-Abo
+  }
+  
+  // Final calculation: (basePrice + additionalCosts) * (1 - durationDiscount)
+  const finalPrice = (basePrice + additionalCosts) * (1 - durationDiscount)
+  
+  return Math.round(finalPrice)
+}
+
+const getDurationDiscount = () => {
+  if (calculatorData.value.collaborationType === 'team-integration') {
+    switch (calculatorData.value.teamIntegration.duration) {
+      case 3: return 5
+      case 6: return 10
+      case 12: return 15
+      default: return 0
+    }
+  } else if (calculatorData.value.collaborationType === 'design-abo') {
+    switch (calculatorData.value.designAbo.duration) {
+      case 3: return 5
+      case 6: return 10
+      case 12: return 15
+      default: return 0
+    }
+  }
+  return 0
+}
+
+const formatPrice = (price) => {
+  return new Intl.NumberFormat('de-CH').format(price)
+}
 
 const onProjectHover = (event) => {
   // GSAP animation for overlay fade-in
@@ -451,8 +611,6 @@ const service2 = ref(null)
 const service3 = ref(null)
 const service4 = ref(null)
 const service5 = ref(null)
-const packageLeftRefs = ref([])
-const packageRightRefs = ref([])
 
 let lastScrollTop = 0
 let rotationValue = 0
@@ -596,30 +754,6 @@ const initElasticButtons = () => {
 onMounted(() => {
   initElasticButtons();
 
-  // Super simple: pin left when right hits top, unpin when right ends
-  console.log('🔍 Debugging packages:', {
-    packagesDataLength: packagesData.value.length,
-    packageLeftRefs: packageLeftRefs.value,
-    packageRightRefs: packageRightRefs.value
-  });
-
-
-  // Create individual ScrollTriggers for each package section
-  packagesData.value.forEach((_, index) => {
-    const leftEl = packageLeftRefs.value[index]
-    const rightEl = packageRightRefs.value[index]
-    
-    if (leftEl && rightEl) {
-      ScrollTrigger.create({
-        trigger: rightEl,
-        start: "top+=100 center",
-        end: "bottom-=150 center",
-        pin: leftEl,
-        pinSpacing: false,
-        pinType: "transform"
-      })
-    }
-  })
   
 
 
@@ -820,13 +954,6 @@ body, html {
   align-self: flex-start;
 }
 
-.package-right-side {
-  /* Normal scrolling */
-}
-
-.package-card {
-  /* Content-based height with padding */
-}
 
 
 /* Make sure the cursor is visible on all elements */
