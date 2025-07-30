@@ -35,7 +35,7 @@
     <div class="projects-section mt-32 overflow-hidden">
       <div class="container mx-auto px-4">
         <h2 class="text-[2rem] font-semibold text-black mb-12">
-          Auswahl unserer Projekte
+          Auswahl meiner Projekte
         </h2>
       </div>
       
@@ -128,12 +128,14 @@
     <!-- Packages Section -->
     <div class="packages-section py-20">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl lg:text-4xl font-bold text-black mb-4">
-          Wie du mit mir arbeiten kannst
-        </h2>
-        <p class="text-xl text-gray-600 leading-relaxed mb-16">
-          Ich helfe Unternehmen, digitale Produkte klar und nutzerzentriert zu gestalten. Ob als eingebundenes Teammitglied oder flexibel per Design-Abo – du entscheidest, wie wir zusammenarbeiten.
-        </p>
+        <div class="w-2/3 mx-auto">
+          <h2 class="text-3xl lg:text-4xl font-bold text-black mb-4 text-center">
+            Wie du mit mir arbeiten kannst
+          </h2>
+          <p class="text-xl text-gray-600 leading-relaxed mb-16 text-center">
+            Ich helfe Unternehmen, digitale Produkte klar und nutzerzentriert zu gestalten. Ob als eingebundenes Teammitglied oder flexibel per Design-Abo – du entscheidest, wie wir zusammenarbeiten.
+          </p>
+        </div>
         
         <!-- Services Table -->
         <div class="overflow-x-auto">
@@ -155,7 +157,7 @@
                 <td class="py-4 px-6 text-gray-700 text-lg">Als Teil deines Teams</td>
                 <td class="py-4 px-6 text-gray-700 text-lg">Flexibel buchbares Design-Abo</td>
               </tr>
-              <tr class="border-b border-gray-100">
+              <tr class="border-b border-gray-100" style="background-color: #F8F8F8;">
                 <td class="py-4 px-6 font-medium text-gray-900 text-lg">Zusammenarbeit</td>
                 <td class="py-4 px-6 text-gray-700 text-lg">Langfristig, projekt- oder sprintbasiert</td>
                 <td class="py-4 px-6 text-gray-700 text-lg">Monatlich kündbar, on-demand</td>
@@ -165,38 +167,44 @@
                 <td class="py-4 px-6 text-gray-700 text-lg">Regulärer Austausch, Meetings & Workshops</td>
                 <td class="py-4 px-6 text-gray-700 text-lg">Asynchrone Zusammenarbeit, Tools & Mails</td>
               </tr>
-              <tr class="border-b border-gray-100">
+              <tr class="border-b border-gray-100" style="background-color: #F8F8F8;">
                 <td class="py-4 px-6 font-medium text-gray-900 text-lg">Flexibilität</td>
                 <td class="py-4 px-6 text-gray-700 text-lg">Fixe Tage pro Woche, planbar</td>
                 <td class="py-4 px-6 text-gray-700 text-lg">Volle Flexibilität, du buchst je nach Bedarf</td>
               </tr>
               <tr class="border-b border-gray-100">
                 <td class="py-4 px-6 font-medium text-gray-900 text-lg">Kostenmodell</td>
-                <td class="py-4 px-6 text-gray-700 text-lg">Tagessatz</td>
+                <td class="py-4 px-6 text-gray-700 text-lg">Stundensatz</td>
                 <td class="py-4 px-6 text-gray-700 text-lg">Monatliche Pauschale (Abo)</td>
               </tr>
             </tbody>
           </table>
         </div>
         
-        <!-- Services List -->
-        <div class="mt-16">
-          <h3 class="text-xl font-semibold text-black mb-8">Leistungen</h3>
-          <div class="flex flex-wrap gap-3">
-            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">UX Research</span>
-            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">Usability Testing</span>
-            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">Prototyping</span>
-            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">UI Design</span>
-            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">Design Systems</span>
-            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">Design Reviews & Sparring</span>
-            <span class="bg-black text-white px-6 py-3 rounded-full text-base font-medium">Developer Handover & Support</span>
+      </div>
+    </div>
+    
+    <!-- Interactive Services Section -->
+    <div ref="servicesSection" class="services-scroll-section bg-black text-white relative mx-auto rounded-2xl transition-all duration-1000" style="width: 85%;">
+      <div class="container mx-auto px-4">
+        <div class="services-container min-h-screen flex flex-col justify-center py-20">
+          <div 
+            v-for="(service, index) in services" 
+            :key="index"
+            :ref="el => serviceRefs[index] = el"
+            class="service-item text-center py-16"
+            :class="{ 'opacity-30': index !== 0, 'opacity-100': index === 0 }"
+          >
+            <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              {{ service }}
+            </h2>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Price Calculator Section -->
-    <div class="price-calculator-section py-20 bg-gray-50">
+    <div ref="priceCalculatorSection" class="price-calculator-section py-20 bg-gray-50 relative z-10">
       <div class="container mx-auto px-4">
         <h2 class="text-3xl lg:text-4xl font-bold text-black mb-4 text-center">
           Preisrechner
@@ -237,33 +245,37 @@
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Stundenpaket pro Monat</label>
                 <div class="relative">
-                  <select v-model.number="calculatorData.designAbo.hours" class="w-full p-3 border border-gray-300 rounded-lg appearance-none bg-white pr-10 focus:ring-2 focus:ring-black focus:border-black transition-all">
-                    <option :value="8">8h / Monat</option>
-                    <option :value="16">16h / Monat</option>
-                    <option :value="24">24h / Monat</option>
-                    <option :value="32">32h / Monat</option>
-                    <option :value="40">40h / Monat</option>
-                  </select>
-                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
+                  <div class="custom-select relative">
+                    <select v-model.number="calculatorData.designAbo.hours" class="w-full p-4 border-2 border-gray-200 rounded-xl appearance-none bg-white pr-12 text-lg font-medium focus:ring-0 focus:border-black transition-all duration-200 hover:border-gray-300 cursor-pointer">
+                      <option :value="8">8h / Monat</option>
+                      <option :value="16">16h / Monat</option>
+                      <option :value="24">24h / Monat</option>
+                      <option :value="32">32h / Monat</option>
+                      <option :value="40">40h / Monat</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                      <svg class="w-6 h-6 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Laufzeit</label>
                 <div class="relative">
-                  <select v-model.number="calculatorData.designAbo.duration" class="w-full p-3 border border-gray-300 rounded-lg appearance-none bg-white pr-10 focus:ring-2 focus:ring-black focus:border-black transition-all">
-                    <option :value="1">1 Monat (flexibel, kein Rabatt)</option>
-                    <option :value="3">3 Monate (-5%)</option>
-                    <option :value="6">6 Monate (-10%)</option>
-                    <option :value="12">12 Monate (-15%)</option>
-                  </select>
-                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
+                  <div class="custom-select relative">
+                    <select v-model.number="calculatorData.designAbo.duration" class="w-full p-4 border-2 border-gray-200 rounded-xl appearance-none bg-white pr-12 text-lg font-medium focus:ring-0 focus:border-black transition-all duration-200 hover:border-gray-300 cursor-pointer">
+                      <option :value="1">1 Monat (flexibel, kein Rabatt)</option>
+                      <option :value="3">3 Monate (-5%)</option>
+                      <option :value="6">6 Monate (-10%)</option>
+                      <option :value="12">12 Monate (-15%)</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                      <svg class="w-6 h-6 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -277,32 +289,36 @@
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Anzahl gewünschter Tage pro Woche</label>
                 <div class="relative">
-                  <select v-model.number="calculatorData.teamIntegration.daysPerWeek" class="w-full p-3 border border-gray-300 rounded-lg appearance-none bg-white pr-10 focus:ring-2 focus:ring-black focus:border-black transition-all">
-                    <option :value="1">1 Tag / Woche</option>
-                    <option :value="2">2 Tage / Woche</option>
-                    <option :value="3">3 Tage / Woche</option>
-                    <option :value="4">4 Tage / Woche</option>
-                  </select>
-                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
+                  <div class="custom-select relative">
+                    <select v-model.number="calculatorData.teamIntegration.daysPerWeek" class="w-full p-4 border-2 border-gray-200 rounded-xl appearance-none bg-white pr-12 text-lg font-medium focus:ring-0 focus:border-black transition-all duration-200 hover:border-gray-300 cursor-pointer">
+                      <option :value="1">1 Tag / Woche</option>
+                      <option :value="2">2 Tage / Woche</option>
+                      <option :value="3">3 Tage / Woche</option>
+                      <option :value="4">4 Tage / Woche</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                      <svg class="w-6 h-6 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2">Projektdauer</label>
                 <div class="relative">
-                  <select v-model.number="calculatorData.teamIntegration.duration" class="w-full p-3 border border-gray-300 rounded-lg appearance-none bg-white pr-10 focus:ring-2 focus:ring-black focus:border-black transition-all">
-                    <option :value="1">1 Monat</option>
-                    <option :value="3">3 Monate (-5%)</option>
-                    <option :value="6">6 Monate (-10%)</option>
-                    <option :value="12">12 Monate (-15%)</option>
-                  </select>
-                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
+                  <div class="custom-select relative">
+                    <select v-model.number="calculatorData.teamIntegration.duration" class="w-full p-4 border-2 border-gray-200 rounded-xl appearance-none bg-white pr-12 text-lg font-medium focus:ring-0 focus:border-black transition-all duration-200 hover:border-gray-300 cursor-pointer">
+                      <option :value="1">1 Monat</option>
+                      <option :value="3">3 Monate (-5%)</option>
+                      <option :value="6">6 Monate (-10%)</option>
+                      <option :value="12">12 Monate (-15%)</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                      <svg class="w-6 h-6 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -486,9 +502,25 @@ const portfolioData = ref([
 const firstRowData = ref(portfolioData.value.slice(0, 4))
 const secondRowData = ref(portfolioData.value.slice(4, 8))
 
+// Services data for scroll section
+const services = ref([
+  'UX Research',
+  'Usability Testing', 
+  'Prototyping',
+  'UI Design',
+  'Design Systems',
+  'Design Reviews & Sparring',
+  'Developer Handover & Support'
+])
+
+// Refs for services section
+const servicesSection = ref()
+const serviceRefs = ref([])
+const priceCalculatorSection = ref()
+
 // Calculator data
 const calculatorData = ref({
-  collaborationType: null,
+  collaborationType: 'design-abo',
   designAbo: {
     hours: 16,
     duration: 3
@@ -507,18 +539,22 @@ const calculatorData = ref({
 const calculatePrice = () => {
   if (!calculatorData.value.collaborationType) return 0
   
-  const dailyRate = 1160 // CHF
-  const weeksPerMonth = 4.33
-  const teamIntegrationHourlyRate = 145 // CHF (1160 / 8 hours)
-  const designAboHourlyRate = 165 // CHF (premium for flexibility)
+  // Base hourly rates
+  const teamIntegrationHourlyRate = 145 // CHF
+  const designAboHourlyRate = 155 // CHF (premium for flexibility)
+  
+  // Constants
+  const hoursPerDay = 8
+  const weeksPerMonth = 4
   
   let basePrice = 0
   let durationDiscount = 0
   let additionalCosts = 0
   
   if (calculatorData.value.collaborationType === 'team-integration') {
-    // Team integration calculation
-    basePrice = dailyRate * calculatorData.value.teamIntegration.daysPerWeek * weeksPerMonth
+    // Team integration calculation: hourly rate × hours per day × days per week × weeks per month
+    const hoursPerMonth = calculatorData.value.teamIntegration.daysPerWeek * hoursPerDay * weeksPerMonth
+    basePrice = teamIntegrationHourlyRate * hoursPerMonth
     
     // Duration discount for team integration
     switch (calculatorData.value.teamIntegration.duration) {
@@ -533,10 +569,9 @@ const calculatePrice = () => {
     if (calculatorData.value.options.onsite) additionalCosts += 300
     
   } else if (calculatorData.value.collaborationType === 'design-abo') {
-    // Design-Abo calculation
-    const hours = calculatorData.value.designAbo.hours
-    
-    basePrice = designAboHourlyRate * hours
+    // Design-Abo calculation: hourly rate × hours per month
+    const hoursPerMonth = calculatorData.value.designAbo.hours
+    basePrice = designAboHourlyRate * hoursPerMonth
     
     // Duration discount for design-abo
     switch (calculatorData.value.designAbo.duration) {
@@ -612,9 +647,6 @@ const service3 = ref(null)
 const service4 = ref(null)
 const service5 = ref(null)
 
-let lastScrollTop = 0
-let rotationValue = 0
-// let splitHeading = null; // This was for a different animation, can be kept or removed if not used elsewhere
 let elasticButtonInstances = [];
 let typographyTimeline = null; // To store the timeline for cleanup
 let splitTextInstance = null; // To store the SplitText instance for cleanup
@@ -751,11 +783,92 @@ const initElasticButtons = () => {
 
 
 
+// Initialize services scroll animation
+const initServicesScrollAnimation = () => {
+  if (!servicesSection.value || !serviceRefs.value.length) return;
+  
+  // Animate background expansion on scroll into section
+  ScrollTrigger.create({
+    trigger: servicesSection.value,
+    start: "top 20%",
+    onEnter: () => {
+      gsap.to(servicesSection.value, {
+        width: "100%",
+        borderRadius: "0px",
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    },
+    onLeaveBack: () => {
+      gsap.to(servicesSection.value, {
+        width: "85%",
+        borderRadius: "16px",
+        duration: 0.3,
+        ease: "power2.out"
+      });
+    }
+  });
+  
+  // Create scroll trigger for each service
+  serviceRefs.value.forEach((serviceEl, index) => {
+    if (!serviceEl) return;
+    
+    ScrollTrigger.create({
+      trigger: serviceEl,
+      start: "top center",
+      end: "bottom center",
+      onEnter: () => {
+        // Set current service to full opacity, others to 30%
+        serviceRefs.value.forEach((el, i) => {
+          if (el) {
+            gsap.to(el, {
+              opacity: i === index ? 1 : 0.3,
+              duration: 0.15,
+              ease: "power2.out"
+            });
+          }
+        });
+      },
+      onEnterBack: () => {
+        // Same as onEnter for reverse scroll
+        serviceRefs.value.forEach((el, i) => {
+          if (el) {
+            gsap.to(el, {
+              opacity: i === index ? 1 : 0.3,
+              duration: 0.15,
+              ease: "power2.out"
+            });
+          }
+        });
+      }
+    });
+  });
+  
+  // Add parallax effect for price calculator section
+  if (priceCalculatorSection.value) {
+    ScrollTrigger.create({
+      trigger: servicesSection.value,
+      start: "bottom center",
+      end: "bottom top",
+      scrub: 1,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        gsap.set(priceCalculatorSection.value, {
+          y: -200 * progress,
+          ease: "none"
+        });
+      }
+    });
+  }
+};
+
 onMounted(() => {
   initElasticButtons();
-
   
-
+  // Initialize services scroll animation
+  setTimeout(() => {
+    initServicesScrollAnimation();
+  }, 100);
 
   // GSAP animation for typography section
   if (typographySection.value && scrollingText.value) {
@@ -981,5 +1094,54 @@ body, html {
 .elastic-btn {
   /* Add some basic styling to make buttons visible */
   transition: transform 0.1s ease-out; /* For smoother visual feedback if needed */
+}
+/* Custom Select Styling */
+.custom-select select {
+  font-family: 'Urbanist', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.custom-select select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.custom-select:hover svg {
+  transform: translateY(-1px);
+  color: #374151;
+}
+
+.custom-select select:focus + div svg {
+  transform: rotate(180deg);
+  color: #000;
+}
+
+/* Custom select options styling (limited browser support) */
+.custom-select select option {
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.custom-select select option:hover {
+  background-color: #f9fafb;
+}
+
+.custom-select select option:checked {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Enhanced hover and active states */
+.custom-select select:hover {
+  border-color: #6b7280;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.custom-select select:active {
+  border-color: #000;
+  transform: translateY(1px);
 }
 </style>
