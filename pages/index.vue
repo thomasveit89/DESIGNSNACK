@@ -126,63 +126,139 @@
     </div>
 
     <!-- Packages Section -->
-    <div class="packages-section py-20">
+    <section class="py-32 bg-white relative">
       <div class="container mx-auto px-4">
-        <div class="w-2/3 mx-auto">
-          <h2 class="text-3xl lg:text-4xl font-bold text-black mb-4 text-center">
+        <!-- Section Title and Description -->
+        <div class="text-center mb-16">
+          <h2 class="text-5xl md:text-6xl font-medium text-gray-900 mb-6">
             Wie du mit mir arbeiten kannst
           </h2>
-          <p class="text-xl text-gray-600 leading-relaxed mb-16 text-center">
+          <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
             Ich helfe Unternehmen, digitale Produkte klar und nutzerzentriert zu gestalten. Ob als eingebundenes Teammitglied oder flexibel per Design-Abo – du entscheidest, wie wir zusammenarbeiten.
           </p>
         </div>
         
-        <!-- Services Table -->
-        <div class="overflow-x-auto">
-          <table class="w-full border-collapse">
-            <thead>
-              <tr class="border-b border-gray-200">
-                <th class="text-left py-4 px-6 bg-white"></th>
-                <th class="text-left py-4 px-6 bg-white">
-                  <h3 class="text-2xl font-semibold text-black">Team-Integration</h3>
-                </th>
-                <th class="text-left py-4 px-6 bg-white">
-                  <h3 class="text-2xl font-semibold text-black">Design-Abo</h3>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-gray-100">
-                <td class="py-4 px-6 font-medium text-gray-900 text-lg">Modell</td>
-                <td class="py-4 px-6 text-gray-700 text-lg">Als Teil deines Teams</td>
-                <td class="py-4 px-6 text-gray-700 text-lg">Flexibel buchbares Design-Abo</td>
-              </tr>
-              <tr class="border-b border-gray-100" style="background-color: #F8F8F8;">
-                <td class="py-4 px-6 font-medium text-gray-900 text-lg">Zusammenarbeit</td>
-                <td class="py-4 px-6 text-gray-700 text-lg">Langfristig, projekt- oder sprintbasiert</td>
-                <td class="py-4 px-6 text-gray-700 text-lg">Monatlich kündbar, on-demand</td>
-              </tr>
-              <tr class="border-b border-gray-100">
-                <td class="py-4 px-6 font-medium text-gray-900 text-lg">Kommunikation</td>
-                <td class="py-4 px-6 text-gray-700 text-lg">Regulärer Austausch, Meetings & Workshops</td>
-                <td class="py-4 px-6 text-gray-700 text-lg">Asynchrone Zusammenarbeit, Tools & Mails</td>
-              </tr>
-              <tr class="border-b border-gray-100" style="background-color: #F8F8F8;">
-                <td class="py-4 px-6 font-medium text-gray-900 text-lg">Flexibilität</td>
-                <td class="py-4 px-6 text-gray-700 text-lg">Fixe Tage pro Woche, planbar</td>
-                <td class="py-4 px-6 text-gray-700 text-lg">Volle Flexibilität, du buchst je nach Bedarf</td>
-              </tr>
-              <tr class="border-b border-gray-100">
-                <td class="py-4 px-6 font-medium text-gray-900 text-lg">Kostenmodell</td>
-                <td class="py-4 px-6 text-gray-700 text-lg">Stundensatz</td>
-                <td class="py-4 px-6 text-gray-700 text-lg">Monatliche Pauschale (Abo)</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <!-- Team-Integration Package -->
+          <div class="bg-gray-50 rounded-3xl p-12 border border-gray-200 flex flex-col h-full">
+            <div class="flex flex-col gap-16">
+              <div class="w-16 h-16">
+                <img src="/img/french-fries.svg" alt="Team Integration" class="w-full h-full">
+              </div>
+              
+              <div class="flex flex-col gap-6 w-full">
+                <div class="flex flex-col gap-3 pb-6">
+                  <h3 class="text-4xl font-semibold text-gray-900">Team-Integration</h3>
+                  <div class="bg-[#d0e957] px-4 py-2 rounded-lg inline-block w-fit">
+                    <span class="text-xl font-semibold text-gray-900">Als Teil deines Teams</span>
+                  </div>
+                </div>
+                
+                <div class="h-px w-full bg-gray-300"></div>
+                
+                <div class="flex flex-col gap-6 pt-6">
+                  <div class="flex flex-row gap-3 items-center w-full">
+                    <div class="w-6 h-6 flex-shrink-0">
+                      <img src="/img/badge-check.svg" alt="Check" class="w-full h-full">
+                    </div>
+                    <span class="text-lg font-semibold text-gray-900">Langfristig, projekt- oder sprintbasiert</span>
+                  </div>
+                  
+                  <div class="flex flex-row gap-3 items-center w-full">
+                    <div class="w-6 h-6 flex-shrink-0">
+                      <img src="/img/badge-check.svg" alt="Check" class="w-full h-full">
+                    </div>
+                    <span class="text-lg font-semibold text-gray-900">Regulärer Austausch, Meetings & Workshops</span>
+                  </div>
+                  
+                  <div class="flex flex-row gap-3 items-center w-full">
+                    <div class="w-6 h-6 flex-shrink-0">
+                      <img src="/img/badge-check.svg" alt="Check" class="w-full h-full">
+                    </div>
+                    <span class="text-lg font-semibold text-gray-900">Fixe Tage pro Woche, planbar</span>
+                  </div>
+                  
+                  <div class="flex flex-row gap-3 items-center w-full">
+                    <div class="w-6 h-6 flex-shrink-0">
+                      <img src="/img/badge-check.svg" alt="Check" class="w-full h-full">
+                    </div>
+                    <span class="text-lg font-semibold text-gray-900">Stundensatz</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-12 pt-8">
+              <button @click="scrollToCalculator" class="bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition duration-300 flex items-center justify-center w-full">
+                Preis berechnen
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Design-Abo Package -->
+          <div class="bg-gray-50 rounded-3xl p-12 border border-gray-200 flex flex-col h-full">
+            <div class="flex flex-col gap-16">
+              <div class="w-16 h-16">
+                <img src="/img/pasta-plate.svg" alt="Design Abo" class="w-full h-full">
+              </div>
+              
+              <div class="flex flex-col gap-6 w-full">
+                <div class="flex flex-col gap-3 pb-6">
+                  <h3 class="text-4xl font-semibold text-gray-900">Design-Abo</h3>
+                  <div class="bg-[#f2b2d7] px-4 py-2 rounded-lg inline-block w-fit">
+                    <span class="text-xl font-semibold text-gray-900">Flexibel buchbares Design-Abo</span>
+                  </div>
+                </div>
+                
+                <div class="h-px w-full bg-gray-300"></div>
+                
+                <div class="flex flex-col gap-6 pt-6">
+                  <div class="flex flex-row gap-3 items-center w-full">
+                    <div class="w-6 h-6 flex-shrink-0">
+                      <img src="/img/badge-check.svg" alt="Check" class="w-full h-full">
+                    </div>
+                    <span class="text-lg font-semibold text-gray-900">Monatlich kündbar, on-demand</span>
+                  </div>
+                  
+                  <div class="flex flex-row gap-3 items-center w-full">
+                    <div class="w-6 h-6 flex-shrink-0">
+                      <img src="/img/badge-check.svg" alt="Check" class="w-full h-full">
+                    </div>
+                    <span class="text-lg font-semibold text-gray-900">Asynchrone Zusammenarbeit, Tools & Mails</span>
+                  </div>
+                  
+                  <div class="flex flex-row gap-3 items-center w-full">
+                    <div class="w-6 h-6 flex-shrink-0">
+                      <img src="/img/badge-check.svg" alt="Check" class="w-full h-full">
+                    </div>
+                    <span class="text-lg font-semibold text-gray-900">Volle Flexibilität, du buchst je nach Bedarf</span>
+                  </div>
+                  
+                  <div class="flex flex-row gap-3 items-center w-full">
+                    <div class="w-6 h-6 flex-shrink-0">
+                      <img src="/img/badge-check.svg" alt="Check" class="w-full h-full">
+                    </div>
+                    <span class="text-lg font-semibold text-gray-900">Monatliche Pauschale</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-12 pt-8">
+              <button @click="scrollToCalculator" class="bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition duration-300 flex items-center justify-center w-full">
+                Preis berechnen
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
-        
       </div>
-    </div>
+    </section>
     
     <!-- Interactive Services Section -->
     <div ref="servicesSection" class="services-scroll-section bg-black text-white relative mx-auto rounded-2xl transition-all duration-1000" style="width: 85%;">
@@ -358,14 +434,6 @@
     <!-- Spacer -->
     <div class="h-32"></div>
 
-    <!-- Typography Section - Based on CodePen example -->
-    <div ref="typographySection" class="w-full h-screen flex items-center justify-center relative z-10">
-      <div class="flex items-center gap-8">
-        <div ref="scrollingText" class="text-gray-200 text-4xl md:text-5xl font-medium text-center px-4 sm:px-6 md:px-8 lg:max-w-4xl xl:max-w-5xl">
-          DESIGNSNACK bringt erfahrene UX/UI Designer in Ihr Produktteam - schnell. Keine Recruiter, kein Overhead, kein Unsinn. Nur eingebettete, kampferprobte UX-Expertise für Fintech-, Bank- und Versicherungsteams, die schneller vorankommen müssen.
-        </div>
-      </div>
-    </div>
     
     <!-- Service Pillars Section -->
     <div ref="servicePillarsSection" class="w-full py-32">
@@ -504,13 +572,13 @@ const secondRowData = ref(portfolioData.value.slice(4, 8))
 
 // Services data for scroll section
 const services = ref([
-  'UX Research',
-  'Usability Testing', 
+  'UX/UI Design',
   'Prototyping',
-  'UI Design',
-  'Design Systems',
+  'MVP Development',
+  'Design Systems',  
+  'User Research',
+  'Usability Testing',   
   'Design Reviews & Sparring',
-  'Developer Handover & Support'
 ])
 
 // Refs for services section
@@ -541,7 +609,7 @@ const calculatePrice = () => {
   
   // Base hourly rates
   const teamIntegrationHourlyRate = 145 // CHF
-  const designAboHourlyRate = 155 // CHF (premium for flexibility)
+  const designAboHourlyRate = 150 // CHF (premium for flexibility)
   
   // Constants
   const hoursPerDay = 8
@@ -613,6 +681,16 @@ const formatPrice = (price) => {
   return new Intl.NumberFormat('de-CH').format(price)
 }
 
+// Scroll to calculator function
+const scrollToCalculator = () => {
+  if (priceCalculatorSection.value) {
+    priceCalculatorSection.value.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+}
+
 const onProjectHover = (event) => {
   // GSAP animation for overlay fade-in
   const overlay = event.currentTarget.querySelector('.project-overlay')
@@ -638,8 +716,6 @@ const onProjectLeave = (event) => {
 }
 
 const headingElement = ref(null)
-const typographySection = ref(null)
-const scrollingText = ref(null)
 const servicePillarsSection = ref(null)
 const service1 = ref(null)
 const service2 = ref(null)
@@ -787,7 +863,7 @@ const initElasticButtons = () => {
 const initServicesScrollAnimation = () => {
   if (!servicesSection.value || !serviceRefs.value.length) return;
   
-  // Animate background expansion on scroll into section
+  // Animate background expansion with zoom-in effect on scroll into section
   ScrollTrigger.create({
     trigger: servicesSection.value,
     start: "top 20%",
@@ -795,6 +871,8 @@ const initServicesScrollAnimation = () => {
       gsap.to(servicesSection.value, {
         width: "100%",
         borderRadius: "0px",
+        scale: 1.1,
+        y: -20,
         duration: 0.3,
         ease: "power2.out"
       });
@@ -803,6 +881,8 @@ const initServicesScrollAnimation = () => {
       gsap.to(servicesSection.value, {
         width: "85%",
         borderRadius: "16px",
+        scale: 1,
+        y: 0,
         duration: 0.3,
         ease: "power2.out"
       });
@@ -848,13 +928,13 @@ const initServicesScrollAnimation = () => {
   if (priceCalculatorSection.value) {
     ScrollTrigger.create({
       trigger: servicesSection.value,
-      start: "bottom center",
+      start: "bottom bottom",
       end: "bottom top",
       scrub: 1,
       onUpdate: (self) => {
         const progress = self.progress;
         gsap.set(priceCalculatorSection.value, {
-          y: -200 * progress,
+          y: -100 * progress,
           ease: "none"
         });
       }
@@ -870,27 +950,6 @@ onMounted(() => {
     initServicesScrollAnimation();
   }, 100);
 
-  // GSAP animation for typography section
-  if (typographySection.value && scrollingText.value) {
-    splitTextInstance = new SplitText(scrollingText.value, { type: "words" });
-
-    typographyTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: typographySection.value,
-        start: "top top",
-        end: "bottom top", 
-        pin: true,
-        pinSpacing: true,
-        pinType: "transform",
-        scrub: 0.75, // Increased scrub value slightly for potentially smoother updates
-      }
-    })
-    .to(splitTextInstance.words, {
-      color: "#000", 
-      stagger: 0.1, 
-      duration: 0.2, // This duration is relative to the timeline's progress through the scrub
-    });
-  }
 
   // Services section - Interactive hover animations
   if (servicePillarsSection.value) {
@@ -930,7 +989,7 @@ onUnmounted(() => {
     // Check if the trigger is associated with elements in this component
     // This is a bit broad; ideally, you'd only kill triggers created by this component.
     // For now, this is a general cleanup. If you have global ScrollTriggers, be more specific.
-    if (trigger.trigger === typographySection.value || (headingElement.value && trigger.trigger === headingElement.value)) {
+    if (headingElement.value && trigger.trigger === headingElement.value) {
         trigger.kill();
     }
   });
