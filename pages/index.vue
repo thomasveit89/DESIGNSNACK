@@ -125,7 +125,7 @@
       </div>
     </div>
 
-    <!-- Packages Section -->
+    <!-- Combined Packages + Calculator Section -->
     <section class="py-32 bg-white relative">
       <div class="container mx-auto px-4">
         <!-- Section Title and Description -->
@@ -138,9 +138,14 @@
           </p>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <!-- Package Selection Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
           <!-- Team-Integration Package -->
-          <div class="bg-gray-50 rounded-3xl p-12 border border-gray-200 flex flex-col h-full">
+          <div 
+            @click="calculatorData.collaborationType = 'team-integration'"
+            :class="calculatorData.collaborationType === 'team-integration' ? 'border-black border-4' : 'border-white border-4'"
+            class="bg-gray-50 rounded-3xl p-12 flex flex-col h-full cursor-pointer transition-all duration-300 hover:border-gray-400"
+          >
             <div class="flex flex-col gap-16">
               <div class="w-16 h-16">
                 <img src="/img/french-fries.svg" alt="Team Integration" class="w-full h-full">
@@ -187,19 +192,14 @@
                 </div>
               </div>
             </div>
-            
-            <div class="mt-12 pt-8">
-              <button @click="scrollToCalculator" class="bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition duration-300 flex items-center justify-center w-full">
-                Preis berechnen
-                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-              </button>
-            </div>
           </div>
           
           <!-- Design-Abo Package -->
-          <div class="bg-gray-50 rounded-3xl p-12 border border-gray-200 flex flex-col h-full">
+          <div 
+            @click="calculatorData.collaborationType = 'design-abo'"
+            :class="calculatorData.collaborationType === 'design-abo' ? 'border-black border-4' : 'border-white border-4'"
+            class="bg-gray-50 rounded-3xl p-12 flex flex-col h-full cursor-pointer transition-all duration-300 hover:border-gray-400"
+          >
             <div class="flex flex-col gap-16">
               <div class="w-16 h-16">
                 <img src="/img/pasta-plate.svg" alt="Design Abo" class="w-full h-full">
@@ -246,15 +246,126 @@
                 </div>
               </div>
             </div>
-            
-            <div class="mt-12 pt-8">
-              <button @click="scrollToCalculator" class="bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition duration-300 flex items-center justify-center w-full">
-                Preis berechnen
-                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-              </button>
+          </div>
+        </div>
+
+        <!-- Interactive Sliders -->
+        <div v-if="calculatorData.collaborationType" class="max-w-4xl mx-auto mb-16">
+          <!-- Design-Abo Sliders -->
+          <div v-if="calculatorData.collaborationType === 'design-abo'" class="space-y-12">
+            <!-- Hours Slider -->
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <label class="text-2xl font-medium text-gray-900">Stundenpaket pro Monat</label>
+                <span class="text-2xl font-semibold text-gray-900">{{ calculatorData.designAbo.hours }}h</span>
+              </div>
+              <div class="relative">
+                <input 
+                  type="range" 
+                  v-model.number="calculatorData.designAbo.hours"
+                  min="8" 
+                  max="40" 
+                  step="8"
+                  class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                >
+              </div>
             </div>
+
+            <!-- Duration Slider -->
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <label class="text-2xl font-medium text-gray-900">Laufzeit</label>
+                <span class="text-2xl font-semibold text-gray-900">{{ calculatorData.designAbo.duration }} Monat{{ calculatorData.designAbo.duration > 1 ? 'e' : '' }}</span>
+              </div>
+              <div class="relative">
+                <input 
+                  type="range" 
+                  v-model.number="calculatorData.designAbo.duration"
+                  min="1" 
+                  max="12" 
+                  step="1"
+                  class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                >
+                <!-- Discount markers -->
+                <div class="relative mt-2 h-8">
+                  <!-- 1 Mon at 0% -->
+                  <div class="absolute text-xs text-gray-500" style="left: 0%; transform: translateX(0%);">1 Mon</div>
+                  <!-- 3 Mon at ~18.2% -->
+                  <div class="absolute text-xs text-center" :class="calculatorData.designAbo.duration === 3 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 18.2%; transform: translateX(-50%);">3 Mon<br><span :class="calculatorData.designAbo.duration === 3 ? 'text-green-600' : 'text-gray-500'">-5%</span></div>
+                  <!-- 6 Mon at ~45.5% -->
+                  <div class="absolute text-xs text-center" :class="calculatorData.designAbo.duration === 6 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 45.5%; transform: translateX(-50%);">6 Mon<br><span :class="calculatorData.designAbo.duration === 6 ? 'text-green-600' : 'text-gray-500'">-10%</span></div>
+                  <!-- 9 Mon at ~72.7% -->
+                  <div class="absolute text-xs text-center" :class="calculatorData.designAbo.duration === 9 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 72.7%; transform: translateX(-50%);">9 Mon<br><span :class="calculatorData.designAbo.duration === 9 ? 'text-green-600' : 'text-gray-500'">-12%</span></div>
+                  <!-- 12 Mon at 100% -->
+                  <div class="absolute text-xs text-center" :class="calculatorData.designAbo.duration === 12 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 100%; transform: translateX(-100%);">12 Mon<br><span :class="calculatorData.designAbo.duration === 12 ? 'text-green-600' : 'text-gray-500'">-15%</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team-Integration Sliders -->
+          <div v-if="calculatorData.collaborationType === 'team-integration'" class="space-y-12">
+            <!-- Days per Week Slider -->
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <label class="text-2xl font-medium text-gray-900">Tage pro Woche</label>
+                <span class="text-2xl font-semibold text-gray-900">{{ calculatorData.teamIntegration.daysPerWeek }} Tag{{ calculatorData.teamIntegration.daysPerWeek > 1 ? 'e' : '' }}</span>
+              </div>
+              <div class="relative">
+                <input 
+                  type="range" 
+                  v-model.number="calculatorData.teamIntegration.daysPerWeek"
+                  min="1" 
+                  max="5" 
+                  step="1"
+                  class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                >
+              </div>
+            </div>
+
+            <!-- Duration Slider -->
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <label class="text-2xl font-medium text-gray-900">Laufzeit</label>
+                <span class="text-2xl font-semibold text-gray-900">{{ calculatorData.teamIntegration.duration }} Monat{{ calculatorData.teamIntegration.duration > 1 ? 'e' : '' }}</span>
+              </div>
+              <div class="relative">
+                <input 
+                  type="range" 
+                  v-model.number="calculatorData.teamIntegration.duration"
+                  min="1" 
+                  max="12" 
+                  step="1"
+                  class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                >
+                <!-- Discount markers -->
+                <div class="relative mt-2 h-8">
+                  <!-- 1 Mon at 0% -->
+                  <div class="absolute text-xs text-gray-500" style="left: 0%; transform: translateX(0%);">1 Mon</div>
+                  <!-- 3 Mon at ~18.2% -->
+                  <div class="absolute text-xs text-center" :class="calculatorData.teamIntegration.duration === 3 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 18.2%; transform: translateX(-50%);">3 Mon<br><span :class="calculatorData.teamIntegration.duration === 3 ? 'text-green-600' : 'text-gray-500'">-5%</span></div>
+                  <!-- 6 Mon at ~45.5% -->
+                  <div class="absolute text-xs text-center" :class="calculatorData.teamIntegration.duration === 6 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 45.5%; transform: translateX(-50%);">6 Mon<br><span :class="calculatorData.teamIntegration.duration === 6 ? 'text-green-600' : 'text-gray-500'">-10%</span></div>
+                  <!-- 9 Mon at ~72.7% -->
+                  <div class="absolute text-xs text-center" :class="calculatorData.teamIntegration.duration === 9 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 72.7%; transform: translateX(-50%);">9 Mon<br><span :class="calculatorData.teamIntegration.duration === 9 ? 'text-green-600' : 'text-gray-500'">-12%</span></div>
+                  <!-- 12 Mon at 100% -->
+                  <div class="absolute text-xs text-center" :class="calculatorData.teamIntegration.duration === 12 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 100%; transform: translateX(-100%);">12 Mon<br><span :class="calculatorData.teamIntegration.duration === 12 ? 'text-green-600' : 'text-gray-500'">-15%</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Large Price Display -->
+        <div v-if="calculatorData.collaborationType" class="text-center">
+          <div class="text-2xl font-medium text-gray-700 mb-4">Monatlicher Preis</div>
+          <div class="flex items-end justify-center gap-2">
+            <span class="text-3xl md:text-4xl font-light text-gray-300 mb-3">CHF</span>
+            <span class="text-8xl md:text-9xl font-semibold text-gray-900">{{ formatPrice(calculatePrice()) }}</span>
+          </div>
+          <div v-if="getDurationDiscount() > 0" class="mt-6 text-xl text-gray-600">
+            Preis inkl. {{ getDurationDiscount() }}% Rabatt für {{ calculatorData.collaborationType === 'team-integration' ? calculatorData.teamIntegration.duration : calculatorData.designAbo.duration }} Monate Laufzeit
+            <span class="text-green-600 font-semibold ml-2">• Du sparst CHF {{ formatPrice(calculateSavings()) }} pro Monat</span>
           </div>
         </div>
       </div>
@@ -279,160 +390,6 @@
       </div>
     </div>
 
-    <!-- Price Calculator Section -->
-    <div ref="priceCalculatorSection" class="price-calculator-section py-20 bg-gray-50 relative z-10">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl lg:text-4xl font-bold text-black mb-4 text-center">
-          Preisrechner
-        </h2>
-        <p class="text-xl text-gray-600 leading-relaxed mb-12 text-center">
-          Berechne den Preis für deine individuelle Zusammenarbeit
-        </p>
-        
-        <!-- Calculator Form -->
-        <div class="bg-white rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
-          <!-- Step 1: Choose collaboration type -->
-          <div class="mb-8">
-            <h3 class="text-xl font-semibold text-black mb-4">Art der Zusammenarbeit wählen</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all" 
-                     :class="calculatorData.collaborationType === 'design-abo' ? 'border-black bg-gray-50' : 'border-gray-200 hover:border-gray-300'">
-                <input type="radio" v-model="calculatorData.collaborationType" value="design-abo" class="sr-only">
-                <div>
-                  <div class="font-medium text-black">Design-Abo</div>
-                  <div class="text-sm text-gray-600">monatlich, flexibel</div>
-                </div>
-              </label>
-              <label class="flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all"
-                     :class="calculatorData.collaborationType === 'team-integration' ? 'border-black bg-gray-50' : 'border-gray-200 hover:border-gray-300'">
-                <input type="radio" v-model="calculatorData.collaborationType" value="team-integration" class="sr-only">
-                <div>
-                  <div class="font-medium text-black">Team-Integration</div>
-                  <div class="text-sm text-gray-600">tageweise, eingebunden im Team</div>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <!-- Design-Abo Options -->
-          <div v-if="calculatorData.collaborationType === 'design-abo'" class="mb-8">
-            <h3 class="text-xl font-semibold text-black mb-4">Design-Abo Konfiguration</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Stundenpaket pro Monat</label>
-                <div class="relative">
-                  <div class="custom-select relative">
-                    <select v-model.number="calculatorData.designAbo.hours" class="w-full p-4 border-2 border-gray-200 rounded-xl appearance-none bg-white pr-12 text-lg font-medium focus:ring-0 focus:border-black transition-all duration-200 hover:border-gray-300 cursor-pointer">
-                      <option :value="8">8h / Monat</option>
-                      <option :value="16">16h / Monat</option>
-                      <option :value="24">24h / Monat</option>
-                      <option :value="32">32h / Monat</option>
-                      <option :value="40">40h / Monat</option>
-                    </select>
-                    <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                      <svg class="w-6 h-6 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Laufzeit</label>
-                <div class="relative">
-                  <div class="custom-select relative">
-                    <select v-model.number="calculatorData.designAbo.duration" class="w-full p-4 border-2 border-gray-200 rounded-xl appearance-none bg-white pr-12 text-lg font-medium focus:ring-0 focus:border-black transition-all duration-200 hover:border-gray-300 cursor-pointer">
-                      <option :value="1">1 Monat (flexibel, kein Rabatt)</option>
-                      <option :value="3">3 Monate (-5%)</option>
-                      <option :value="6">6 Monate (-10%)</option>
-                      <option :value="12">12 Monate (-15%)</option>
-                    </select>
-                    <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                      <svg class="w-6 h-6 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Team-Integration Options -->
-          <div v-if="calculatorData.collaborationType === 'team-integration'" class="mb-8">
-            <h3 class="text-xl font-semibold text-black mb-4">Team-Integration Konfiguration</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Anzahl gewünschter Tage pro Woche</label>
-                <div class="relative">
-                  <div class="custom-select relative">
-                    <select v-model.number="calculatorData.teamIntegration.daysPerWeek" class="w-full p-4 border-2 border-gray-200 rounded-xl appearance-none bg-white pr-12 text-lg font-medium focus:ring-0 focus:border-black transition-all duration-200 hover:border-gray-300 cursor-pointer">
-                      <option :value="1">1 Tag / Woche</option>
-                      <option :value="2">2 Tage / Woche</option>
-                      <option :value="3">3 Tage / Woche</option>
-                      <option :value="4">4 Tage / Woche</option>
-                    </select>
-                    <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                      <svg class="w-6 h-6 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Projektdauer</label>
-                <div class="relative">
-                  <div class="custom-select relative">
-                    <select v-model.number="calculatorData.teamIntegration.duration" class="w-full p-4 border-2 border-gray-200 rounded-xl appearance-none bg-white pr-12 text-lg font-medium focus:ring-0 focus:border-black transition-all duration-200 hover:border-gray-300 cursor-pointer">
-                      <option :value="1">1 Monat</option>
-                      <option :value="3">3 Monate (-5%)</option>
-                      <option :value="6">6 Monate (-10%)</option>
-                      <option :value="12">12 Monate (-15%)</option>
-                    </select>
-                    <div class="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
-                      <svg class="w-6 h-6 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- Price Display -->
-          <div v-if="calculatorData.collaborationType" class="bg-gray-50 rounded-lg p-6 mt-8">
-            <div class="flex justify-between items-center mb-4">
-              <span class="text-lg font-medium text-gray-700">Monatlicher Preis:</span>
-              <span class="text-2xl font-bold text-black">{{ formatPrice(calculatePrice()) }} CHF</span>
-            </div>
-            <div v-if="getDurationDiscount() > 0" class="text-sm text-gray-600">
-              Preis inkl. {{ getDurationDiscount() }}% Rabatt für 
-              {{ calculatorData.collaborationType === 'team-integration' ? calculatorData.teamIntegration.duration : calculatorData.designAbo.duration }} 
-              Monate Laufzeit
-            </div>
-            <div v-if="calculatorData.collaborationType === 'design-abo'" class="text-sm text-gray-600">
-              Preis für {{ calculatorData.designAbo.hours }} Stunden pro Monat
-            </div>
-            <div v-if="calculatorData.collaborationType === 'team-integration'" class="text-sm text-gray-600">
-              Preis für {{ calculatorData.teamIntegration.daysPerWeek }} Tag{{ calculatorData.teamIntegration.daysPerWeek > 1 ? 'e' : '' }} pro Woche
-            </div>
-          </div>
-
-          <!-- Call to Action -->
-          <div v-if="calculatorData.collaborationType" class="mt-8 text-center">
-            <button class="bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors">
-              Angebot anfordern
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Spacer -->
-    <div class="h-32"></div>
 
     
     <!-- Service Pillars Section -->
@@ -584,7 +541,6 @@ const services = ref([
 // Refs for services section
 const servicesSection = ref()
 const serviceRefs = ref([])
-const priceCalculatorSection = ref()
 
 // Calculator data
 const calculatorData = ref({
@@ -624,12 +580,17 @@ const calculatePrice = () => {
     const hoursPerMonth = calculatorData.value.teamIntegration.daysPerWeek * hoursPerDay * weeksPerMonth
     basePrice = teamIntegrationHourlyRate * hoursPerMonth
     
-    // Duration discount for team integration
-    switch (calculatorData.value.teamIntegration.duration) {
-      case 3: durationDiscount = 0.05; break
-      case 6: durationDiscount = 0.10; break
-      case 12: durationDiscount = 0.15; break
-      default: durationDiscount = 0
+    // Duration discount for team integration (progressive)
+    if (calculatorData.value.teamIntegration.duration >= 12) {
+      durationDiscount = 0.15; // 15% for 12+ months
+    } else if (calculatorData.value.teamIntegration.duration >= 9) {
+      durationDiscount = 0.12; // 12% for 9+ months
+    } else if (calculatorData.value.teamIntegration.duration >= 6) {
+      durationDiscount = 0.10; // 10% for 6+ months
+    } else if (calculatorData.value.teamIntegration.duration >= 3) {
+      durationDiscount = 0.05; // 5% for 3+ months
+    } else {
+      durationDiscount = 0; // No discount for < 3 months
     }
     
     // Team integration additional options
@@ -641,12 +602,17 @@ const calculatePrice = () => {
     const hoursPerMonth = calculatorData.value.designAbo.hours
     basePrice = designAboHourlyRate * hoursPerMonth
     
-    // Duration discount for design-abo
-    switch (calculatorData.value.designAbo.duration) {
-      case 3: durationDiscount = 0.05; break
-      case 6: durationDiscount = 0.10; break
-      case 12: durationDiscount = 0.15; break
-      default: durationDiscount = 0
+    // Duration discount for design-abo (progressive)
+    if (calculatorData.value.designAbo.duration >= 12) {
+      durationDiscount = 0.15; // 15% for 12+ months
+    } else if (calculatorData.value.designAbo.duration >= 9) {
+      durationDiscount = 0.12; // 12% for 9+ months
+    } else if (calculatorData.value.designAbo.duration >= 6) {
+      durationDiscount = 0.10; // 10% for 6+ months
+    } else if (calculatorData.value.designAbo.duration >= 3) {
+      durationDiscount = 0.05; // 5% for 3+ months
+    } else {
+      durationDiscount = 0; // No discount for < 3 months
     }
     
     // No additional options for Design-Abo
@@ -660,19 +626,19 @@ const calculatePrice = () => {
 
 const getDurationDiscount = () => {
   if (calculatorData.value.collaborationType === 'team-integration') {
-    switch (calculatorData.value.teamIntegration.duration) {
-      case 3: return 5
-      case 6: return 10
-      case 12: return 15
-      default: return 0
-    }
+    const duration = calculatorData.value.teamIntegration.duration
+    if (duration >= 12) return 15
+    if (duration >= 9) return 12
+    if (duration >= 6) return 10
+    if (duration >= 3) return 5
+    return 0
   } else if (calculatorData.value.collaborationType === 'design-abo') {
-    switch (calculatorData.value.designAbo.duration) {
-      case 3: return 5
-      case 6: return 10
-      case 12: return 15
-      default: return 0
-    }
+    const duration = calculatorData.value.designAbo.duration
+    if (duration >= 12) return 15
+    if (duration >= 9) return 12
+    if (duration >= 6) return 10
+    if (duration >= 3) return 5
+    return 0
   }
   return 0
 }
@@ -681,15 +647,39 @@ const formatPrice = (price) => {
   return new Intl.NumberFormat('de-CH').format(price)
 }
 
-// Scroll to calculator function
-const scrollToCalculator = () => {
-  if (priceCalculatorSection.value) {
-    priceCalculatorSection.value.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+const calculateSavings = () => {
+  if (!calculatorData.value.collaborationType) return 0
+  
+  // Base hourly rates
+  const teamIntegrationHourlyRate = 145 // CHF
+  const designAboHourlyRate = 150 // CHF (premium for flexibility)
+  
+  // Constants
+  const hoursPerDay = 8
+  const weeksPerMonth = 4
+  
+  let basePrice = 0
+  let additionalCosts = 0
+  
+  if (calculatorData.value.collaborationType === 'team-integration') {
+    const hoursPerMonth = calculatorData.value.teamIntegration.daysPerWeek * hoursPerDay * weeksPerMonth
+    basePrice = teamIntegrationHourlyRate * hoursPerMonth
+    
+    if (calculatorData.value.options.workshops) additionalCosts += 500
+    if (calculatorData.value.options.onsite) additionalCosts += 300
+    
+  } else if (calculatorData.value.collaborationType === 'design-abo') {
+    const hoursPerMonth = calculatorData.value.designAbo.hours
+    basePrice = designAboHourlyRate * hoursPerMonth
   }
+  
+  const fullPrice = basePrice + additionalCosts
+  const discountedPrice = calculatePrice()
+  const savings = fullPrice - discountedPrice
+  
+  return Math.round(savings)
 }
+
 
 const onProjectHover = (event) => {
   // GSAP animation for overlay fade-in
@@ -924,22 +914,6 @@ const initServicesScrollAnimation = () => {
     });
   });
   
-  // Add parallax effect for price calculator section
-  if (priceCalculatorSection.value) {
-    ScrollTrigger.create({
-      trigger: servicesSection.value,
-      start: "bottom bottom",
-      end: "bottom top",
-      scrub: 1,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        gsap.set(priceCalculatorSection.value, {
-          y: -100 * progress,
-          ease: "none"
-        });
-      }
-    });
-  }
 };
 
 onMounted(() => {
@@ -1026,10 +1000,6 @@ body, html {
 
 .marquee-ltr {
   animation: marquee-ltr 35s linear infinite;
-}
-
-.marquee-content:hover {
-  animation-play-state: paused;
 }
 
 .project-item {
@@ -1202,5 +1172,55 @@ body, html {
 .custom-select select:active {
   border-color: #000;
   transform: translateY(1px);
+}
+
+/* Modern Slider Styles */
+.slider {
+  background: #e5e7eb;
+  outline: none;
+  -webkit-appearance: none;
+  border-radius: 6px;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #111827;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.slider::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #111827;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.slider:focus {
+  outline: none;
+}
+
+.slider:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.1);
 }
 </style>
