@@ -222,6 +222,12 @@ const onLoadingComplete = () => {
   // Enable scrolling
   document.body.style.overflow = 'auto'
   
+  // Change theme color to white for main content
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]')
+  if (themeColorMeta) {
+    themeColorMeta.setAttribute('content', '#ffffff')
+  }
+  
   // Create master timeline to coordinate all exit animations
   const masterTimeline = gsap.timeline()
   

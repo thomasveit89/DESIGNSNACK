@@ -21,8 +21,8 @@ export default defineNuxtConfig({
           content: 'Erfahrene UX/UI Designer für Fintech-, Bank- und Versicherungsteams. Team-Integration oder flexibles Design-Abo. Schnell, kampferprobt, ohne Overhead.' 
         },
         
-        // iOS Safari status bar styling
-        { name: 'theme-color', content: '#ffffff' },
+        // iOS Safari status bar styling - matches loading screen initially
+        { name: 'theme-color', content: '#768B9B' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
         { name: 'author', content: 'DESIGNSNACK' },
