@@ -85,7 +85,13 @@ const polygon2 = ref<SVGPolygonElement>()
 let lastScrollTop = 0
 let rotationValue = 0
 
+// Mobile detection utility
+const isMobile = () => window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 const handleScroll = () => {
+  // Skip expensive scroll animations on mobile
+  if (isMobile()) return;
+  
   const st = window.pageYOffset || document.documentElement.scrollTop;
   if (circleElement.value) {
     if (st > lastScrollTop) {
@@ -107,6 +113,26 @@ const handleScroll = () => {
 const initTriangleAnimations = () => {
   if (!triangle1.value || !triangle2.value || !polygon1.value || !polygon2.value) return
   
+  // Skip heavy animations on mobile devices
+  if (isMobile()) {
+    // Simple, lightweight animations for mobile
+    gsap.to(triangle1.value, {
+      rotation: 360,
+      duration: 60,
+      ease: "none",
+      repeat: -1
+    })
+    
+    gsap.to(triangle2.value, {
+      rotation: -360,
+      duration: 80,
+      ease: "none",
+      repeat: -1
+    })
+    return
+  }
+  
+  // Full animations for desktop
   // Triangle 1 - Floating animation
   gsap.to(triangle1.value, {
     x: () => gsap.utils.random(-150, 150),
@@ -296,8 +322,14 @@ html {
 
 @media (max-width: 768px) {
   .bg-triangle {
-    opacity: 0.7;
-    scale: 0.8;
+    opacity: 0.4;
+    scale: 0.6;
+    will-change: transform;
+  }
+  
+  /* Hide circle element on mobile for better performance */
+  .fixed.top-8.right-24 {
+    display: none;
   }
 }
 </style>

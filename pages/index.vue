@@ -18,7 +18,7 @@
 
         <!-- Button and Description - 6 columns each -->
         <div class="col-span-12 md:col-span-6">
-          <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-8 md:px-12 py-4 md:py-6 rounded-full text-lg md:text-xl font-medium flex items-center elastic-btn inline-flex">
+          <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-8 md:px-12 py-4 md:py-6 rounded-full text-lg md:text-xl font-medium inline-flex items-center elastic-btn">
             Lass uns sprechen
             <svg class="ml-2 w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
           </a>
@@ -457,7 +457,7 @@
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-12 leading-tight">
               Lust, dein Projekt in mein<br>Creative Lab zu bringen?
             </h2>
-            <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-10 py-5 rounded-full text-xl font-medium flex items-center mx-auto elastic-btn hover:bg-gray-900 transition-colors duration-300 inline-flex">
+            <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-10 py-5 rounded-full text-xl font-medium inline-flex items-center mx-auto elastic-btn hover:bg-gray-900 transition-colors duration-300">
               Let's go
               <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -763,6 +763,9 @@ let elasticButtonInstances = [];
 let typographyTimeline = null; // To store the timeline for cleanup
 let splitTextInstance = null; // To store the SplitText instance for cleanup
 
+// Mobile detection utility
+const isMobile = () => window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 class ElasticButton {
   constructor(HTMLButtonElement) {
     this.button = HTMLButtonElement;
@@ -777,6 +780,7 @@ class ElasticButton {
     this.magneticPullX = 0.4;
     this.magneticPullY = 0.4; 
     this.isHovering = false;
+    this.isMobile = isMobile();
 
     // Bind methods to ensure 'this' context is correct
     this.handleMouseMove = this.handleMouseMove.bind(this);
@@ -787,10 +791,17 @@ class ElasticButton {
     const rect = this.button.getBoundingClientRect();
     this.width = rect.width;
     this.height = rect.height;
-    document.body.addEventListener("mousemove", this.handleMouseMove);
+    
+    // Skip mouse tracking on mobile devices
+    if (!this.isMobile) {
+      document.body.addEventListener("mousemove", this.handleMouseMove);
+    }
   }
 
   handleMouseMove(e) {
+    // Skip on mobile
+    if (this.isMobile) return;
+    
     this.cursorX = e.clientX;
     this.cursorY = e.clientY;
 
@@ -826,6 +837,9 @@ class ElasticButton {
   }
 
   updatePosition = () => {
+    // Skip animations on mobile
+    if (this.isMobile) return;
+    
     // this.x and this.y are now the direct displacement values (cursor relative to button center)
     // GSAP will apply these as transforms relative to the button's current layout position
     gsap.to(this.button, {
@@ -837,6 +851,9 @@ class ElasticButton {
   };
 
   onEnter = () => {
+    // Skip animations on mobile
+    if (this.isMobile) return;
+    
     gsap.to(this.button, {
       x: this.x * this.magneticPullX,
       y: this.y * this.magneticPullY,
@@ -846,6 +863,9 @@ class ElasticButton {
   };
 
   onLeave = () => {
+    // Skip animations on mobile
+    if (this.isMobile) return;
+    
     gsap.to(this.button, {
       x: 0,
       y: 0,
@@ -884,7 +904,9 @@ class ElasticButton {
   };
 
   destroy() {
-    document.body.removeEventListener("mousemove", this.handleMouseMove);
+    if (!this.isMobile) {
+      document.body.removeEventListener("mousemove", this.handleMouseMove);
+    }
   }
 }
 
@@ -896,6 +918,18 @@ const initElasticButtons = () => {
 // Initialize paper plane animation
 const initPaperPlaneAnimation = () => {
   if (!paperPlane.value || !creativeLab.value) return;
+  
+  // Skip complex scroll animations on mobile
+  if (isMobile()) {
+    // Simple static position for mobile
+    gsap.set(paperPlane.value, {
+      x: 50,
+      y: 0,
+      scale: 0.3,
+      rotation: 15
+    });
+    return;
+  }
   
   // Set initial position (off-screen left)
   gsap.set(paperPlane.value, {
@@ -957,6 +991,23 @@ const initPaperPlaneAnimation = () => {
 // Initialize services scroll animation
 const initServicesScrollAnimation = () => {
   if (!servicesSection.value || !serviceRefs.value.length) return;
+  
+  // Skip complex scroll animations on mobile
+  if (isMobile()) {
+    // Static styling for mobile
+    gsap.set(servicesSection.value, {
+      width: "95%",
+      borderRadius: "12px",
+      scale: 1
+    });
+    // Set all services visible on mobile
+    serviceRefs.value.forEach((el) => {
+      if (el) {
+        gsap.set(el, { opacity: 1 });
+      }
+    });
+    return;
+  }
   
   // Animate background expansion with zoom-in effect on scroll into section
   ScrollTrigger.create({
@@ -1230,6 +1281,31 @@ body, html {
   /* Add some basic styling to make buttons visible */
   transition: transform 0.1s ease-out; /* For smoother visual feedback if needed */
 }
+
+/* Disable will-change on mobile for better performance */
+@media (max-width: 768px) {
+  .elastic-btn {
+    will-change: auto;
+  }
+  
+  /* Simplify marquee animations on mobile */
+  .marquee-rtl {
+    animation-duration: 60s;
+  }
+  
+  .marquee-ltr {
+    animation-duration: 70s;
+  }
+  
+  /* Disable hover effects on mobile */
+  .project-image-container:hover {
+    transform: none;
+  }
+  
+  .project-overlay {
+    opacity: 0.8;
+  }
+}
 /* Custom Select Styling */
 .custom-select select {
   font-family: 'Urbanist', sans-serif;
@@ -1289,8 +1365,8 @@ body, html {
 }
 
 .slider::-webkit-slider-thumb {
-  appearance: none;
   -webkit-appearance: none;
+  appearance: none;
   width: 28px;
   height: 28px;
   border-radius: 50%;

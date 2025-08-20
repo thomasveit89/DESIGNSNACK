@@ -25,6 +25,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// Mobile detection utility
+const isMobile = () => window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 const container = ref(null)
 const rotator = ref(null)
 const serviceRefs = ref([])
@@ -76,6 +79,30 @@ const initScrollingAnimation = () => {
   
   if (words.length === 0) {
     console.log('❌ No words found after filtering')
+    return
+  }
+  
+  // Skip complex scroll animations on mobile
+  if (isMobile()) {
+    console.log('📱 Mobile detected - using simplified animation')
+    
+    // Simple rotation animation for mobile
+    let currentIndex = 0
+    words.forEach((word, index) => {
+      gsap.set(word, { 
+        opacity: index === 0 ? 1 : 0,
+        visibility: index === 0 ? 'visible' : 'hidden',
+        display: 'block'
+      })
+    })
+    
+    // Simple timer-based word rotation for mobile
+    setInterval(() => {
+      gsap.to(words[currentIndex], { opacity: 0, visibility: 'hidden', duration: 0.3 })
+      currentIndex = (currentIndex + 1) % words.length
+      gsap.to(words[currentIndex], { opacity: 1, visibility: 'visible', duration: 0.3 })
+    }, 2000)
+    
     return
   }
   
@@ -205,6 +232,24 @@ onUnmounted(() => {
   color: #768B9B;
   white-space: nowrap;
   will-change: opacity, visibility;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .scrolling-typography-section {
+    height: auto;
+    min-height: 50vh;
+    padding: 2rem 0;
+  }
+  
+  .content-wrapper {
+    height: auto;
+    min-height: 50vh;
+  }
+  
+  .service-word {
+    will-change: auto;
+  }
 }
 
 @media (max-width: 768px) {
