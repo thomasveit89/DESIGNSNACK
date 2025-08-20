@@ -1309,6 +1309,20 @@ body, html {
   .project-overlay {
     display: none;
   }
+  
+  /* Reduce vertical spacing for package cards on mobile */
+  .bg-gray-50.rounded-3xl.p-8 {
+    padding: 1.5rem 2rem; /* py-6 px-8 equivalent - reduced from p-8 */
+  }
+  
+  /* Reduce gaps within cards on mobile */
+  .flex.flex-col.gap-12 {
+    gap: 2rem; /* Reduced from gap-12 (3rem) to 2rem */
+  }
+  
+  .flex.flex-col.gap-6 {
+    gap: 1rem; /* Reduced from gap-6 (1.5rem) to 1rem */
+  }
 }
 /* Custom Select Styling */
 .custom-select select {
