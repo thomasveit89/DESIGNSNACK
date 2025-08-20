@@ -3,14 +3,14 @@
     <div class="container mx-auto px-4 py-8 grid grid-cols-12 gap-4">
       <!-- Header/Logo -->
       <div class="col-span-6 md:col-span-3 lg:col-span-2">
-        <span class="text-2xl font-semibold"><span class="text-[#768B9B]">DESIGN</span>SNACK</span>
+        <span class="text-xl sm:text-2xl font-semibold"><span class="text-[#768B9B]">DESIGN</span>SNACK</span>
       </div>
 
       <!-- Main Content Area -->
       <div class="col-span-12 grid grid-cols-12 gap-4 mt-32">
         <!-- Heading - full width (12 columns) -->
         <div class="col-span-12 mb-8">
-          <h1 ref="headingElement" class="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-none overflow-hidden hoverable">
+          <h1 ref="headingElement" class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-medium leading-none overflow-hidden hoverable">
             <span class="heading-line text-gray-900">Leckerbissen für intuitive</span><br>
             <span class="heading-line text-[#768B9B]">User Experience</span>
           </h1>
@@ -18,14 +18,14 @@
 
         <!-- Button and Description - 6 columns each -->
         <div class="col-span-12 md:col-span-6">
-          <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-8 md:px-12 py-4 md:py-6 rounded-full text-lg md:text-xl font-medium inline-flex items-center elastic-btn">
+          <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-6 rounded-full text-base sm:text-lg md:text-xl font-medium inline-flex items-center elastic-btn">
             Lass uns sprechen
             <svg class="ml-2 w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
           </a>
         </div>
 
         <div class="col-span-12 md:col-span-6 mt-8 md:mt-0">
-          <p class="text-lg md:text-2xl lg:text-3xl text-gray-700 leading-relaxed">
+          <p class="text-xl md:text-2xl lg:text-3xl text-gray-700 leading-relaxed">
             Ich helfe deinem Produktteam, intuitive Interfaces zu bauen – als eingebetteter UX/UI-Designer oder flexibel im Design-Abo.          </p>
         </div>
       </div>
@@ -34,7 +34,7 @@
     <!-- Projects Section -->
     <div class="projects-section mt-32 overflow-hidden">
       <div class="container mx-auto px-4">
-        <h2 class="text-[2rem] font-semibold text-black mb-12">
+        <h2 class="text-2xl sm:text-3xl md:text-[2rem] font-semibold text-black mb-8 sm:mb-12">
           Auswahl meiner Projekte
         </h2>
       </div>
@@ -370,12 +370,12 @@
 
         <!-- Large Price Display -->
         <div v-if="calculatorData.collaborationType" class="text-center">
-          <div class="text-2xl font-medium text-gray-700 mb-4">Monatlicher Preis</div>
+          <div class="text-lg sm:text-xl md:text-2xl font-medium text-gray-700 mb-4">Monatlicher Preis</div>
           <div class="flex items-end justify-center gap-2">
-            <span class="text-3xl md:text-4xl font-light text-gray-300 mb-3">CHF</span>
-            <span class="text-8xl md:text-9xl font-semibold text-gray-900">{{ formatPrice(calculatePrice()) }}</span>
+            <span class="text-2xl sm:text-3xl md:text-4xl font-light text-gray-300 mb-3">CHF</span>
+            <span class="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-semibold text-gray-900">{{ formatPrice(calculatePrice()) }}</span>
           </div>
-          <div v-if="getDurationDiscount() > 0" class="mt-6 text-xl text-gray-600">
+          <div v-if="getDurationDiscount() > 0" class="mt-6 text-base sm:text-lg md:text-xl text-gray-600">
             Preis inkl. {{ getDurationDiscount() }}% Rabatt für {{ calculatorData.collaborationType === 'team-integration' ? calculatorData.teamIntegration.duration : calculatorData.designAbo.duration }} Monate Laufzeit
             <span class="text-green-600 font-semibold ml-2">• Du sparst CHF {{ formatPrice(calculateSavings()) }} pro Monat</span>
           </div>
@@ -394,7 +394,7 @@
             class="service-item text-center py-16"
             :class="{ 'opacity-30': index !== 0, 'opacity-100': index === 0 }"
           >
-            <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight">
               {{ service }}
             </h2>
           </div>
@@ -404,8 +404,8 @@
 
     <!-- Creative Lab Section -->
     <div ref="creativeLab" class="w-full pt-64 pb-32 bg-white relative overflow-hidden">
-      <!-- Paper Plane Animation -->
-      <img ref="paperPlane" src="/img/paperplane.svg" alt="Paper Plane" class="absolute" style="left: -100px; top: 50%;">
+      <!-- Paper Plane Animation - Hidden -->
+      <img ref="paperPlane" src="/img/paperplane.svg" alt="Paper Plane" class="absolute hidden" style="left: -100px; top: 50%;">
       
       <div class="container mx-auto px-4">
         <!-- Section Header -->
@@ -454,10 +454,10 @@
       <div class="container mx-auto px-4">
         <div class="max-w-6xl mx-auto">
           <div class="rounded-3xl px-12 py-16 text-center animated-gradient">
-            <h2 class="text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-12 leading-tight">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-white mb-8 sm:mb-12 leading-tight">
               Lust, dein Projekt in mein<br>Creative Lab zu bringen?
             </h2>
-            <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-10 py-5 rounded-full text-xl font-medium inline-flex items-center mx-auto elastic-btn hover:bg-gray-900 transition-colors duration-300">
+            <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-lg sm:text-xl font-medium inline-flex items-center mx-auto elastic-btn hover:bg-gray-900 transition-colors duration-300">
               Let's go
               <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -474,7 +474,7 @@
         <div class="max-w-4xl mx-auto text-center">          
           <!-- Main Message -->
           <div class="mb-12">
-            <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-medium text-white mb-6">
               Let's create something amazing.
             </h2>
           </div>
@@ -497,7 +497,7 @@
           
           <!-- Copyright -->
           <div class="pt-4 border-gray-700">
-            <p class="text-gray-400 text-sm">
+            <p class="text-gray-400 text-xs sm:text-sm">
               © 2025 DESIGNSNACK GmbH – Powered by coffee ☕ & curiosity ✨
             </p>
           </div>
@@ -1178,9 +1178,15 @@ body, html {
 .project-image {
   max-width: none;
   width: auto;
-  height: 400px;
+  height: 200px;
   border-radius: 1rem;
   display: block;
+}
+
+@media (min-width: 768px) {
+  .project-image {
+    height: 400px;
+  }
 }
 
 .project-overlay {

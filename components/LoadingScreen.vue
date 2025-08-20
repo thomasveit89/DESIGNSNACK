@@ -16,7 +16,7 @@
         v-for="(greeting, index) in greetings"
         :key="greeting.language"
         :ref="el => textRefs[index] = el"
-        class="greeting-text absolute inset-0 flex items-center justify-center text-6xl font-bold text-black"
+        class="greeting-text absolute inset-0 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl font-bold text-black"
         :style="{ opacity: index === 0 ? 1 : 0 }"
       >
         {{ greeting.text }}
