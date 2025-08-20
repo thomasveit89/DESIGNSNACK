@@ -564,7 +564,7 @@ const portfolioData = ref([
     id: 8,
     image: '/img/scouting-app-design.png',
     title: 'Scouting Platform',
-    description: 'Professionale Scouting-App für Fußball-Clubs'
+    description: 'Professionale Scouting-App für Fussball-Clubs'
   }
 ])
 
