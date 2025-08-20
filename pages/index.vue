@@ -458,7 +458,7 @@
               Lust, dein Projekt in mein<br>Creative Lab zu bringen?
             </h2>
             <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-10 py-5 rounded-full text-xl font-medium flex items-center mx-auto elastic-btn hover:bg-gray-900 transition-colors duration-300 inline-flex">
-              Lass uns sprechen
+              Let's go
               <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
