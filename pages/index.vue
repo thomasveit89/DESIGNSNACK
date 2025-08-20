@@ -18,10 +18,10 @@
 
         <!-- Button and Description - 6 columns each -->
         <div class="col-span-12 md:col-span-6">
-          <button class="bg-black text-white px-8 md:px-12 py-4 md:py-6 rounded-full text-lg md:text-xl font-medium flex items-center elastic-btn">
+          <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-8 md:px-12 py-4 md:py-6 rounded-full text-lg md:text-xl font-medium flex items-center elastic-btn inline-flex">
             Lass uns sprechen
             <svg class="ml-2 w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-          </button>
+          </a>
         </div>
 
         <div class="col-span-12 md:col-span-6 mt-8 md:mt-0">
@@ -125,6 +125,18 @@
       </div>
     </div>
 
+    <!-- Client Logos Section -->
+    <div class="w-full py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 max-w-5xl mx-auto">
+          <img src="/img/clients/finnova.svg" alt="Finnova" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300">
+          <img src="/img/clients/netlive.svg" alt="Netlive" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300">
+          <img src="/img/clients/psychotherapie-kausch.svg" alt="Psychotherapie Kausch" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300">
+          <img src="/img/clients/stamm-schreinerei.svg" alt="Stamm Schreinerei" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300">
+        </div>
+      </div>
+    </div>
+
     <!-- Combined Packages + Calculator Section -->
     <section class="py-32 bg-white relative">
       <div class="container mx-auto px-4">
@@ -144,9 +156,9 @@
           <div 
             @click="calculatorData.collaborationType = 'team-integration'"
             :class="calculatorData.collaborationType === 'team-integration' ? 'border-black border-4' : 'border-white border-4'"
-            class="bg-gray-50 rounded-3xl p-12 flex flex-col h-full cursor-pointer transition-all duration-300 hover:border-gray-400"
+            class="bg-gray-50 rounded-3xl p-8 flex flex-col h-full cursor-pointer transition-all duration-300 hover:border-gray-400"
           >
-            <div class="flex flex-col gap-16">
+            <div class="flex flex-col gap-12">
               <div class="w-16 h-16">
                 <img src="/img/french-fries.svg" alt="Team Integration" class="w-full h-full">
               </div>
@@ -198,9 +210,9 @@
           <div 
             @click="calculatorData.collaborationType = 'design-abo'"
             :class="calculatorData.collaborationType === 'design-abo' ? 'border-black border-4' : 'border-white border-4'"
-            class="bg-gray-50 rounded-3xl p-12 flex flex-col h-full cursor-pointer transition-all duration-300 hover:border-gray-400"
+            class="bg-gray-50 rounded-3xl p-8 flex flex-col h-full cursor-pointer transition-all duration-300 hover:border-gray-400"
           >
-            <div class="flex flex-col gap-16">
+            <div class="flex flex-col gap-12">
               <div class="w-16 h-16">
                 <img src="/img/pasta-plate.svg" alt="Design Abo" class="w-full h-full">
               </div>
@@ -291,13 +303,13 @@
                   <!-- 1 Mon at 0% -->
                   <div class="absolute text-xs text-gray-500" style="left: 0%; transform: translateX(0%);">1 Mon</div>
                   <!-- 3 Mon at ~18.2% -->
-                  <div class="absolute text-xs text-center" :class="calculatorData.designAbo.duration === 3 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 18.2%; transform: translateX(-50%);">3 Mon<br><span :class="calculatorData.designAbo.duration === 3 ? 'text-green-600' : 'text-gray-500'">-5%</span></div>
+                  <div class="absolute text-xs text-center" :class="calculatorData.designAbo.duration >= 3 && calculatorData.designAbo.duration < 6 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 18.2%; transform: translateX(-50%);">3 Mon<br><span :class="calculatorData.designAbo.duration >= 3 && calculatorData.designAbo.duration < 6 ? 'text-green-600' : 'text-gray-500'">-5%</span></div>
                   <!-- 6 Mon at ~45.5% -->
-                  <div class="absolute text-xs text-center" :class="calculatorData.designAbo.duration === 6 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 45.5%; transform: translateX(-50%);">6 Mon<br><span :class="calculatorData.designAbo.duration === 6 ? 'text-green-600' : 'text-gray-500'">-10%</span></div>
+                  <div class="absolute text-xs text-center" :class="calculatorData.designAbo.duration >= 6 && calculatorData.designAbo.duration < 9 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 45.5%; transform: translateX(-50%);">6 Mon<br><span :class="calculatorData.designAbo.duration >= 6 && calculatorData.designAbo.duration < 9 ? 'text-green-600' : 'text-gray-500'">-10%</span></div>
                   <!-- 9 Mon at ~72.7% -->
-                  <div class="absolute text-xs text-center" :class="calculatorData.designAbo.duration === 9 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 72.7%; transform: translateX(-50%);">9 Mon<br><span :class="calculatorData.designAbo.duration === 9 ? 'text-green-600' : 'text-gray-500'">-12%</span></div>
+                  <div class="absolute text-xs text-center" :class="calculatorData.designAbo.duration >= 9 && calculatorData.designAbo.duration < 12 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 72.7%; transform: translateX(-50%);">9 Mon<br><span :class="calculatorData.designAbo.duration >= 9 && calculatorData.designAbo.duration < 12 ? 'text-green-600' : 'text-gray-500'">-12%</span></div>
                   <!-- 12 Mon at 100% -->
-                  <div class="absolute text-xs text-center" :class="calculatorData.designAbo.duration === 12 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 100%; transform: translateX(-100%);">12 Mon<br><span :class="calculatorData.designAbo.duration === 12 ? 'text-green-600' : 'text-gray-500'">-15%</span></div>
+                  <div class="absolute text-xs text-center" :class="calculatorData.designAbo.duration >= 12 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 100%; transform: translateX(-100%);">12 Mon<br><span :class="calculatorData.designAbo.duration >= 12 ? 'text-green-600' : 'text-gray-500'">-15%</span></div>
                 </div>
               </div>
             </div>
@@ -343,13 +355,13 @@
                   <!-- 1 Mon at 0% -->
                   <div class="absolute text-xs text-gray-500" style="left: 0%; transform: translateX(0%);">1 Mon</div>
                   <!-- 3 Mon at ~18.2% -->
-                  <div class="absolute text-xs text-center" :class="calculatorData.teamIntegration.duration === 3 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 18.2%; transform: translateX(-50%);">3 Mon<br><span :class="calculatorData.teamIntegration.duration === 3 ? 'text-green-600' : 'text-gray-500'">-5%</span></div>
+                  <div class="absolute text-xs text-center" :class="calculatorData.teamIntegration.duration >= 3 && calculatorData.teamIntegration.duration < 6 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 18.2%; transform: translateX(-50%);">3 Mon<br><span :class="calculatorData.teamIntegration.duration >= 3 && calculatorData.teamIntegration.duration < 6 ? 'text-green-600' : 'text-gray-500'">-5%</span></div>
                   <!-- 6 Mon at ~45.5% -->
-                  <div class="absolute text-xs text-center" :class="calculatorData.teamIntegration.duration === 6 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 45.5%; transform: translateX(-50%);">6 Mon<br><span :class="calculatorData.teamIntegration.duration === 6 ? 'text-green-600' : 'text-gray-500'">-10%</span></div>
+                  <div class="absolute text-xs text-center" :class="calculatorData.teamIntegration.duration >= 6 && calculatorData.teamIntegration.duration < 9 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 45.5%; transform: translateX(-50%);">6 Mon<br><span :class="calculatorData.teamIntegration.duration >= 6 && calculatorData.teamIntegration.duration < 9 ? 'text-green-600' : 'text-gray-500'">-10%</span></div>
                   <!-- 9 Mon at ~72.7% -->
-                  <div class="absolute text-xs text-center" :class="calculatorData.teamIntegration.duration === 9 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 72.7%; transform: translateX(-50%);">9 Mon<br><span :class="calculatorData.teamIntegration.duration === 9 ? 'text-green-600' : 'text-gray-500'">-12%</span></div>
+                  <div class="absolute text-xs text-center" :class="calculatorData.teamIntegration.duration >= 9 && calculatorData.teamIntegration.duration < 12 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 72.7%; transform: translateX(-50%);">9 Mon<br><span :class="calculatorData.teamIntegration.duration >= 9 && calculatorData.teamIntegration.duration < 12 ? 'text-green-600' : 'text-gray-500'">-12%</span></div>
                   <!-- 12 Mon at 100% -->
-                  <div class="absolute text-xs text-center" :class="calculatorData.teamIntegration.duration === 12 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 100%; transform: translateX(-100%);">12 Mon<br><span :class="calculatorData.teamIntegration.duration === 12 ? 'text-green-600' : 'text-gray-500'">-15%</span></div>
+                  <div class="absolute text-xs text-center" :class="calculatorData.teamIntegration.duration >= 12 ? 'text-green-600 font-semibold' : 'text-gray-500'" style="left: 100%; transform: translateX(-100%);">12 Mon<br><span :class="calculatorData.teamIntegration.duration >= 12 ? 'text-green-600' : 'text-gray-500'">-15%</span></div>
                 </div>
               </div>
             </div>
@@ -390,77 +402,109 @@
       </div>
     </div>
 
-
-    
-    <!-- Service Pillars Section -->
-    <div ref="servicePillarsSection" class="w-full py-32">
-      <div class="w-full px-8 md:px-16 lg:px-32 xl:px-48">
-        <!-- Services List -->
-        <div class="flex flex-col w-full">
-          <!-- Service 1 -->
-          <div ref="service1" class="border-b border-gray-200 py-8 last:border-b-0 transition-all duration-300">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-16 items-start">
-              <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight m-0">UX/UI & Product Design</h3>
-              <p class="text-lg md:text-xl text-gray-600 leading-relaxed m-0 md:col-span-2">
-                Wir gestalten digitale Produkte, die intuitiv funktionieren und gut aussehen. Von der ersten Idee bis zum getesteten Prototyp – schnell und eingebettet in Ihr Team.
+    <!-- Creative Lab Section -->
+    <div ref="creativeLab" class="w-full pt-64 pb-32 bg-white relative overflow-hidden">
+      <!-- Paper Plane Animation -->
+      <img ref="paperPlane" src="/img/paperplane.svg" alt="Paper Plane" class="absolute" style="left: -100px; top: 50%;">
+      
+      <div class="container mx-auto px-4">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h2 class="text-5xl md:text-6xl font-medium text-gray-900 mb-6">
+            Creative Lab – Mein Spielplatz für neue Ideen
+          </h2>
+          <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+            Neben Kundenprojekten entwickle ich eigene Tools und Experimente. So teste ich neue Technologien, Designmethoden und AI-Ansätze – und lasse diese Erfahrungen in unsere Zusammenarbeit einfliessen.
+          </p>
+        </div>
+        
+        <!-- Project Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
+          <!-- CVsnack Project -->
+          <a href="https://cvsnack.com" target="_blank" class="flex flex-col group cursor-pointer">
+            <div class="bg-gray-100 rounded-2xl p-8 mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
+              <img src="/img/cvsnack.png" alt="CVsnack Online Resume Builder" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="text-3xl font-semibold text-gray-900 group-hover:text-black transition-colors duration-300">CVsnack – Online Resume Builder</h3>
+              <p class="text-lg text-gray-700 leading-relaxed">
+                Online CV-Builder mit AI-Unterstützung. Innerhalb von 2 Monaten als Prototyp entwickelt – jetzt von über 1000 Usern genutzt.
               </p>
             </div>
-          </div>
-
-          <!-- Service 2 -->
-          <div ref="service2" class="border-b border-gray-200 py-8 last:border-b-0 transition-all duration-300">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-16 items-start">
-              <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight m-0">Design Systeme</h3>
-              <p class="text-lg md:text-xl text-gray-600 leading-relaxed m-0 md:col-span-2">
-                Einheitliche Komponenten, konsistente UI und saubere Dokumentation. Wir bauen Design-Systeme, die skalieren – für Startups oder Enterprise-Teams.
+          </a>
+          
+          <!-- FC Romanshorn Project -->
+          <a href="https://app.fcromanshorn.ch/" target="_blank" class="flex flex-col group cursor-pointer">
+            <div class="bg-gray-900 rounded-2xl p-8 mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
+              <img src="/img/fcr-app.png" alt="FC Romanshorn Fussball App" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="text-3xl font-semibold text-gray-900 group-hover:text-black transition-colors duration-300">FC Romanshorn – Fussball App</h3>
+              <p class="text-lg text-gray-700 leading-relaxed">
+                Sämtliche Resultate, Spielpläne und Ranglisten in einer benutzerfreundlichen App. Von der Vereinsidee zum funktionsfähigen MVP in nur einem Monat.
               </p>
             </div>
-          </div>
+          </a>
+        </div>
+      </div>
+    </div>
 
-          <!-- Service 3 -->
-          <div ref="service3" class="border-b border-gray-200 py-8 last:border-b-0 transition-all duration-300">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-16 items-start">
-              <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight m-0">SaaS MVPs & Prototypen</h3>
-              <p class="text-lg md:text-xl text-gray-600 leading-relaxed m-0 md:col-span-2">
-                Sie haben eine Idee? Wir helfen, daraus in wenigen Wochen ein testbares Produkt zu bauen. Ideal für Startups, Side Projects und Indie Hacker.
-              </p>
-            </div>
-          </div>
-
-          <!-- Service 4 -->
-          <div ref="service4" class="border-b border-gray-200 py-8 last:border-b-0 transition-all duration-300">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-16 items-start">
-              <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight m-0">Workshops & Crashkurse</h3>
-              <p class="text-lg md:text-xl text-gray-600 leading-relaxed m-0 md:col-span-2">
-                Ob Inhouse oder Remote: Wir zeigen Ihrem Team, wie UX funktioniert, wie man mit KI baut, oder wie man Prototyping & Testing effektiv einsetzt.
-              </p>
-            </div>
-          </div>
-
-          <!-- Service 5 -->
-          <div ref="service5" class="border-b border-gray-200 py-8 last:border-b-0 transition-all duration-300">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-16 items-start">
-              <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 leading-tight m-0">Embedded Design Support</h3>
-              <p class="text-lg md:text-xl text-gray-600 leading-relaxed m-0 md:col-span-2">
-                Temporäre UX-Verstärkung für Ihr Team – ohne lange Einarbeitung oder Overhead. Sofort einsatzbereit und auf Augenhöhe mit Produkt & Tech.
-              </p>
-            </div>
+    <!-- Creative Lab CTA Section -->
+    <div class="w-full pt-0 pb-32 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+          <div class="rounded-3xl px-12 py-16 text-center animated-gradient">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-12 leading-tight">
+              Lust, dein Projekt in mein<br>Creative Lab zu bringen?
+            </h2>
+            <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-10 py-5 rounded-full text-xl font-medium flex items-center mx-auto elastic-btn hover:bg-gray-900 transition-colors duration-300 inline-flex">
+              Lass uns sprechen
+              <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Next Section Placeholder -->
-    <div class="next-section">
-      <div class="container mx-auto px-4 py-32">
-        <h2 class="text-6xl font-semibold text-black text-center">
-          Ready to work together?
-        </h2>
-        <p class="text-2xl text-gray-600 text-center mt-8">
-          Let's create something amazing.
-        </p>
+    <!-- Footer -->
+    <footer class="bg-black text-white py-32">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">          
+          <!-- Main Message -->
+          <div class="mb-12">
+            <h2 class="text-3xl md:text-4xl font-medium text-white mb-6">
+              Let's create something amazing.
+            </h2>
+          </div>
+          
+          <!-- Social Links -->
+          <div class="mb-12">
+            <div class="flex items-center justify-center gap-8">
+              <a href="https://linkedin.com/company/designsnack" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300 p-3 rounded-full hover:bg-gray-800">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+              <a href="mailto:hi@designsnack.ch" class="text-gray-300 hover:text-white transition-colors duration-300 p-3 rounded-full hover:bg-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Copyright -->
+          <div class="pt-4 border-gray-700">
+            <p class="text-gray-400 text-sm">
+              © 2025 DESIGNSNACK GmbH – Powered by coffee ☕ & curiosity ✨
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
+    </footer>
+
   </div>
 </template>
 
@@ -477,50 +521,50 @@ const portfolioData = ref([
   {
     id: 1,
     image: '/img/cvsnack.png',
-    title: 'CVSnack Dashboard',
-    description: 'Modern dashboard design for CV creation platform'
+    title: 'CVsnack Resume Builder',
+    description: 'Moderner Lebenslauf-Builder mit AI-Unterstützung'
   },
   {
     id: 2,
     image: '/img/app-design.png',
-    title: 'Mobile App Design',
-    description: 'Clean and intuitive mobile application interface'
+    title: 'Krankenkassen App',
+    description: 'Onboarding-Flow für eine Krankenkassen App'
   },
   {
     id: 3,
     image: '/img/design-system.png',
     title: 'Design System',
-    description: 'Comprehensive design system and component library'
+    description: 'Modulares Design System für eine Agentur'
   },
   {
     id: 4,
     image: '/img/football-app-design.png',
-    title: 'Football App',
-    description: 'Sports application with real-time match tracking'
+    title: 'Fussball App',
+    description: 'Konzept für eine Fussball-App'
   },
   {
     id: 5,
     image: '/img/landing-page-design.png',
-    title: 'Landing Page',
-    description: 'High-converting landing page with modern design'
+    title: 'Landing Page Design',
+    description: 'Website Design für eine Agentur'
   },
   {
     id: 6,
     image: '/img/mobile-app-design.png',
-    title: 'Mobile Experience',
-    description: 'Cross-platform mobile application design'
+    title: 'Mobile Gesundheits-App',
+    description: 'Cross-platform App für Gesundheitsdienste'
   },
   {
     id: 7,
     image: '/img/quiz-app-design.png',
     title: 'Quiz Application',
-    description: 'Interactive quiz platform with gamification'
+    description: 'Interaktive Quiz-App mit AI-generierten Fragen'
   },
   {
     id: 8,
     image: '/img/scouting-app-design.png',
     title: 'Scouting Platform',
-    description: 'Professional scouting and talent management system'
+    description: 'Professionale Scouting-App für Fußball-Clubs'
   }
 ])
 
@@ -712,6 +756,8 @@ const service2 = ref(null)
 const service3 = ref(null)
 const service4 = ref(null)
 const service5 = ref(null)
+const creativeLab = ref(null)
+const paperPlane = ref(null)
 
 let elasticButtonInstances = [];
 let typographyTimeline = null; // To store the timeline for cleanup
@@ -847,7 +893,66 @@ const initElasticButtons = () => {
   elasticButtonInstances = Array.from(buttons).map(btn => new ElasticButton(btn));
 };
 
-
+// Initialize paper plane animation
+const initPaperPlaneAnimation = () => {
+  if (!paperPlane.value || !creativeLab.value) return;
+  
+  // Set initial position (off-screen left)
+  gsap.set(paperPlane.value, {
+    x: -100,
+    y: 0,
+    scale: 0.5,
+    rotation: 15 // Slight downward angle
+  });
+  
+  // Create the animation timeline with scroll trigger
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: creativeLab.value,
+      start: "center bottom",
+      end: "bottom center",
+      scrub: 1.5, // Links animation progress to scroll (0.5 = faster movement)
+      onLeave: () => {
+        // Reset position after scrolling past
+        gsap.set(paperPlane.value, { x: -100, y: 0, rotation: 15 });
+      },
+      onEnterBack: () => {
+        // Animate again when scrolling back up
+        gsap.set(paperPlane.value, { x: -100, y: 0, rotation: 15 });
+      }
+    }
+  });
+  
+  // Create curved flight path with multiple keyframes
+  tl.to(paperPlane.value, {
+    duration: 0.3,
+    x: 200,
+    y: -20,
+    rotation: -10,
+    ease: "none"
+  })
+  .to(paperPlane.value, {
+    duration: 0.2,
+    x: 400,
+    y: -80,
+    rotation: -45,
+    ease: "none"
+  })
+  .to(paperPlane.value, {
+    duration: 0.2,
+    x: 600,
+    y: -20,
+    rotation: 10,
+    ease: "none"
+  })
+  .to(paperPlane.value, {
+    duration: 0.3,
+    x: window.innerWidth + 100,
+    y: 50,
+    rotation: 15,
+    ease: "none"
+  });
+};
 
 // Initialize services scroll animation
 const initServicesScrollAnimation = () => {
@@ -922,6 +1027,7 @@ onMounted(() => {
   // Initialize services scroll animation
   setTimeout(() => {
     initServicesScrollAnimation();
+    initPaperPlaneAnimation();
   }, 100);
 
 
@@ -957,6 +1063,7 @@ onUnmounted(() => {
     splitTextInstance.revert(); // Reverts the DOM changes made by SplitText
     splitTextInstance = null;
   }
+
 
   // It's also a good idea to kill all ScrollTriggers associated with the component
   ScrollTrigger.getAll().forEach(trigger => {
@@ -1004,7 +1111,6 @@ body, html {
 
 .project-item {
   flex-shrink: 0;
-  cursor: pointer;
 }
 
 .project-image-container {
@@ -1223,4 +1329,24 @@ body, html {
 .slider:focus::-webkit-slider-thumb {
   box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.1);
 }
+
+/* Animated Gradient */
+.animated-gradient {
+  background: linear-gradient(-45deg, #6F9BA4, #334E80, #6F9BA4, #334E80);
+  background-size: 400% 400%;
+  animation: gradient-shift 30s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 </style>
