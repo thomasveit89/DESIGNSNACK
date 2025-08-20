@@ -16,7 +16,7 @@
         v-for="(greeting, index) in greetings"
         :key="greeting.language"
         :ref="el => textRefs[index] = el"
-        class="greeting-text absolute inset-0 flex items-center justify-center text-6xl font-bold text-white"
+        class="greeting-text absolute inset-0 flex items-center justify-center text-6xl font-bold text-black"
         :style="{ opacity: index === 0 ? 1 : 0 }"
       >
         {{ greeting.text }}
@@ -128,7 +128,7 @@ const startLoadingAnimation = () => {
 }
 
 .loading-bg {
-  background: #768B9B;
+  background: #ffffff;
 }
 
 .curved-bottom {
@@ -137,7 +137,7 @@ const startLoadingAnimation = () => {
   transform: translateX(-50%);
   width: 150vw;
   height: 300px;
-  background: #768B9B;
+  background: #ffffff;
   border-radius: 50%;
   transform-origin: center top;
   z-index: -1;
