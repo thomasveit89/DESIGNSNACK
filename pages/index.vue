@@ -3,7 +3,15 @@
     <div class="container mx-auto px-4 py-8 grid grid-cols-12 gap-4">
       <!-- Header/Logo -->
       <div class="col-span-6 md:col-span-3 lg:col-span-2">
-        <span class="text-xl sm:text-2xl font-semibold"><span class="text-[#768B9B]">DESIGN</span>SNACK</span>
+        <div 
+          ref="logoElement"
+          class="logo-container cursor-pointer select-none overflow-hidden"
+          @mouseenter="animateLogo"
+        >
+          <span class="text-xl sm:text-2xl font-semibold logo-text">
+            <span class="text-[#768B9B] design-part">DESIGN</span><span class="snack-part">SNACK</span>
+          </span>
+        </div>
       </div>
 
       <!-- Main Content Area -->
@@ -128,11 +136,11 @@
     <!-- Client Logos Section -->
     <div class="w-full py-16 bg-white">
       <div class="container mx-auto px-4">
-        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 max-w-5xl mx-auto">
+        <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 lg:gap-8 max-w-5xl mx-auto text-center">
           <img src="/img/clients/finnova.svg" alt="Finnova" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300">
           <img src="/img/clients/netlive.svg" alt="Netlive" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300">
-          <img src="/img/clients/psychotherapie-kausch.svg" alt="Psychotherapie Kausch" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300">
-          <img src="/img/clients/stamm-schreinerei.svg" alt="Stamm Schreinerei" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300">
+          <img src="/img/clients/axa.svg" alt="AXA" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300">
+          <img src="/img/clients/3ap.svg" alt="AXA" class="h-16 md:h-20 opacity-70 hover:opacity-100 transition-opacity duration-300">        
         </div>
       </div>
     </div>
@@ -146,7 +154,8 @@
             Wie du mit mir arbeiten kannst
           </h2>
           <p class="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            Ich helfe Unternehmen, digitale Produkte klar und nutzerzentriert zu gestalten. Ob als eingebundenes Teammitglied oder flexibel per Design-Abo – du entscheidest, wie wir zusammenarbeiten.
+            Zwei Wege, ein Ziel: Digitale Produkte, die funktionieren. Wähle zwischen intensiver Zusammenarbeit im Team oder flexiblem
+  Design-Abo nach Bedarf.
           </p>
         </div>
         
@@ -404,8 +413,8 @@
 
     <!-- Creative Lab Section -->
     <div ref="creativeLab" class="w-full pt-64 pb-32 bg-white relative overflow-hidden">
-      <!-- Paper Plane Animation - Hidden -->
-      <img ref="paperPlane" src="/img/paperplane.svg" alt="Paper Plane" class="absolute hidden" style="left: -100px; top: 50%;">
+      <!-- Paper Plane Animation -->
+      <img ref="paperPlane" src="/img/paperplane.svg" alt="Paper Plane" class="absolute opacity-0 pointer-events-none z-10" style="left: -100px; top: 50%;" width="60" height="60">
       
       <div class="container mx-auto px-4">
         <!-- Section Header -->
@@ -721,6 +730,51 @@ const calculateSavings = () => {
   return Math.round(savings)
 }
 
+// Logo animation function
+const animateLogo = () => {
+  if (!logoElement.value || isMobile()) return
+  
+  const snackPart = logoElement.value.querySelector('.snack-part')
+  const designPart = logoElement.value.querySelector('.design-part')
+  
+  if (!snackPart || !designPart) return
+  
+  // Create timeline for the "bite" animation
+  const tl = gsap.timeline()
+  
+  // Phase 1: Take a "bite" from the right side of SNACK
+  tl.to(snackPart, {
+    clipPath: 'polygon(0% 0%, 70% 0%, 85% 40%, 70% 80%, 0% 100%)',
+    duration: 0.3,
+    ease: "power2.out"
+  })
+  // Phase 2: Shake the logo slightly (like being "chewed")
+  .to(logoElement.value, {
+    x: -2,
+    duration: 0.05,
+    ease: "power2.inOut",
+    repeat: 3,
+    yoyo: true
+  })
+  // Phase 3: Restore the logo with a bounce
+  .to(snackPart, {
+    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+    duration: 0.4,
+    ease: "bounce.out"
+  })
+  // Phase 4: Add a subtle glow effect to DESIGN part
+  .to(designPart, {
+    textShadow: '0 0 8px rgba(118, 139, 155, 0.6)',
+    duration: 0.2,
+    ease: "power2.out"
+  })
+  .to(designPart, {
+    textShadow: '0 0 0px rgba(118, 139, 155, 0)',
+    duration: 0.3,
+    ease: "power2.out"
+  })
+}
+
 
 const onProjectHover = (event) => {
   // GSAP animation for overlay fade-in
@@ -747,6 +801,7 @@ const onProjectLeave = (event) => {
 }
 
 const headingElement = ref(null)
+const logoElement = ref(null)
 const servicePillarsSection = ref(null)
 const service1 = ref(null)
 const service2 = ref(null)
@@ -922,8 +977,6 @@ const initPaperPlaneAnimation = () => {
     gsap.set(paperPlane.value, {
       x: 50,
       y: 0,
-      scale: 0.3,
-      rotation: 15
     });
     return;
   }
@@ -932,8 +985,6 @@ const initPaperPlaneAnimation = () => {
   gsap.set(paperPlane.value, {
     x: -100,
     y: 0,
-    scale: 0.5,
-    rotation: 15 // Slight downward angle
   });
   
   // Create the animation timeline with scroll trigger
@@ -945,42 +996,48 @@ const initPaperPlaneAnimation = () => {
       scrub: 1.5, // Links animation progress to scroll (0.5 = faster movement)
       onLeave: () => {
         // Reset position after scrolling past
-        gsap.set(paperPlane.value, { x: -100, y: 0, rotation: 15 });
+        gsap.set(paperPlane.value, { x: -100, y: 0, rotation: 0, opacity: 0 });
       },
       onEnterBack: () => {
         // Animate again when scrolling back up
-        gsap.set(paperPlane.value, { x: -100, y: 0, rotation: 15 });
+        gsap.set(paperPlane.value, { x: -100, y: 0, rotation: 0, opacity: 0 });
       }
     }
   });
   
   // Create curved flight path with multiple keyframes
   tl.to(paperPlane.value, {
+    duration: 0.1,
+    opacity: 1,
+    ease: "none"
+  })
+  .to(paperPlane.value, {
     duration: 0.3,
     x: 200,
     y: -20,
-    rotation: -10,
+    rotation: 0,
     ease: "none"
-  })
+  }, 0)
   .to(paperPlane.value, {
     duration: 0.2,
     x: 400,
     y: -80,
-    rotation: -45,
+    rotation: 0,
     ease: "none"
   })
   .to(paperPlane.value, {
     duration: 0.2,
     x: 600,
     y: -20,
-    rotation: 10,
+    rotation: 0,
     ease: "none"
   })
   .to(paperPlane.value, {
     duration: 0.3,
     x: window.innerWidth + 100,
     y: 50,
-    rotation: 15,
+    rotation: 0,
+    opacity: 0,
     ease: "none"
   });
 };
@@ -1440,6 +1497,38 @@ body, html {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+/* Logo Animation Styles */
+.logo-container {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.logo-text {
+  display: inline-block;
+}
+
+.snack-part {
+  display: inline-block;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  transition: clip-path 0.3s ease;
+}
+
+.design-part {
+  display: inline-block;
+  transition: text-shadow 0.3s ease;
+}
+
+.logo-container:hover {
+  transform: scale(1.02);
+}
+
+/* Add subtle hover states for mobile */
+@media (max-width: 768px) {
+  .logo-container:active {
+    transform: scale(0.98);
   }
 }
 
