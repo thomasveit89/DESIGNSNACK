@@ -412,7 +412,7 @@
     </div>
 
     <!-- Creative Lab Section -->
-    <div ref="creativeLab" class="w-full pt-64 pb-32 bg-white relative overflow-hidden">
+    <div ref="creativeLab" class="w-full pt-40 pb-32 bg-white relative overflow-hidden">
       <!-- Paper Plane Animation -->
       <img ref="paperPlane" src="/img/paperplane.svg" alt="Paper Plane" class="absolute opacity-0 pointer-events-none z-10" style="left: -100px; top: 50%;" width="60" height="60">
       
