@@ -411,10 +411,109 @@
       </div>
     </div>
 
+    <!-- Values & Principles Section -->
+    <div class="w-full pt-40 pb-0 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+          <!-- Left Column: Werte -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+            <div class="space-y-12">
+              <h2 class="text-4xl md:text-5xl font-medium text-gray-900 mb-12">Werte</h2>
+              
+              <!-- Freude -->
+              <div class="border-b border-gray-300 pb-8">
+                <h3 class="text-3xl md:text-4xl font-medium text-gray-900 mb-4">Freude</h3>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  Zusammenarbeit soll Spass machen. Kreativität entsteht, wenn man gerne miteinander arbeitet.
+                </p>
+              </div>
+              
+              <!-- Einfachheit -->
+              <div class="border-b border-gray-300 pb-8">
+                <h3 class="text-3xl md:text-4xl font-medium text-gray-900 mb-4">Einfachheit</h3>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  Komplexes runterbrechen und Lösungen schaffen, die klar und benutzerfreundlich sind.
+                </p>
+              </div>
+              
+              <!-- Neugier -->
+              <div class="border-b border-gray-300 pb-8">
+                <h3 class="text-3xl md:text-4xl font-medium text-gray-900 mb-4">Neugier</h3>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  Offenheit für neue Tools, Ideen und Experimente, um ständig dazuzulernen.
+                </p>
+              </div>
+              
+              <!-- Verlässlichkeit -->
+              <div class="border-b border-gray-300 pb-8">
+                <h3 class="text-3xl md:text-4xl font-medium text-gray-900 mb-4">Verlässlichkeit</h3>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  Auch wenn Spass im Vordergrund steht, kannst du darauf zählen, dass Resultate geliefert werden.
+                </p>
+              </div>
+              
+              <!-- Mut -->
+              <div class="pb-8">
+                <h3 class="text-3xl md:text-4xl font-medium text-gray-900 mb-4">Mut</h3>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  Dinge ausprobieren, anders denken, neue Wege gehen – ohne Angst vor Fehlern.
+                </p>
+              </div>
+            </div>
+
+            <!-- Right Column: Prinzipien -->
+            <div class="space-y-12">
+              <h2 class="text-4xl md:text-5xl font-medium text-gray-900 mb-12">Prinzipien</h2>
+              
+              <!-- Mensch zuerst -->
+              <div class="border-b border-gray-300 pb-8">
+                <h3 class="text-3xl md:text-4xl font-medium text-gray-900 mb-4">Mensch zuerst</h3>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  Nutzer und Kunden stehen immer im Mittelpunkt, nicht die Technologie.
+                </p>
+              </div>
+              
+              <!-- Teamgeist -->
+              <div class="border-b border-gray-300 pb-8">
+                <h3 class="text-3xl md:text-4xl font-medium text-gray-900 mb-4">Teamgeist</h3>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  Projekte gelingen nur gemeinsam; ich bringe Energie und Leichtigkeit ins Team.
+                </p>
+              </div>
+              
+              <!-- Schnelligkeit & Pragmatismus -->
+              <div class="border-b border-gray-300 pb-8">
+                <h3 class="text-3xl md:text-4xl font-medium text-gray-900 mb-4">Schnelligkeit & Pragmatismus</h3>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  Lieber iterativ und nah am Problem arbeiten als monatelang im Elfenbeinturm designen.
+                </p>
+              </div>
+              
+              <!-- Klarheit -->
+              <div class="border-b border-gray-300 pb-8">
+                <h3 class="text-3xl md:text-4xl font-medium text-gray-900 mb-4">Klarheit</h3>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  Offene, ehrliche Kommunikation ohne Bullshit.
+                </p>
+              </div>
+              
+              <!-- Spielerischer Ernst -->
+              <div class="pb-8">
+                <h3 class="text-3xl md:text-4xl font-medium text-gray-900 mb-4">Spielerischer Ernst</h3>
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  Ernsthafte Resultate entstehen oft leichter, wenn man nicht zu verkrampft daran geht.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Creative Lab Section -->
-    <div ref="creativeLab" class="w-full pt-40 pb-32 bg-white relative overflow-hidden">
+    <div ref="creativeLab" class="w-full py-16 bg-white relative">
       <!-- Paper Plane Animation -->
-      <img ref="paperPlane" src="/img/paperplane.svg" alt="Paper Plane" class="absolute opacity-0 pointer-events-none z-10" style="left: -100px; top: 50%;" width="60" height="60">
+      <img ref="paperPlane" src="/img/paperplane.svg" alt="Paper Plane" class="absolute opacity-0 pointer-events-none z-10" style="left: -100px; top: 40px;" width="60" height="60">
       
       <div class="container mx-auto px-4">
         <!-- Section Header -->
@@ -991,8 +1090,8 @@ const initPaperPlaneAnimation = () => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: creativeLab.value,
-      start: "center bottom",
-      end: "bottom center",
+      start: "top bottom",
+      end: "center center",
       scrub: 1.5, // Links animation progress to scroll (0.5 = faster movement)
       onLeave: () => {
         // Reset position after scrolling past
