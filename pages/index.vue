@@ -561,11 +561,11 @@
     <div class="w-full pt-0 pb-32 bg-white">
       <div class="container mx-auto px-4">
         <div class="max-w-6xl mx-auto">
-          <div class="rounded-3xl px-12 py-16 text-center" style="background-color: #768B9B;">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-white mb-8 sm:mb-12 leading-tight">
+          <div class="rounded-3xl px-6 sm:px-12 py-10 sm:py-16 text-center" style="background-color: #768B9B;">
+            <h2 class="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-white mb-6 sm:mb-8 md:mb-12 leading-tight">
               Lust, dein Projekt in mein<br>Creative Lab zu bringen?
             </h2>
-            <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full text-lg sm:text-xl font-medium inline-flex items-center mx-auto elastic-btn hover:bg-gray-900 transition-colors duration-300">
+            <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full text-base sm:text-lg md:text-xl font-medium inline-flex items-center mx-auto elastic-btn hover:bg-gray-900 transition-colors duration-300">
               Let's go
               <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -593,8 +593,8 @@
       <!-- Animated Text with Blend Mode -->
       <h2 
         ref="blendText"
-        class="absolute inset-0 flex items-center justify-center text-8xl md:text-9xl lg:text-[12rem] xl:text-[14rem] font-bold text-white select-none pointer-events-none portrait-blend-text"
-        style="transform: translateY(100%);"
+        class="absolute inset-0 flex items-center justify-center text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-bold text-white select-none pointer-events-none portrait-blend-text px-4"
+        style="transform: translateY(100%); word-break: keep-all; white-space: nowrap;"
       >
         DESIGNSNACK
       </h2>
@@ -1098,10 +1098,33 @@ const initPaperPlaneAnimation = () => {
   
   // Skip complex scroll animations on mobile
   if (isMobile()) {
-    // Simple static position for mobile
+    // Simple animation for mobile - just fade in and move slightly
     gsap.set(paperPlane.value, {
-      x: 50,
+      x: 20,
       y: 0,
+      scale: 0.6,
+      opacity: 0.7
+    });
+    
+    // Simple scroll trigger for mobile
+    ScrollTrigger.create({
+      trigger: creativeLab.value,
+      start: "top center",
+      end: "bottom center",
+      onEnter: () => {
+        gsap.to(paperPlane.value, {
+          x: window.innerWidth - 80,
+          opacity: 1,
+          duration: 2,
+          ease: "power2.out"
+        });
+      },
+      onLeave: () => {
+        gsap.to(paperPlane.value, {
+          opacity: 0.3,
+          duration: 0.5
+        });
+      }
     });
     return;
   }
@@ -1257,9 +1280,20 @@ const initPortraitBlendAnimation = () => {
   
   // Skip complex scroll animations on mobile
   if (isMobile()) {
-    // Simple static position for mobile - center the text
-    gsap.set(blendText.value, {
-      y: 0
+    // Simpler animation for mobile - still moves but less complex
+    ScrollTrigger.create({
+      trigger: portraitSection.value,
+      start: "top bottom",
+      end: "bottom top", 
+      scrub: 0.5, // Faster scrub for mobile
+      onUpdate: (self) => {
+        // Simpler movement range for mobile
+        const progress = self.progress;
+        const yValue = 60 - (progress * 80); // Goes from 60% to -20%
+        gsap.set(blendText.value, {
+          y: `${yValue}%`
+        });
+      }
     });
     return;
   }
@@ -1696,6 +1730,14 @@ body, html {
 .portrait-blend-text {
   mix-blend-mode: difference;
   color: white;
+}
+
+/* Mobile optimizations for portrait text */
+@media (max-width: 768px) {
+  .portrait-blend-text {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    line-height: 0.9;
+  }
 }
 
 </style>
