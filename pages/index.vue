@@ -561,7 +561,7 @@
     <div class="w-full pt-0 pb-32 bg-white">
       <div class="container mx-auto px-4">
         <div class="max-w-6xl mx-auto">
-          <div class="rounded-3xl px-12 py-16 text-center animated-gradient">
+          <div class="rounded-3xl px-12 py-16 text-center" style="background-color: #768B9B;">
             <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-white mb-8 sm:mb-12 leading-tight">
               Lust, dein Projekt in mein<br>Creative Lab zu bringen?
             </h2>
@@ -574,6 +574,30 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Portrait Section with Blend Mode Effect -->
+    <div ref="portraitSection" class="relative w-full h-screen overflow-hidden portrait-blend-container">
+      <!-- Background -->
+      <div class="absolute inset-0 bg-white"></div>
+      
+      <!-- Portrait Image -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <img 
+          src="/img/thomas-veit-designsnack.png" 
+          alt="Thomas Veit - DESIGNSNACK"
+          class="h-full w-auto object-cover"
+        />
+      </div>
+      
+      <!-- Animated Text with Blend Mode -->
+      <h2 
+        ref="blendText"
+        class="absolute inset-0 flex items-center justify-center text-8xl md:text-9xl lg:text-[12rem] xl:text-[14rem] font-bold text-white select-none pointer-events-none portrait-blend-text"
+        style="transform: translateY(100%);"
+      >
+        DESIGNSNACK
+      </h2>
     </div>
 
     <!-- Footer -->
@@ -909,6 +933,8 @@ const service4 = ref(null)
 const service5 = ref(null)
 const creativeLab = ref(null)
 const paperPlane = ref(null)
+const portraitSection = ref(null)
+const blendText = ref(null)
 
 let elasticButtonInstances = [];
 let typographyTimeline = null; // To store the timeline for cleanup
@@ -1225,6 +1251,36 @@ const initServicesScrollAnimation = () => {
   
 };
 
+// Initialize portrait blend text animation
+const initPortraitBlendAnimation = () => {
+  if (!portraitSection.value || !blendText.value) return;
+  
+  // Skip complex scroll animations on mobile
+  if (isMobile()) {
+    // Simple static position for mobile - center the text
+    gsap.set(blendText.value, {
+      y: 0
+    });
+    return;
+  }
+  
+  // Create scroll trigger for the blend text
+  ScrollTrigger.create({
+    trigger: portraitSection.value,
+    start: "top bottom",
+    end: "bottom top",
+    scrub: 1,
+    onUpdate: (self) => {
+      // Move text from bottom (100%) to top (-20%) based on scroll progress
+      const progress = self.progress;
+      const yValue = 100 - (progress * 120); // Goes from 100% to -20%
+      gsap.set(blendText.value, {
+        y: `${yValue}%`
+      });
+    }
+  });
+};
+
 onMounted(() => {
   initElasticButtons();
   
@@ -1232,6 +1288,7 @@ onMounted(() => {
   setTimeout(() => {
     initServicesScrollAnimation();
     initPaperPlaneAnimation();
+    initPortraitBlendAnimation();
   }, 100);
 
 
@@ -1629,6 +1686,16 @@ body, html {
   .logo-container:active {
     transform: scale(0.98);
   }
+}
+
+/* Portrait Blend Mode Effect */
+.portrait-blend-container {
+  isolation: isolate;
+}
+
+.portrait-blend-text {
+  mix-blend-mode: difference;
+  color: white;
 }
 
 </style>
