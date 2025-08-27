@@ -530,7 +530,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
           <!-- CVsnack Project -->
           <a href="https://cvsnack.com" target="_blank" class="flex flex-col group cursor-pointer">
-            <div class="bg-gray-100 rounded-2xl p-8 mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
+            <div class="bg-gray-100 rounded-2xl mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
               <img src="/img/cvsnack.png" alt="CVsnack Online Resume Builder" class="w-full h-auto rounded-lg">
             </div>
             <div class="flex flex-col gap-4">
@@ -543,7 +543,7 @@
           
           <!-- FC Romanshorn Project -->
           <a href="https://app.fcromanshorn.ch/" target="_blank" class="flex flex-col group cursor-pointer">
-            <div class="bg-gray-900 rounded-2xl p-8 mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
+            <div class="bg-gray-900 rounded-2xl mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
               <img src="/img/fcr-app.png" alt="FC Romanshorn Fussball App" class="w-full h-auto rounded-lg">
             </div>
             <div class="flex flex-col gap-4">
