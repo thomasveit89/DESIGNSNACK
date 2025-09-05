@@ -563,7 +563,7 @@
             <div class="flex flex-col gap-4">
               <h3 class="text-3xl font-semibold text-gray-900 group-hover:text-black transition-colors duration-300">Smart Lead Generator (Hackathon)</h3>
               <p class="text-lg text-gray-700 leading-relaxed">
-                Erster Preis beim VibeCodeFest Hackathon 2025. Monitoring von Jobs – Smartes Ranking – Findet die wichtigsten Entscheidungsträger und erstellt eine personalisierte E-Mail.
+                Erster Preis beim VibeCodeFest Hackathon 2025. Überwacht laufend neue Jobs, bewertet Chancen smart und erstellt automatisch eine personalisierte E-Mail.
               </p>
             </div>
           </a>
@@ -576,7 +576,7 @@
             <div class="flex flex-col gap-4">
               <h3 class="text-3xl font-semibold text-gray-900 group-hover:text-black transition-colors duration-300">Already cooking the next thing</h3>
               <p class="text-lg text-gray-700 leading-relaxed">
-                Ich koche mit grosser Wahrscheinlichkeit schon an meinem nächsten Snack.  Oder hast du eine Idee die du verwirklichen möchtest?
+                Ich koche mit grosser Wahrscheinlichkeit schon an meinem nächsten Snack. Oder hast du eine Idee, die du mit mir zum Leben erwecken möchtest?
               </p>
             </div>
           </a>
