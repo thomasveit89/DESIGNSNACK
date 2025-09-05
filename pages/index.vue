@@ -515,7 +515,7 @@
       <!-- Paper Plane Animation -->
       <img ref="paperPlane" src="/img/paperplane.svg" alt="Paper Plane" class="absolute opacity-0 pointer-events-none z-10" style="left: -100px; top: 40px;" width="60" height="60">
       
-      <div class="container mx-auto px-4">
+      <div class="container mb-20 mx-auto px-4">
         <!-- Section Header -->
         <div class="text-center mb-16">
           <h2 class="text-5xl md:text-6xl font-medium text-gray-900 mb-6">
@@ -527,7 +527,7 @@
         </div>
         
         <!-- Project Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 mb-20 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
           <!-- CVsnack Project -->
           <a href="https://cvsnack.com" target="_blank" class="flex flex-col group cursor-pointer">
             <div class="bg-gray-100 rounded-2xl mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
@@ -550,6 +550,33 @@
               <h3 class="text-3xl font-semibold text-gray-900 group-hover:text-black transition-colors duration-300">FC Romanshorn – Fussball App</h3>
               <p class="text-lg text-gray-700 leading-relaxed">
                 Sämtliche Resultate, Spielpläne und Ranglisten in einer benutzerfreundlichen App. Von der Vereinsidee zum funktionsfähigen MVP in nur einem Monat.
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
+          <!-- Smart Lead Generator Project -->
+          <a href="https://designsnack-lead-generator-production.up.railway.app/" target="_blank" class="flex flex-col group cursor-pointer">
+            <div class="bg-gray-100 rounded-2xl mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
+              <img src="/img/designsnack-lead-generator.png" alt="Smart Lead Generator Hackaton" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="text-3xl font-semibold text-gray-900 group-hover:text-black transition-colors duration-300">Smart Lead Generator (Hackathon)</h3>
+              <p class="text-lg text-gray-700 leading-relaxed">
+                Erster Preis beim VibeCodeFest Hackathon 2025. Monitoring von Jobs – Smartes Ranking – Findet die wichtigsten Entscheidungsträger und erstellt eine personalisierte E-Mail.
+              </p>
+            </div>
+          </a>
+          
+          <!-- Next Project -->
+          <a href="#" target="_blank" class="flex flex-col group cursor-pointer">
+            <div class="bg-gray-900 rounded-2xl mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
+              <img src="/img/cooking.png" alt="Next thing" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="text-3xl font-semibold text-gray-900 group-hover:text-black transition-colors duration-300">Already cooking the next thing</h3>
+              <p class="text-lg text-gray-700 leading-relaxed">
+                Ich koche mit grosser Wahrscheinlichkeit schon an meinem nächsten Snack.  Oder hast du eine Idee die du verwirklichen möchtest?
               </p>
             </div>
           </a>
