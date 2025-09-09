@@ -21,17 +21,7 @@
         </div>
 
         <!-- Success Animation State -->
-        <div v-if="showSuccessAnimation" class="flex flex-col items-center justify-center py-8 text-center relative">
-          <!-- Close button for success state -->
-          <button 
-            @click="$router.back()"
-            class="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
-          >
-            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-          
+        <div v-if="showSuccessAnimation" class="flex flex-col items-center justify-center py-8 text-center">
           <DotLottieVue 
             style="height: 200px; width: 200px" 
             autoplay
