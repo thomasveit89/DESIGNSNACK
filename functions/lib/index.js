@@ -3,9 +3,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendEmail = void 0;
 const https_1 = require("firebase-functions/v2/https");
 const v2_1 = require("firebase-functions/v2");
+const params_1 = require("firebase-functions/params");
 const resend_1 = require("resend");
+const resendApiKey = (0, params_1.defineString)("RESEND_API_KEY");
 (0, v2_1.setGlobalOptions)({ maxInstances: 10 });
-exports.sendEmail = (0, https_1.onRequest)({ cors: true }, async (request, response) => {
+exports.sendEmail = (0, https_1.onRequest)({
+    cors: true,
+    invoker: "public",
+    secrets: []
+}, async (request, response) => {
     var _a;
     try {
         if (request.method !== "POST") {
@@ -25,14 +31,8 @@ exports.sendEmail = (0, https_1.onRequest)({ cors: true }, async (request, respo
             response.status(400).json({ error: "Invalid email address" });
             return;
         }
-        // Get Resend API key from Firebase config
-        const resendApiKey = process.env.RESEND_API_KEY || 're_cQ27rdJE_8L3BLSuruswfKQu7KbiWVvaG';
-        if (!resendApiKey) {
-            response.status(500).json({ error: "Email service not configured" });
-            return;
-        }
-        // Initialize Resend
-        const resend = new resend_1.Resend(resendApiKey);
+        // Initialize Resend with API key
+        const resend = new resend_1.Resend(resendApiKey.value());
         // Prepare email content
         const emailContent = `
       <h2>Neue Kontaktanfrage von DESIGNSNACK.ch</h2>

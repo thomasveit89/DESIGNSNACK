@@ -1,10 +1,17 @@
 import {onRequest} from "firebase-functions/v2/https";
 import {setGlobalOptions} from "firebase-functions/v2";
+import {defineString} from "firebase-functions/params";
 import {Resend} from "resend";
+
+const resendApiKey = defineString("RESEND_API_KEY");
 
 setGlobalOptions({maxInstances: 10});
 
-export const sendEmail = onRequest({cors: true}, async (request, response) => {
+export const sendEmail = onRequest({
+  cors: true,
+  invoker: "public",
+  secrets: []
+}, async (request, response) => {
   try {
     if (request.method !== "POST") {
       response.status(405).json({error: "Method not allowed"});
@@ -28,15 +35,8 @@ export const sendEmail = onRequest({cors: true}, async (request, response) => {
       return;
     }
     
-    // Get Resend API key from Firebase config
-    const resendApiKey = process.env.RESEND_API_KEY || 're_cQ27rdJE_8L3BLSuruswfKQu7KbiWVvaG';
-    if (!resendApiKey) {
-      response.status(500).json({error: "Email service not configured"});
-      return;
-    }
-    
-    // Initialize Resend
-    const resend = new Resend(resendApiKey);
+    // Initialize Resend with API key
+    const resend = new Resend(resendApiKey.value());
     
     // Prepare email content
     const emailContent = `
