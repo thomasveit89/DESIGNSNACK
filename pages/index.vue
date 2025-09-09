@@ -556,7 +556,7 @@
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
           <!-- Smart Lead Generator Project -->
-          <a href="https://designsnack-lead-generator-production.up.railway.app/" target="_blank" class="flex flex-col group cursor-pointer">
+          <a href="https://thomasveit89.github.io/designsnack-lead-generator/" target="_blank" class="flex flex-col group cursor-pointer">
             <div class="bg-gray-100 rounded-2xl mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
               <img src="/img/designsnack-lead-generator.png" alt="Smart Lead Generator Hackaton" class="w-full h-auto rounded-lg">
             </div>
