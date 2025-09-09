@@ -6,6 +6,11 @@
 .cache
 dist
 
+# Firebase Functions
+functions/lib
+functions/node_modules
+functions/*.log
+
 # Node dependencies
 node_modules
 
