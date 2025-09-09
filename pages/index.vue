@@ -26,10 +26,10 @@
 
         <!-- Button and Description - 6 columns each -->
         <div class="col-span-12 md:col-span-6">
-          <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-6 rounded-full text-base sm:text-lg md:text-xl font-medium inline-flex items-center elastic-btn">
+          <button @click="openContactModal" class="bg-black text-white px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-6 rounded-full text-base sm:text-lg md:text-xl font-medium inline-flex items-center elastic-btn">
             Lass uns sprechen
             <svg class="ml-2 w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-          </a>
+          </button>
         </div>
 
         <div class="col-span-12 md:col-span-6 mt-8 md:mt-0">
@@ -592,12 +592,12 @@
             <h2 class="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-white mb-6 sm:mb-8 md:mb-12 leading-tight">
               Lust, dein Projekt in mein<br>Creative Lab zu bringen?
             </h2>
-            <a href="mailto:hi@designsnack.ch" class="bg-black text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full text-base sm:text-lg md:text-xl font-medium inline-flex items-center mx-auto elastic-btn hover:bg-gray-900 transition-colors duration-300">
+            <button @click="openContactModal" class="bg-black text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full text-base sm:text-lg md:text-xl font-medium inline-flex items-center mx-auto elastic-btn hover:bg-gray-900 transition-colors duration-300">
               Let's go
               <svg class="ml-3 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -651,9 +651,9 @@
               <a href="https://linkedin.com/company/designsnack" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300 p-3 rounded-full hover:bg-gray-800">
                 <img src="/img/linkedin.svg" alt="LinkedIn" class="w-6 h-6">
               </a>
-              <a href="mailto:hi@designsnack.ch" class="text-gray-300 hover:text-white transition-colors duration-300 p-3 rounded-full hover:bg-gray-800">
+              <button @click="openContactModal" class="text-gray-300 hover:text-white transition-colors duration-300 p-3 rounded-full hover:bg-gray-800">
                 <img src="/img/email.svg" alt="Email" class="w-6 h-6">
-              </a>
+              </button>
             </div>
           </div>
 
@@ -661,17 +661,32 @@
       </div>
     </footer>
 
+    <!-- Contact Modal -->
+    <ContactModal :is-open="isContactModalOpen" @close="closeContactModal" />
+
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
+import ContactModal from '~/components/ContactModal.vue'
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { SplitText } from 'gsap/SplitText'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
+
+// Contact modal state
+const isContactModalOpen = ref(false)
+
+const openContactModal = () => {
+  isContactModalOpen.value = true
+}
+
+const closeContactModal = () => {
+  isContactModalOpen.value = false
+}
 
 const portfolioData = ref([
   {
