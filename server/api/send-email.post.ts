@@ -23,8 +23,8 @@ export default defineEventHandler(async (event) => {
       })
     }
     
-    // Get Resend API key from environment
-    const resendApiKey = process.env.RESEND_API_KEY
+    // Get Resend API key from environment or Firebase config
+    const resendApiKey = process.env.RESEND_API_KEY || process.env.FUNCTIONS_CONFIG?.resend?.api_key
     if (!resendApiKey) {
       throw createError({
         statusCode: 500,

@@ -243,7 +243,7 @@ const submitForm = async () => {
   submitError.value = ''
   
   try {
-    const response = await $fetch('/api/send-email', {
+    const response = await $fetch('https://sendemail-7qr23kfycq-uc.a.run.app', {
       method: 'POST',
       body: form.value
     })
