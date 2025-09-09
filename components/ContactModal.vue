@@ -161,7 +161,7 @@
 </template>
 
 <script setup>
-import { ref, onUnmounted } from 'vue'
+import { ref, onUnmounted, watch } from 'vue'
 import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
 
 const props = defineProps({
@@ -258,7 +258,7 @@ const submitForm = async () => {
   }
 }
 
-// Close modal on Escape key
+// Close modal on Escape key and prevent body scroll
 if (process.client) {
   const handleEscape = (e) => {
     if (e.key === 'Escape' && props.isOpen) {
@@ -266,10 +266,23 @@ if (process.client) {
     }
   }
   
+  // Prevent body scroll when modal is open
+  watch(() => props.isOpen, (isOpen) => {
+    if (isOpen) {
+      // Only prevent body scroll, not the modal overlay
+      document.body.style.overflow = 'hidden'
+    } else {
+      // Restore body scrolling
+      document.body.style.overflow = ''
+    }
+  })
+  
   document.addEventListener('keydown', handleEscape)
   
   onUnmounted(() => {
     document.removeEventListener('keydown', handleEscape)
+    // Restore body scroll
+    document.body.style.overflow = ''
   })
 }
 </script>
@@ -284,10 +297,10 @@ if (process.client) {
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 1rem;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 /* Modal content */
@@ -297,9 +310,9 @@ if (process.client) {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   width: 100%;
   max-width: 32rem;
-  max-height: 90vh;
-  overflow-y: auto;
+  margin: 1rem auto;
   position: relative;
+  min-height: min-content;
 }
 
 /* Custom scrollbar for modal */

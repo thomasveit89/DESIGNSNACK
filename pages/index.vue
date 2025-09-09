@@ -662,7 +662,6 @@
     </footer>
 
     <!-- Contact Modal -->
-    <ContactModal :is-open="isContactModalOpen" @close="closeContactModal" />
 
   </div>
 </template>
@@ -670,7 +669,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
-import ContactModal from '~/components/ContactModal.vue'
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { SplitText } from 'gsap/SplitText'
@@ -681,7 +679,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText)
 const isContactModalOpen = ref(false)
 
 const openContactModal = () => {
-  isContactModalOpen.value = true
+  navigateTo('/contact')
 }
 
 const closeContactModal = () => {
