@@ -7,7 +7,12 @@ export default defineNuxtConfig({
   ssr: false,
   nitro: {
     prerender: {
-      routes: ['/']
+      routes: [
+        '/',
+        '/laws-and-patterns',
+        '/laws-and-patterns/privacy',
+        '/laws-and-patterns/terms'
+      ]
     }
   },
   app: {
