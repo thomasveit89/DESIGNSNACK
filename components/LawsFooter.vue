@@ -24,6 +24,12 @@
           >
             Terms of Service
           </NuxtLink>
+          <NuxtLink
+            to="/laws-and-patterns/support"
+            class="text-gray-600 hover:text-black transition-colors"
+          >
+            Support
+          </NuxtLink>
         </div>
 
         <!-- Copyright -->
