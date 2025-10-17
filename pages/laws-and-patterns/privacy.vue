@@ -29,28 +29,15 @@
         <section class="mb-8">
           <h2 class="text-2xl font-semibold text-black mb-4">2. Information We Collect</h2>
           <p class="text-gray-700 leading-relaxed mb-4">
-            We collect information that you provide directly to us when using our app:
+            We do not collect, store, or transmit any personal data or user information. All app functionality, including your preferences, favorites, quiz progress, and results, is stored locally on your device only.
           </p>
-          <ul class="list-disc pl-6 text-gray-700 space-y-2">
-            <li>Device information (device type, operating system version)</li>
-            <li>Usage data (features accessed, time spent, quiz performance)</li>
-            <li>Favorites and saved content preferences</li>
-            <li>Quiz progress and results</li>
-          </ul>
         </section>
 
         <section class="mb-8">
           <h2 class="text-2xl font-semibold text-black mb-4">3. How We Use Your Information</h2>
           <p class="text-gray-700 leading-relaxed mb-4">
-            We use the information we collect to:
+            Since we do not collect any personal data, we do not use, share, or process any user information. The app functions entirely on your device using local storage.
           </p>
-          <ul class="list-disc pl-6 text-gray-700 space-y-2">
-            <li>Provide, maintain, and improve our services</li>
-            <li>Personalize your experience and save your preferences</li>
-            <li>Track your learning progress and quiz performance</li>
-            <li>Analyze usage patterns to enhance app functionality</li>
-            <li>Communicate with you about updates and new features</li>
-          </ul>
         </section>
 
         <section class="mb-8">
