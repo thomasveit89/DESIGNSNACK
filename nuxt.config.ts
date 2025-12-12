@@ -6,72 +6,9 @@ export default defineNuxtConfig({
   ],
   ssr: false,
   runtimeConfig: {
-    supabaseUrl: process.env.SUPABASE_URL,
-    supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
-  },
-  routeRules: {
-    '/laws-and-patterns': { prerender: true },
-    '/laws-and-patterns/**': { prerender: true }
-  },
-  nitro: {
-    prerender: {
-      routes: [
-        '/',
-        '/laws-and-patterns',
-        '/laws-and-patterns/privacy',
-        '/laws-and-patterns/terms'
-      ]
-    }
-  },
-  hooks: {
-    async 'nitro:config'(nitroConfig) {
-      if (nitroConfig.prerender?.routes) {
-        try {
-          // Import Supabase client
-          const { createClient } = await import('@supabase/supabase-js');
-
-          // Get credentials
-          const supabaseUrl = process.env.SUPABASE_URL;
-          const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
-
-          if (!supabaseUrl || !supabaseAnonKey) {
-            console.warn('⚠️  Supabase credentials not found');
-            return;
-          }
-
-          // Create client and fetch principles
-          const supabase = createClient(supabaseUrl, supabaseAnonKey);
-          const { data: principles, error } = await supabase
-            .from('principles')
-            .select('title');
-
-          if (error) {
-            console.error('❌ Failed to fetch principles:', error);
-            return;
-          }
-
-          // Generate slugs
-          const generateSlug = (title: string) => {
-            return title
-              .toLowerCase()
-              .replace(/['']/g, '')
-              .replace(/[^a-z0-9]+/g, '-')
-              .replace(/^-+|-+$/g, '');
-          };
-
-          // Create route array
-          const slugs = principles.map(p =>
-            `/laws-and-patterns/${generateSlug(p.title)}`
-          );
-
-          // Add to prerender routes
-          nitroConfig.prerender.routes.push(...slugs);
-
-          console.log(`✅ Generated ${slugs.length} principle routes`);
-        } catch (error) {
-          console.error('❌ Error generating routes:', error);
-        }
-      }
+    public: {
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseAnonKey: process.env.SUPABASE_ANON_KEY,
     }
   },
   app: {

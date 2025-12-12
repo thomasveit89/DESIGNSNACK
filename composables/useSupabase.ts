@@ -3,18 +3,19 @@ import type { DbPrinciple, Principle } from '~/types/principles';
 
 let supabaseClient: ReturnType<typeof createClient> | null = null;
 
-export const getSupabaseClient = () => {
-  if (supabaseClient) return supabaseClient;
+export const useSupabase = () => {
+  if (!supabaseClient) {
+    const config = useRuntimeConfig();
+    const supabaseUrl = config.public.supabaseUrl;
+    const supabaseAnonKey = config.public.supabaseAnonKey;
 
-  // Use environment variables directly for SSG/prerendering compatibility
-  const supabaseUrl = process.env.SUPABASE_URL;
-  const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
+    if (!supabaseUrl || !supabaseAnonKey) {
+      throw new Error('Missing Supabase configuration. Please set SUPABASE_URL and SUPABASE_ANON_KEY environment variables.');
+    }
 
-  if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error('Missing Supabase configuration. Ensure SUPABASE_URL and SUPABASE_ANON_KEY are set.');
+    supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
   }
 
-  supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
   return supabaseClient;
 };
 
