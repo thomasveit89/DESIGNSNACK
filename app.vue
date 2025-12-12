@@ -44,8 +44,9 @@
       <NuxtPage />
     </div>
     
-    <!-- Loading Screen - fixed on top -->
+    <!-- Loading Screen - fixed on top (hidden on laws-and-patterns routes) -->
     <div
+      v-if="showLoadingScreen"
       ref="loadingSection"
       class="loading-section"
     >
@@ -65,7 +66,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -74,6 +76,7 @@ gsap.registerPlugin(ScrollTrigger)
 // Add this line early, before other ScrollTrigger setups if possible
 ScrollTrigger.normalizeScroll(true);
 
+const route = useRoute()
 const loadingSection = ref<HTMLElement>()
 const mainContent = ref<HTMLElement>()
 const circleElement = ref<HTMLElement>()
@@ -81,6 +84,11 @@ const triangle1 = ref<SVGElement>()
 const triangle2 = ref<SVGElement>()
 const polygon1 = ref<SVGPolygonElement>()
 const polygon2 = ref<SVGPolygonElement>()
+
+// Hide loading screen on laws-and-patterns routes
+const showLoadingScreen = computed(() => {
+  return !route.path.startsWith('/laws-and-patterns')
+})
 
 let lastScrollTop = 0
 let rotationValue = 0
@@ -204,18 +212,24 @@ const initTriangleAnimations = () => {
 };
 
 onMounted(() => {
-  // Start at top and disable scrolling during loading
-  window.scrollTo(0, 0)
-  document.body.style.overflow = 'hidden'
-  
   // Initialize circle scroll animation
   window.addEventListener('scroll', handleScroll)
-  
+
   // Initialize triangle animations
   initTriangleAnimations()
-  
-  // It might be beneficial to refresh ScrollTrigger here too, before loading animations
-  // ScrollTrigger.refresh(); // Optional: refresh once before initial animations
+
+  // Only show loading screen on non-laws-and-patterns routes
+  if (showLoadingScreen.value) {
+    // Start at top and disable scrolling during loading
+    window.scrollTo(0, 0)
+    document.body.style.overflow = 'hidden'
+  } else {
+    // On laws-and-patterns routes, reset main content position immediately
+    if (mainContent.value) {
+      gsap.set(mainContent.value, { y: 0 })
+    }
+    document.body.style.overflow = 'auto'
+  }
 })
 
 const onLoadingComplete = () => {
