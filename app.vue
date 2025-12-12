@@ -73,8 +73,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Add this line early, before other ScrollTrigger setups if possible
-ScrollTrigger.normalizeScroll(true);
+// Disable normalizeScroll on mobile devices - it causes laggy scrolling on iOS
+const isMobileDevice = () => {
+  if (typeof window === 'undefined') return false;
+  return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+};
+
+// Only enable normalizeScroll on desktop
+if (!isMobileDevice()) {
+  ScrollTrigger.normalizeScroll(true);
+}
 
 const route = useRoute()
 const loadingSection = ref<HTMLElement>()
@@ -120,23 +128,9 @@ const handleScroll = () => {
 
 const initTriangleAnimations = () => {
   if (!triangle1.value || !triangle2.value || !polygon1.value || !polygon2.value) return
-  
-  // Skip heavy animations on mobile devices
+
+  // Completely skip animations on mobile devices for better performance
   if (isMobile()) {
-    // Simple, lightweight animations for mobile
-    gsap.to(triangle1.value, {
-      rotation: 360,
-      duration: 60,
-      ease: "none",
-      repeat: -1
-    })
-    
-    gsap.to(triangle2.value, {
-      rotation: -360,
-      duration: 80,
-      ease: "none",
-      repeat: -1
-    })
     return
   }
   
@@ -212,10 +206,12 @@ const initTriangleAnimations = () => {
 };
 
 onMounted(() => {
-  // Initialize circle scroll animation
-  window.addEventListener('scroll', handleScroll)
+  // Only add scroll listener on desktop for performance
+  if (!isMobile()) {
+    window.addEventListener('scroll', handleScroll)
+  }
 
-  // Initialize triangle animations
+  // Initialize triangle animations (skipped on mobile)
   initTriangleAnimations()
 
   // Only show loading screen on non-laws-and-patterns routes
