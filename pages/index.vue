@@ -569,12 +569,12 @@
           </a>
           
           <!-- Next Project -->
-          <a href="https://apps.apple.com/us/app/designsnack-laws-patterns/id6754067995" target="_blank" class="flex flex-col group cursor-pointer">
+          <a href="/laws-and-patterns" target="_blank" class="flex flex-col group cursor-pointer">
             <div class="bg-gray-900 rounded-2xl mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
               <img src="/img/designsnack-laws-and-patterns.png" alt="DESIGNSNACK Laws & Patterns" class="w-full h-auto rounded-lg">
             </div>
             <div class="flex flex-col gap-4">
-              <h3 class="text-3xl font-semibold text-gray-900 group-hover:text-black transition-colors duration-300">UX Laws & Patterns App</h3>
+              <h3 class="text-3xl font-semibold text-gray-900 group-hover:text-black transition-colors duration-300">UX Laws & Patterns Website & App</h3>
               <p class="text-lg text-gray-700 leading-relaxed">
                 100+ UX laws, patterns und kognitive Verzerrungen in einer benutzerfreundlichen App. Lerne mit Flashcards und AI Quizes.
               </p>
