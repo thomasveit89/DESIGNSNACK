@@ -151,9 +151,20 @@ onMounted(() => {
     padding: 2.5rem 2rem;
   }
 
-  /* Adjust title size */
-  [class*="text-[56px]"] {
-    font-size: 42px;
+  /* Adjust front card title - "Hey" part */
+  [class*="text-[40px]"] {
+    font-size: 32px;
+    line-height: 62px;
+  }
+
+  /* Adjust front card title - Name part */
+  [class*="text-[50px]"] {
+    font-size: 38px;
+  }
+
+  /* Adjust back card headline */
+  [class*="text-[36px]"] {
+    font-size: 28px;
   }
 
   /* Adjust message line size */
@@ -166,16 +177,6 @@ onMounted(() => {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
     font-size: 17px;
-  }
-
-  /* Adjust gift headline */
-  [class*="text-[32px]"] {
-    font-size: 26px;
-  }
-
-  /* Adjust code value */
-  [class*="text-[28px]"] {
-    font-size: 24px;
   }
 
   /* Hide texture on mobile for performance */
