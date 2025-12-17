@@ -93,9 +93,9 @@ const triangle2 = ref<SVGElement>()
 const polygon1 = ref<SVGPolygonElement>()
 const polygon2 = ref<SVGPolygonElement>()
 
-// Hide loading screen on laws-and-patterns routes
+// Hide loading screen on laws-and-patterns and greetings routes
 const showLoadingScreen = computed(() => {
-  return !route.path.startsWith('/laws-and-patterns')
+  return !route.path.startsWith('/laws-and-patterns') && !route.path.startsWith('/greetings')
 })
 
 let lastScrollTop = 0

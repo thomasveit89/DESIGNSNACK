@@ -1,0 +1,30 @@
+{
+  "greetings": [
+    {
+      "slug": "sonde",
+      "firstName": "Sonde",
+      "variant": "client",
+      "title": "Hey Sonde",
+      "lines": [
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich freue mich auf alles, was als Nächstes kommt."
+      ],
+      "ctaLabel": "Hier ist ein kleines Extra ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 20% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "moe",
+      "firstName": "Moe",
+      "variant": "lead",
+      "title": "Hey Moe",
+      "lines": [
+        "Danke fürs Vorbeischauen. Vielleicht kreuzen sich unsere Wege 2026 ja öfter. 🤗"
+      ],
+      "ctaLabel": "Hier ist eine kleine Aufmerksamkeit ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 20% Rabatt auf dein nächstes Projekt. Würde mich freuen, mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    }
+  ]
+}
