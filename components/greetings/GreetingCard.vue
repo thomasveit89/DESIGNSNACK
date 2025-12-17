@@ -18,12 +18,6 @@
           class="absolute w-full h-full bg-[#FAFAF9] rounded-[28px] px-12 py-14 shadow-xl overflow-hidden"
           style="backface-visibility: hidden; transform: rotateY(0deg);"
         >
-          <!-- Subtle paper texture overlay -->
-          <div
-            class="absolute inset-0 pointer-events-none opacity-50"
-            style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.01) 2px, rgba(0, 0, 0, 0.01) 4px), repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 0, 0, 0.01) 2px, rgba(0, 0, 0, 0.01) 4px);"
-          ></div>
-
           <div class="relative z-10 flex flex-col items-start justify-center gap-7 h-full">
             <h2 class="text-[40px] font-semibold leading-tight m-0 flex flex-wrap gap-2">
               <span class="text-gray-900 font-semibold leading-[68px]">{{ greeting.title.split(' ')[0] }}</span>
@@ -54,12 +48,6 @@
           class="absolute w-full h-full bg-[#FAFAF9] rounded-[28px] px-12 py-14 shadow-xl overflow-hidden"
           style="backface-visibility: hidden; transform: rotateY(180deg);"
         >
-          <!-- Subtle paper texture overlay -->
-          <div
-            class="absolute inset-0 pointer-events-none opacity-50"
-            style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.01) 2px, rgba(0, 0, 0, 0.01) 4px), repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 0, 0, 0.01) 2px, rgba(0, 0, 0, 0.01) 4px);"
-          ></div>
-
           <div class="relative z-10 flex flex-col items-start justify-center gap-8 h-full">
             <h2 class="text-[36px] font-semibold text-gray-900 m-0 leading-tight">
               {{ greeting.offerHeadline }}
