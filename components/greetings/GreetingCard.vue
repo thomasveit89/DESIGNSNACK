@@ -166,10 +166,5 @@ onMounted(() => {
     padding-right: 2.25rem;
     font-size: 17px;
   }
-
-  /* Hide texture on mobile for performance */
-  [class*="repeating-linear-gradient"] {
-    display: none;
-  }
 }
 </style>
