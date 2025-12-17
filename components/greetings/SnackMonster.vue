@@ -217,7 +217,7 @@ onUnmounted(() => {
   [class*="w-[220px]"] {
     width: 160px;
     right: -1.25rem;
-    top: -0.8rem;
+    top: -0.5rem;
     pointer-events: none;
   }
 }
