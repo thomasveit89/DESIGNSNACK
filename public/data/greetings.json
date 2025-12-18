@@ -1,29 +1,317 @@
 {
   "greetings": [
     {
-      "slug": "dominic",
-      "firstName": "Dominic",
+      "slug": "aleks-8kj2",
+      "firstName": "Aleks",
+      "lastName": "Milošević",
       "variant": "client",
-      "title": "Hey Dominic",
+      "title": "Hey Aleks",
       "lines": [
-        "Danke, dass du Teil meines 2025 warst. 🤙 Ich freue mich auf alles, was als Nächstes kommt."
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Tommy"
       ],
-      "ctaLabel": "Hier ist ein kleines Extra ✨",
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
       "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
-      "offerMessage": "Ich schenke dir 20% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
       "ctaBackLabel": "← Zurück"
     },
     {
-      "slug": "moe",
-      "firstName": "Moe",
-      "variant": "lead",
-      "title": "Hey Moe",
+      "slug": "raphael-3nm9",
+      "firstName": "Raphael",
+      "lastName": "Geiger",
+      "variant": "client",
+      "title": "Hey Raphael",
       "lines": [
-        "Danke fürs Vorbeischauen. Vielleicht kreuzen sich unsere Wege 2026 ja öfter. 🤗"
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Tommy"
       ],
-      "ctaLabel": "Hier ist eine kleine Aufmerksamkeit ✨",
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
       "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
-      "offerMessage": "Ich schenke dir 20% Rabatt auf dein nächstes Projekt. Würde mich freuen, mit dir zusammenzuarbeiten! 🙌",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "micky-7pq4",
+      "firstName": "Micky",
+      "lastName": "Baratovic",
+      "variant": "client",
+      "title": "Hey Micky",
+      "lines": [
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "dominic-5rt8",
+      "firstName": "Dominic",
+      "lastName": "Wuffli",
+      "variant": "client",
+      "title": "Hey Dominic",
+      "lines": [
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "dominique-2wk6",
+      "firstName": "Dominique",
+      "lastName": "Wiggenhauser",
+      "variant": "lead",
+      "title": "Hey Dominique",
+      "lines": [
+        "Danke fürs Vorbeischauen. Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅 Vielleicht kreuzen sich unsere Wege 2026 ja öfter. 🤗",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "nick-9hx3",
+      "firstName": "Nick",
+      "lastName": "Pecoraro",
+      "variant": "client",
+      "title": "Hey Nick",
+      "lines": [
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "armin-1df7",
+      "firstName": "Armin",
+      "lastName": "Zuper",
+      "variant": "client",
+      "title": "Hey Armin",
+      "lines": [
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "jonas-6vb2",
+      "firstName": "Jonas",
+      "lastName": "Güther",
+      "variant": "client",
+      "title": "Hey Jonas",
+      "lines": [
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "saskia-4zl5",
+      "firstName": "Saskia",
+      "lastName": "Iwaniw",
+      "variant": "client",
+      "title": "Hey Saskia",
+      "lines": [
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "thomas-8mw1",
+      "firstName": "Thomas",
+      "lastName": "Ogi",
+      "variant": "lead",
+      "title": "Hey Thomas",
+      "lines": [
+        "Danke fürs Vorbeischauen. Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅 Vielleicht kreuzen sich unsere Wege 2026 ja öfter. 🤗",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "daniel-3yr9",
+      "firstName": "Daniel",
+      "lastName": "Temperli",
+      "variant": "lead",
+      "title": "Hey Daniel",
+      "lines": [
+        "Danke fürs Vorbeischauen. Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅 Vielleicht kreuzen sich unsere Wege 2026 ja öfter. 🤗",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "dario-7pk4",
+      "firstName": "Dario",
+      "lastName": "Meier",
+      "variant": "lead",
+      "title": "Hey Dario",
+      "lines": [
+        "Danke fürs Vorbeischauen. Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅 Vielleicht kreuzen sich unsere Wege 2026 ja öfter. 🤗",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "christian-5nq8",
+      "firstName": "Christian",
+      "lastName": "Fleck",
+      "variant": "client",
+      "title": "Hey Christian",
+      "lines": [
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "patrik-2hv6",
+      "firstName": "Patrik",
+      "lastName": "Kasper",
+      "variant": "client",
+      "title": "Hey Patrik",
+      "lines": [
+        "Danke fürs Vertrauen und die Arbeit bei Finnova. Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "Liebe Grüsse, Thomas"
+      ],
+      "ctaLabel": "Danke für 2025! 🙏",
+      "offerHeadline": "Auf ein erfolgreiches 2026 bei Finnova",
+      "offerMessage": "Die Zusammenarbeit macht richtig Spass! Ich freue mich sehr, auch 2026 für Finnova tätig sein zu dürfen. 🚀",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "daniel-9ws3",
+      "firstName": "Daniel",
+      "lastName": "Niklaus",
+      "variant": "client",
+      "title": "Hey Daniel",
+      "lines": [
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "thomas-4bx7",
+      "firstName": "Thomas",
+      "lastName": "Krüger",
+      "variant": "client",
+      "title": "Hey Thomas",
+      "lines": [
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "joey-1mz5",
+      "firstName": "Joey",
+      "lastName": "Geering",
+      "variant": "lead",
+      "title": "Hey Joey",
+      "lines": [
+        "Danke fürs Vorbeischauen. Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅 Vielleicht kreuzen sich unsere Wege 2026 ja öfter. 🤗",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "kevin-6tr2",
+      "firstName": "Kevin",
+      "lastName": "Cocco",
+      "variant": "lead",
+      "title": "Hey Kevin",
+      "lines": [
+        "Danke fürs Vorbeischauen. Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅 Vielleicht kreuzen sich unsere Wege 2026 ja öfter. 🤗",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, mit dir zusammenzuarbeiten! 🙌",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "finnova-8fp4",
+      "firstName": "Team",
+      "variant": "friend",
+      "title": "Hey Team",
+      "lines": [
+        "Danke, dass ihr Teil meines 2025 wart. 🤙 Ich wünsche euch schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Thomas"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Yam Yam 😋",
+      "offerMessage": "Gerne lade ich euch zum Essen bei Yam Yam und lecker Bierchen ein! 🍽️🍺",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "pascal-3qw9",
+      "firstName": "Pascal",
+      "lastName": "Leuenberger",
+      "variant": "friend",
+      "title": "Ciao Päschä",
+      "lines": [
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass 2026 rocken!",
+      "offerMessage": "Gerne lade ich dich dich zum Essen beim Thai und lecker Bierchen ein! 🍽️🍺",
+      "ctaBackLabel": "← Zurück"
+    },
+    {
+      "slug": "manuel-7jk1",
+      "firstName": "Manuel",
+      "lastName": "Brunner",
+      "variant": "client",
+      "title": "Hey Manuel",
+      "lines": [
+        "Danke, dass du Teil meines 2025 warst. 🤙 Ich wünsche dir schöne Festtage und einen guten Rutsch! 🎅",
+        "LG Tommy"
+      ],
+      "ctaLabel": "Hier ist ein kleiner Snack ✨",
+      "offerHeadline": "Lass uns 2026 etwas Grossartiges schaffen",
+      "offerMessage": "Ich schenke dir 15% Rabatt auf dein nächstes Projekt. Würde mich freuen, wieder mit dir zusammenzuarbeiten! 🙌",
       "ctaBackLabel": "← Zurück"
     }
   ]

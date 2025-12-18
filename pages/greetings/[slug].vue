@@ -1,5 +1,19 @@
 <template>
   <div class="greetings-page">
+    <!-- Snowflake Background Animation -->
+    <div class="snowflakes-background">
+      <DotLottieVue
+        :src="'/animations/snowflakes.lottie'"
+        :loop="true"
+        :autoplay="true"
+        :speed="0.9"
+        backgroundColor="transparent"
+      />
+    </div>
+
+    <!-- Bottom Fade Overlay -->
+    <div class="snowflakes-fade-overlay"></div>
+
     <!-- Loading State -->
     <div v-if="loading" class="loading-container">
       <div class="loading-spinner"></div>
@@ -26,6 +40,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
 import type { Greeting } from '~/types/greeting'
 import GreetingCard from '~/components/greetings/GreetingCard.vue'
 
@@ -75,6 +90,34 @@ onMounted(async () => {
   padding: 40px 20px;
   position: relative;
   overflow: hidden;
+}
+
+/* Snowflakes Background */
+.snowflakes-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.snowflakes-background dotlottie-player {
+  width: 100%;
+  height: 100%;
+}
+
+/* Snowflakes Bottom Fade Overlay */
+.snowflakes-fade-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to top, #7A8E9C 10%, transparent 100%);
 }
 
 /* Loading State */
