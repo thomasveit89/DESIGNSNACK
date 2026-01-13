@@ -715,9 +715,9 @@ const portfolioData = ref([
   },
   {
     id: 2,
-    image: '/img/app-design.png',
-    title: 'Krankenkassen App',
-    description: 'Onboarding-Flow für eine Krankenkassen App'
+    image: '/img/joyo.png',
+    title: 'Joyo',
+    description: 'Emotionale Geschenkreisen'
   },
   {
     id: 3,
