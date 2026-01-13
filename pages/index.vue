@@ -568,7 +568,21 @@
             </div>
           </a>
           
-          <!-- Next Project -->
+          <!-- Joyo -->
+          <a href="https://joyo.ch" target="_blank" class="flex flex-col group cursor-pointer">
+            <div class="bg-gray-900 rounded-2xl mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
+              <img src="/img/joyo.png" alt="Joyo – Emotional Digital Gift Experience" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="flex flex-col gap-4">
+              <h3 class="text-3xl font-semibold text-gray-900 group-hover:text-black transition-colors duration-300">Joyo – Emotional Digital Gift Experience</h3>
+              <p class="text-lg text-gray-700 leading-relaxed">
+                Verwandle deine besonderen Momente in interaktive Geschichten mit KI. Perfekt für Heiratsanträge, Ankündigungen, Überraschungen und Feiern.
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 mb-20 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
+          <!-- Laws & Patterns Project -->
           <a href="/laws-and-patterns" target="_blank" class="flex flex-col group cursor-pointer">
             <div class="bg-gray-900 rounded-2xl mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
               <img src="/img/designsnack-laws-and-patterns.png" alt="DESIGNSNACK Laws & Patterns" class="w-full h-auto rounded-lg">
@@ -580,8 +594,7 @@
               </p>
             </div>
           </a>
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">          
+
           <!-- Next Project -->
           <a href="#" target="_blank" class="flex flex-col group cursor-pointer">
             <div class="bg-gray-900 rounded-2xl mb-8 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
@@ -689,15 +702,8 @@ import { SplitText } from 'gsap/SplitText'
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
-// Contact modal state
-const isContactModalOpen = ref(false)
-
 const openContactModal = () => {
   navigateTo('/contact')
-}
-
-const closeContactModal = () => {
-  isContactModalOpen.value = false
 }
 
 const portfolioData = ref([
@@ -1680,6 +1686,7 @@ body, html {
   background: #e5e7eb;
   outline: none;
   -webkit-appearance: none;
+  appearance: none;
   border-radius: 6px;
 }
 
