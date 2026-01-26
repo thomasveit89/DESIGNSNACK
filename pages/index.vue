@@ -670,6 +670,9 @@
             <p class="text-gray-400 text-md">
               © 2025 DESIGNSNACK GmbH – Powered by coffee & curiosity
             </p>
+            <NuxtLink to="/impressum" class="text-gray-500 text-sm hover:text-white transition-colors duration-200 mt-2 inline-block">
+              Impressum
+            </NuxtLink>
           </div>
           
           <!-- Social Links -->
