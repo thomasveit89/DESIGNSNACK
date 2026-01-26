@@ -678,7 +678,7 @@
           <!-- Social Links -->
           <div>
             <div class="flex items-center justify-center gap-1">
-              <a href="https://linkedin.com/company/designsnack" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300 p-3 rounded-full hover:bg-gray-800">
+              <a href="https://www.linkedin.com/in/thomasveit/" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300 p-3 rounded-full hover:bg-gray-800">
                 <img src="/img/linkedin.svg" alt="LinkedIn" class="w-6 h-6">
               </a>
               <button @click="openContactModal" class="text-gray-300 hover:text-white transition-colors duration-300 p-3 rounded-full hover:bg-gray-800">
