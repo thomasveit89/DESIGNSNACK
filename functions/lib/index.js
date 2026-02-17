@@ -8,7 +8,7 @@ const resend_1 = require("resend");
 const resendApiKey = (0, params_1.defineString)("RESEND_API_KEY");
 (0, v2_1.setGlobalOptions)({ maxInstances: 10 });
 exports.sendEmail = (0, https_1.onRequest)({
-    cors: true,
+    cors: ["https://designsnack.ch", "https://www.designsnack.ch", "http://localhost:3000"],
     invoker: "public",
     secrets: []
 }, async (request, response) => {

@@ -706,7 +706,7 @@ import { SplitText } from 'gsap/SplitText'
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
 const openContactModal = () => {
-  navigateTo('/contact')
+  window.location.href = 'mailto:hi@designsnack.ch'
 }
 
 const portfolioData = ref([
