@@ -1,0 +1,37 @@
+import type { Metadata } from 'next'
+import { Urbanist } from 'next/font/google'
+import './globals.css'
+
+const urbanist = Urbanist({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-urbanist',
+  display: 'swap',
+})
+
+export const metadata: Metadata = {
+  title: 'Thomas Veit — Design Engineer',
+  description:
+    'Senior Design Engineer based in Switzerland. 17+ years of UX depth, frontend roots, and AI in the workflow. I embed in your team and ship what I design.',
+  openGraph: {
+    title: 'Thomas Veit — Design Engineer',
+    description:
+      'Senior Design Engineer based in Switzerland. I design and build — accelerated by AI.',
+    url: 'https://designsnack.ch',
+    siteName: 'DESIGNSNACK',
+    locale: 'en_US',
+    type: 'website',
+  },
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" className={urbanist.variable}>
+      <body>{children}</body>
+    </html>
+  )
+}

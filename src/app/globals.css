@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-urbanist), ui-sans-serif, sans-serif;
+  --color-black: #111827;
+  --color-dark-black: #06080E;
+  --color-white: #FFFFFF;
+  --color-steel-mist: #768B9B;
+  --color-muted: #e5e5e5;
+  --color-card-light: #fafaf9;
+  --color-card-dark: #0e0e10;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #111827;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

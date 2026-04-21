@@ -1,0 +1,69 @@
+'use client'
+
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
+
+export function About() {
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+
+  return (
+    <section id="about" ref={ref} className="px-[84px] py-[120px]">
+      <div className="flex flex-col lg:flex-row gap-16 lg:gap-[80px] items-start">
+
+        {/* Left: Copy */}
+        <motion.div
+          className="lg:w-[55%]"
+          initial={{ opacity: 0, y: 32 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <h2
+            className="font-black text-white mb-10"
+            style={{ fontSize: '64px', letterSpacing: '-1.92px', lineHeight: '72px' }}
+          >
+            Hey, I&apos;m Tommy
+          </h2>
+
+          <div
+            className="font-medium text-[#e5e5e5] space-y-6 leading-snug"
+            style={{ fontSize: '32px' }}
+          >
+            <p>
+              I&apos;m a Swiss designer and developer based in Romanshorn. I&apos;ve spent over 17
+              years designing complex digital products for banks, insurance companies, and
+              healthcare organisations — the kind of work where getting the details wrong actually
+              matters.
+            </p>
+            <p>
+              Along the way I picked up frontend development, built my own products, and started
+              using AI as a serious part of my workflow. At some point &ldquo;UX Designer&rdquo;
+              stopped feeling like the right label. Design Engineer fits better.
+            </p>
+            <p>
+              When I&apos;m not designing or building, I&apos;m travelling — 40 countries and
+              counting — coaching football, or foil surfing.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Right: Photo */}
+        <motion.div
+          className="lg:w-[45%]"
+          initial={{ opacity: 0, y: 32 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
+        >
+          {/* Photo placeholder — replace with tommy.png once assets are provided */}
+          <div className="relative rounded-[16px] overflow-hidden aspect-[4/5] bg-[#1a1f2e]">
+            <img
+              src="https://www.figma.com/api/mcp/asset/17248934-7a35-451e-a0fd-2bb3444c35cc"
+              alt="Tommy Veit"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
