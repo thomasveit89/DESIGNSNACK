@@ -16,31 +16,7 @@ const fadeUp = {
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-[84px] pt-[200px] pb-[120px]">
-
-      {/* Decorative background lines — from Figma */}
-      <div
-        className="absolute pointer-events-none select-none"
-        style={{ top: '-208px', left: 'calc(33.33% + 122px)', width: '885px', height: '1007px', transform: 'rotate(94.66deg)', opacity: 0.5 }}
-        aria-hidden="true"
-      >
-        <img
-          src="https://www.figma.com/api/mcp/asset/efcd963d-143f-49fa-b5f9-88145bd8666f"
-          alt=""
-          className="w-full h-full object-contain"
-        />
-      </div>
-      <div
-        className="absolute pointer-events-none select-none"
-        style={{ top: '105px', left: '-221px', width: '1573px', height: '1206px', opacity: 0.35 }}
-        aria-hidden="true"
-      >
-        <img
-          src="https://www.figma.com/api/mcp/asset/75055c21-a858-4882-b5e8-f3265ce70aca"
-          alt=""
-          className="w-full h-full object-contain"
-        />
-      </div>
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 pt-[120px] pb-16 md:px-10 md:pt-[160px] md:pb-20 lg:pl-[280px] lg:pr-[84px] lg:pt-[200px] lg:pb-[120px]">
 
       {/* Headline */}
       <div className="relative z-10">
@@ -50,7 +26,7 @@ export function Hero() {
           animate="visible"
           variants={fadeUp}
           className="font-black text-white leading-none"
-          style={{ fontSize: '140px', letterSpacing: '-7px', lineHeight: '120px' }}
+          style={{ fontSize: 'clamp(44px, 9.5vw, 140px)', letterSpacing: '-0.05em', lineHeight: 0.86 }}
         >
           I design it.
         </motion.h1>
@@ -60,7 +36,7 @@ export function Hero() {
           animate="visible"
           variants={fadeUp}
           className="font-black text-white"
-          style={{ fontSize: '140px', letterSpacing: '-7px', lineHeight: '120px', marginTop: '16px' }}
+          style={{ fontSize: 'clamp(44px, 9.5vw, 140px)', letterSpacing: '-0.05em', lineHeight: 0.86, marginTop: '0.12em' }}
         >
           I develop it.
         </motion.p>
@@ -71,8 +47,8 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="font-medium text-muted mt-14 max-w-[864px]"
-          style={{ fontSize: '32px' }}
+          className="font-medium text-muted mt-10 lg:mt-14 max-w-[864px]"
+          style={{ fontSize: 'clamp(17px, 2vw, 32px)' }}
         >
           Senior Design Engineer based in Switzerland.
           <br />
@@ -88,7 +64,7 @@ export function Hero() {
           variants={fadeUp}
           className="mt-12"
         >
-          <Button href="mailto:tommy@designsnack.ch" className="text-[32px]">
+          <Button href="mailto:tommy@designsnack.ch">
             Let&apos;s chat →
           </Button>
         </motion.div>

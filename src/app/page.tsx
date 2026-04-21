@@ -7,10 +7,12 @@ import { BuildingInPublic } from '@/components/sections/BuildingInPublic'
 import { About } from '@/components/sections/About'
 import { Contact } from '@/components/sections/Contact'
 import { Footer } from '@/components/sections/Footer'
+import { GeometricDecor } from '@/components/sections/GeometricDecor'
 
 export default function Home() {
   return (
-    <main>
+    <main className="relative">
+      <GeometricDecor />
       <Nav />
       <Hero />
       <TrustBar />

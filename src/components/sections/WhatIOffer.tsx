@@ -9,7 +9,7 @@ export function WhatIOffer() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section ref={ref} id="about-offer" className="px-[84px] py-[120px]">
+    <section ref={ref} id="about-offer" className="px-5 py-16 md:px-10 md:py-20 lg:px-[84px] lg:py-[120px]">
       <div className="flex flex-col lg:flex-row gap-16 lg:gap-[80px]">
 
         {/* Left: Heading */}
@@ -21,7 +21,7 @@ export function WhatIOffer() {
         >
           <h2
             className="font-black text-white"
-            style={{ fontSize: '64px', letterSpacing: '-1.92px', lineHeight: '72px' }}
+            style={{ fontSize: 'clamp(32px, 4.5vw, 64px)', letterSpacing: '-0.03em', lineHeight: 1.1 }}
           >
             You hire a designer.{' '}
             <br />
@@ -38,7 +38,7 @@ export function WhatIOffer() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
         >
-          <div className="font-medium text-muted space-y-6" style={{ fontSize: '32px' }}>
+          <div className="font-medium text-muted space-y-6" style={{ fontSize: 'clamp(17px, 2vw, 32px)' }}>
             <p>
               I work embedded in product teams or on defined projects. Either way, you get someone
               who designs and builds — not an agency handoff.

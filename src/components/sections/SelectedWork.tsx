@@ -84,7 +84,7 @@ function WorkCard({
         scale,
         transformOrigin: 'top center',
       }}
-      className="w-full h-screen flex items-start pt-[80px] pb-[40px] px-[84px]"
+      className="w-full h-screen flex items-start pt-[60px] pb-[20px] px-4 md:pt-[70px] md:px-10 lg:pt-[80px] lg:pb-[40px] lg:px-[84px]"
     >
       <div
         className="w-full rounded-[12px] overflow-hidden flex flex-col"
@@ -118,19 +118,19 @@ function WorkCard({
 
         {/* Footer bar */}
         <div
-          className="flex-none flex items-center justify-between px-14 py-10"
-          style={{ background: footerBg, minHeight: '180px' }}
+          className="flex-none flex flex-col gap-4 px-6 py-6 md:flex-row md:items-center md:justify-between md:px-14 md:py-10"
+          style={{ background: footerBg, minHeight: '120px' }}
         >
-          <div className="flex flex-col gap-3 max-w-[600px]">
+          <div className="flex flex-col gap-2 md:gap-3 md:max-w-[600px]">
             <span
-              className="text-[13px] font-semibold uppercase tracking-[0.12em] px-3 py-1 rounded-full w-fit"
+              className="text-[11px] md:text-[13px] font-semibold uppercase tracking-[0.12em] px-3 py-1 rounded-full w-fit"
               style={{ background: tagBg, color: mutedColor }}
             >
               {project.tag}
             </span>
             <p
               className="font-medium leading-snug"
-              style={{ fontSize: '28px', color: mutedColor }}
+              style={{ fontSize: 'clamp(15px, 1.8vw, 28px)', color: mutedColor }}
             >
               {project.description}
             </p>
@@ -138,8 +138,8 @@ function WorkCard({
 
           <a
             href={project.slug}
-            className="flex-none flex items-center gap-2 rounded-full font-bold px-8 py-5 transition-opacity hover:opacity-80 text-[24px]"
-            style={{ background: btnBg, color: btnText }}
+            className="flex-none self-start md:self-auto flex items-center gap-2 rounded-full font-bold px-5 py-3 md:px-8 md:py-5 transition-opacity hover:opacity-80"
+            style={{ background: btnBg, color: btnText, fontSize: 'clamp(14px, 1.4vw, 24px)' }}
           >
             View project →
           </a>
@@ -159,10 +159,10 @@ export function SelectedWork() {
   return (
     <section id="work">
       {/* Section heading */}
-      <div className="px-[84px] py-[80px] flex justify-end">
+      <div className="px-5 py-12 md:px-10 md:py-16 lg:px-[84px] lg:py-[80px] flex justify-end">
         <h2
           className="font-black text-white text-right"
-          style={{ fontSize: '64px', letterSpacing: '-1.92px' }}
+          style={{ fontSize: 'clamp(32px, 4.5vw, 64px)', letterSpacing: '-0.03em' }}
         >
           Selected work
         </h2>

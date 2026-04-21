@@ -12,16 +12,15 @@ function LinkedInIcon({ size = 24 }: { size?: number }) {
 
 export function Footer() {
   return (
-    <footer className="bg-black px-[84px] py-[44px] flex items-center justify-between">
-      <p className="font-medium text-muted" style={{ fontSize: '20px' }}>
+    <footer className="bg-black px-5 py-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:px-10 md:py-[44px] lg:px-[84px]">
+      <p className="font-medium text-muted text-[14px] md:text-[16px] lg:text-[20px]">
         © 2025 DESIGNSNACK GmbH – Powered by coffee &amp; curiosity
       </p>
 
       <div className="flex items-center gap-6">
         <a
           href="#"
-          className="font-medium text-muted hover:text-white transition-colors"
-          style={{ fontSize: '20px' }}
+          className="font-medium text-muted hover:text-white transition-colors text-[14px] md:text-[16px] lg:text-[20px]"
         >
           Impressum
         </a>

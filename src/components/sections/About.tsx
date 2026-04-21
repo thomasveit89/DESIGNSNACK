@@ -8,7 +8,7 @@ export function About() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="about" ref={ref} className="px-[84px] py-[120px]">
+    <section id="about" ref={ref} className="px-5 py-16 md:px-10 md:py-20 lg:px-[84px] lg:py-[120px]">
       <div className="flex flex-col lg:flex-row gap-16 lg:gap-[80px] items-start">
 
         {/* Left: Copy */}
@@ -20,14 +20,14 @@ export function About() {
         >
           <h2
             className="font-black text-white mb-10"
-            style={{ fontSize: '64px', letterSpacing: '-1.92px', lineHeight: '72px' }}
+            style={{ fontSize: 'clamp(32px, 4.5vw, 64px)', letterSpacing: '-0.03em', lineHeight: 1.1 }}
           >
             Hey, I&apos;m Tommy
           </h2>
 
           <div
             className="font-medium text-muted space-y-6 leading-snug"
-            style={{ fontSize: '32px' }}
+            style={{ fontSize: 'clamp(17px, 2vw, 32px)' }}
           >
             <p>
               I&apos;m a Swiss designer and developer based in Romanshorn. I&apos;ve spent over 17

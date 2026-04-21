@@ -33,7 +33,7 @@ export function BuildingInPublic() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section className="px-[84px] py-[120px]">
+    <section className="px-5 py-16 md:px-10 md:py-20 lg:px-[84px] lg:py-[120px]">
       {/* Heading */}
       <motion.div
         ref={ref}
@@ -44,7 +44,7 @@ export function BuildingInPublic() {
       >
         <h2
           className="font-black text-white"
-          style={{ fontSize: '64px', letterSpacing: '-1.92px', lineHeight: '72px' }}
+          style={{ fontSize: 'clamp(32px, 4.5vw, 64px)', letterSpacing: '-0.03em', lineHeight: 1.1 }}
         >
           Work in progress.
           <br />
@@ -52,7 +52,7 @@ export function BuildingInPublic() {
         </h2>
         <p
           className="font-medium text-muted mt-8"
-          style={{ fontSize: '32px' }}
+          style={{ fontSize: 'clamp(17px, 2vw, 32px)' }}
         >
           A live feed of videos, shipped products, and things I&apos;m making.
         </p>
@@ -60,10 +60,8 @@ export function BuildingInPublic() {
 
       {/* CSS masonry grid */}
       <div
-        style={{
-          columns: '3',
-          columnGap: '16px',
-        }}
+        className="columns-1 sm:columns-2 lg:columns-3"
+        style={{ columnGap: '16px' }}
       >
         {feedItems.map((item, i) => (
           <FeedCard key={item.id} item={item} index={i} />

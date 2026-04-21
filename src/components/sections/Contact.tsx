@@ -11,7 +11,7 @@ export function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="relative overflow-hidden py-[160px]"
+      className="relative overflow-hidden py-16 md:py-24 lg:py-[160px]"
       style={{ background: '#0d1117' }}
     >
       {/* Background texture */}
@@ -47,14 +47,14 @@ export function Contact() {
         />
       </div>
 
-      <div className="relative z-10 px-[84px] flex justify-end">
+      <div className="relative z-10 px-5 md:px-10 lg:px-[84px] flex justify-end">
         <motion.a
           href="mailto:tommy@designsnack.ch"
           initial={{ opacity: 0, y: 32 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="font-black text-white text-right hover:text-[#768B9B] transition-colors block"
-          style={{ fontSize: '104px', letterSpacing: '-3.12px', lineHeight: 1.05 }}
+          style={{ fontSize: 'clamp(20px, 6.5vw, 104px)', letterSpacing: '-0.03em', lineHeight: 1.05 }}
         >
           tommy@designsnack.ch
         </motion.a>
