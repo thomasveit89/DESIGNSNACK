@@ -71,7 +71,7 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           variants={fadeUp}
-          className="font-medium text-[#e5e5e5] mt-14 max-w-[864px]"
+          className="font-medium text-muted mt-14 max-w-[864px]"
           style={{ fontSize: '32px' }}
         >
           Senior Design Engineer based in Switzerland.

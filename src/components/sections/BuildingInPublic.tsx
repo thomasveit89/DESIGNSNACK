@@ -51,7 +51,7 @@ export function BuildingInPublic() {
           Always.
         </h2>
         <p
-          className="font-medium text-[#e5e5e5] mt-8"
+          className="font-medium text-muted mt-8"
           style={{ fontSize: '32px' }}
         >
           A live feed of videos, shipped products, and things I&apos;m making.

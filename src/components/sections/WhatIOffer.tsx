@@ -38,7 +38,7 @@ export function WhatIOffer() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
         >
-          <div className="font-medium text-[#e5e5e5] space-y-6" style={{ fontSize: '32px' }}>
+          <div className="font-medium text-muted space-y-6" style={{ fontSize: '32px' }}>
             <p>
               I work embedded in product teams or on defined projects. Either way, you get someone
               who designs and builds — not an agency handoff.

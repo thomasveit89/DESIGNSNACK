@@ -26,7 +26,7 @@ export function About() {
           </h2>
 
           <div
-            className="font-medium text-[#e5e5e5] space-y-6 leading-snug"
+            className="font-medium text-muted space-y-6 leading-snug"
             style={{ fontSize: '32px' }}
           >
             <p>
@@ -54,10 +54,9 @@ export function About() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
         >
-          {/* Photo placeholder — replace with tommy.png once assets are provided */}
           <div className="relative rounded-[16px] overflow-hidden aspect-[4/5] bg-[#1a1f2e]">
             <img
-              src="https://www.figma.com/api/mcp/asset/17248934-7a35-451e-a0fd-2bb3444c35cc"
+              src="/assets/tommy.png"
               alt="Tommy Veit"
               className="absolute inset-0 w-full h-full object-cover object-center"
             />
