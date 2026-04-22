@@ -32,7 +32,7 @@ export function About() {
             <p>
               I&apos;m a Swiss designer and developer based in Romanshorn. I&apos;ve spent over 17
               years designing complex digital products for banks, insurance companies, and
-              healthcare organisations — the kind of work where getting the details wrong actually
+              healthcare organisations – the kind of work where getting the details wrong actually
               matters.
             </p>
             <p>
@@ -41,8 +41,8 @@ export function About() {
               stopped feeling like the right label. Design Engineer fits better.
             </p>
             <p>
-              When I&apos;m not designing or building, I&apos;m travelling — 40 countries and
-              counting — coaching football, or foil surfing.
+              When I&apos;m not designing or building, I&apos;m travelling – 40 countries and
+              counting – coaching football, or foil surfing.
             </p>
           </div>
         </motion.div>
@@ -54,7 +54,7 @@ export function About() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
         >
-          <div className="relative rounded-[16px] overflow-hidden aspect-[4/5] bg-[#1a1f2e]">
+          <div className="relative rounded-[16px] overflow-hidden aspect-[4/5]">
             <img
               src="/assets/tommy.png"
               alt="Tommy Veit"

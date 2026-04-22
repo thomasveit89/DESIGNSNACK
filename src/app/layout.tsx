@@ -10,13 +10,17 @@ const urbanist = Urbanist({
 })
 
 export const metadata: Metadata = {
-  title: 'Thomas Veit — Design Engineer',
+  title: 'DESIGNSNACK',
   description:
     'Senior Design Engineer based in Switzerland. 17+ years of UX depth, frontend roots, and AI in the workflow. I embed in your team and ship what I design.',
+  icons: {
+    icon: { url: '/assets/favicon.png', type: 'image/png' },
+    shortcut: { url: '/assets/favicon.ico', type: 'image/x-icon' },
+  },
   openGraph: {
-    title: 'Thomas Veit — Design Engineer',
+    title: 'DESIGNSNACK',
     description:
-      'Senior Design Engineer based in Switzerland. I design and build — accelerated by AI.',
+      'Senior Design Engineer based in Switzerland. I design and build – accelerated by AI.',
     url: 'https://designsnack.ch',
     siteName: 'DESIGNSNACK',
     locale: 'en_US',

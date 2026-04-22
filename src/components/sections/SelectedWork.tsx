@@ -138,8 +138,8 @@ function WorkCard({
 
           <a
             href={project.slug}
-            className="flex-none self-start md:self-auto flex items-center gap-2 rounded-full font-bold px-5 py-3 md:px-8 md:py-5 transition-opacity hover:opacity-80"
-            style={{ background: btnBg, color: btnText, fontSize: 'clamp(14px, 1.4vw, 24px)' }}
+            className={`flex-none self-start md:self-auto flex items-center gap-2 rounded-full font-bold px-5 py-3 md:px-8 md:py-5 transition-colors hover:text-steel-mist ${project.dark ? 'text-[#111827]' : 'text-white'}`}
+            style={{ background: btnBg, fontSize: 'clamp(14px, 1.4vw, 24px)' }}
           >
             View project →
           </a>
@@ -159,7 +159,7 @@ export function SelectedWork() {
   return (
     <section id="work">
       {/* Section heading */}
-      <div className="px-5 py-12 md:px-10 md:py-16 lg:px-[84px] lg:py-[80px] flex justify-end">
+      <div className="px-5 py-12 md:px-10 md:py-16 lg:px-[84px] lg:py-[64px] flex justify-end">
         <h2
           className="font-black text-white text-right"
           style={{ fontSize: 'clamp(32px, 4.5vw, 64px)', letterSpacing: '-0.03em' }}

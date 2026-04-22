@@ -31,7 +31,7 @@ export function TrustBar() {
         <motion.div
           className="flex items-center"
           animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 28, ease: 'linear', repeat: Infinity }}
+          transition={{ duration: 20, ease: 'linear', repeat: Infinity }}
         >
           {/* Two sets for seamless loop */}
           {[...logos, ...logos].map((logo, i) => (

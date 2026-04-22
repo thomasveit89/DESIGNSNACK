@@ -20,7 +20,7 @@ export function Footer() {
       <div className="flex items-center gap-6">
         <a
           href="#"
-          className="font-medium text-muted hover:text-white transition-colors text-[14px] md:text-[16px] lg:text-[20px]"
+          className="font-medium text-muted hover:text-steel-mist transition-colors text-[14px] md:text-[16px] lg:text-[20px]"
         >
           Impressum
         </a>
@@ -30,7 +30,7 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
-          className="text-muted hover:text-white transition-colors"
+          className="text-muted hover:text-steel-mist transition-colors"
         >
           <LinkedInIcon size={24} />
         </a>
@@ -38,7 +38,7 @@ export function Footer() {
         <a
           href="mailto:tommy@designsnack.ch"
           aria-label="Email"
-          className="text-muted hover:text-white transition-colors"
+          className="text-muted hover:text-steel-mist transition-colors"
         >
           <Mail size={24} />
         </a>

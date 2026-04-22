@@ -53,7 +53,7 @@ export function Contact() {
           initial={{ opacity: 0, y: 32 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="font-black text-white text-right hover:text-[#768B9B] transition-colors block"
+          className="font-black text-white text-right hover:text-steel-mist transition-colors block"
           style={{ fontSize: 'clamp(20px, 6.5vw, 104px)', letterSpacing: '-0.03em', lineHeight: 1.05 }}
         >
           tommy@designsnack.ch

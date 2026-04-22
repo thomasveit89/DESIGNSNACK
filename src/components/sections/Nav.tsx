@@ -25,11 +25,18 @@ export function Nav() {
 
   return (
     <>
-      <header className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-6 md:px-10 md:py-8 lg:px-[84px] lg:py-[52px]">
+      <motion.header
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease, delay: 1.5 }}
+        className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-6 md:px-10 md:py-8 lg:px-[84px] lg:py-[52px]"
+      >
         <a href="/" className="block relative z-50">
-          <span className="font-black text-white text-[15px] md:text-[18px] tracking-[0.15em] uppercase">
-            DESIGNSNACK
-          </span>
+          <img
+            src="/assets/designsnack-logo.svg"
+            alt="DESIGNSNACK"
+            className="h-[14px] md:h-[18px] w-auto"
+          />
         </a>
 
         {/* Desktop nav */}
@@ -70,7 +77,7 @@ export function Nav() {
             transition={{ duration: 0.35, ease }}
           />
         </button>
-      </header>
+      </motion.header>
 
       {/* Full-screen mobile menu */}
       <AnimatePresence>
