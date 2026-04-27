@@ -4,11 +4,11 @@ import { useRef } from 'react'
 import { motion } from 'framer-motion'
 
 const logos = [
-  { name: 'Finnova', src: '/assets/finnova.svg' },
-  { name: '3AP', src: '/assets/3ap.svg' },
-  { name: 'AMBOSS', src: '/assets/amboss.svg' },
-  { name: 'Netlive', src: '/assets/netlive.svg' },
-  { name: 'AXA', src: '/assets/axa.svg' },
+  { name: 'Finnova', src: '/assets/clients/finnova.svg' },
+  { name: '3AP', src: '/assets/clients/3ap.svg' },
+  { name: 'AMBOSS', src: '/assets/clients/amboss.svg' },
+  { name: 'Netlive', src: '/assets/clients/netlive.svg' },
+  { name: 'AXA', src: '/assets/clients/axa.svg' },
 ]
 
 function LogoCard({ logo }: { logo: (typeof logos)[0] }) {

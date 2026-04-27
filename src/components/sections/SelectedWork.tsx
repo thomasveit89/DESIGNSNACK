@@ -10,8 +10,8 @@ const projects = [
     slug: '/work/joyo',
     title: 'Joyo',
     description:
-      'Designed and built an AI-powered SaaS platform for personalised gift experiences — from concept to production.',
-    tag: 'Self-initiated · 2024',
+      'Designed and built an AI-powered SaaS platform for personalised gift experiences – from concept to production.',
+    tag: 'Self-initiated · 2025/26',
     bg: '#fafaf9',
     dark: false,
     image: 'https://www.figma.com/api/mcp/asset/bc0e1842-c65f-497e-b265-78d8756448e7',
@@ -22,7 +22,7 @@ const projects = [
     title: 'Core Banking Platform',
     description:
       "One year embedded as senior design partner on one of Switzerland's leading core banking platforms.",
-    tag: 'Embedded · 3 years',
+    tag: 'Embedded · 1 year & counting',
     bg: '#0e0e10',
     dark: true,
     image: 'https://www.figma.com/api/mcp/asset/23305b17-50d2-4ba6-b3f4-5ae6ab759605',
@@ -32,8 +32,8 @@ const projects = [
     slug: '/work/laws-and-patterns',
     title: 'Laws & Patterns',
     description:
-      'Designed and built a reference tool for 100+ UX laws and cognitive biases — iOS app and web.',
-    tag: 'Self-initiated · 2024',
+      'Designed and built a reference tool for 100+ UX laws and cognitive biases – iOS app and web.',
+    tag: 'Self-initiated · 2025',
     bg: '#0d0d14',
     dark: true,
     image: null,

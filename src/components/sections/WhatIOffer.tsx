@@ -40,13 +40,14 @@ export function WhatIOffer() {
         >
           <div className="font-medium text-muted space-y-6" style={{ fontSize: 'clamp(17px, 2vw, 32px)' }}>
             <p>
-              I work embedded in product teams or on defined projects. Either way, you get someone
-              who designs and builds – not an agency handoff.
+              Most handoffs lose something – designs that are technically awkward to build,
+              developers interpreting specs in ways no one intended. I close that gap. One person
+              who holds both the design and the code.
             </p>
             <p>
-              I have 17+ years of UX experience and a background in frontend development. I design
-              with implementation in mind, and I build what I design. AI accelerates both sides –
-              faster iteration, faster delivery, without cutting corners on craft.
+              I work embedded in product teams or on defined projects. Either way, you get faster
+              iteration, fewer surprises in production, and a product that ships the way it was
+              designed.
             </p>
           </div>
         </motion.div>

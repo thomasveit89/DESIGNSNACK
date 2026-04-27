@@ -47,17 +47,42 @@ export function Contact() {
         />
       </div>
 
-      <div className="relative z-10 px-5 md:px-10 lg:px-[84px] flex justify-end">
-        <motion.a
-          href="mailto:tommy@designsnack.ch"
+      <div className="relative z-10 px-5 md:px-10 lg:px-[84px] flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 lg:gap-20">
+
+        {/* Left: headline */}
+        <motion.h2
           initial={{ opacity: 0, y: 32 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="font-black text-white text-right hover:text-steel-mist transition-colors block"
-          style={{ fontSize: 'clamp(20px, 6.5vw, 104px)', letterSpacing: '-0.03em', lineHeight: 1.05 }}
+          className="font-black text-white"
+          style={{ fontSize: 'clamp(32px, 4.5vw, 64px)', letterSpacing: '-0.03em', lineHeight: 1.1 }}
         >
-          tommy@designsnack.ch
-        </motion.a>
+          Let&apos;s build<br />something.
+        </motion.h2>
+
+        {/* Right: email + subtext */}
+        <div className="flex flex-col items-start lg:items-end gap-3">
+          <motion.a
+            href="mailto:tommy@designsnack.ch"
+            initial={{ opacity: 0, y: 32 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            className="font-black text-white lg:text-right hover:text-steel-mist transition-colors block"
+            style={{ fontSize: 'clamp(20px, 6.5vw, 104px)', letterSpacing: '-0.03em', lineHeight: 1.05 }}
+          >
+            tommy@designsnack.ch
+          </motion.a>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
+            className="font-medium text-muted"
+            style={{ fontSize: 'clamp(14px, 1.2vw, 20px)' }}
+          >
+            Usually reply within a day.
+          </motion.p>
+        </div>
+
       </div>
     </section>
   )

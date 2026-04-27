@@ -1,5 +1,3 @@
-import { Mail } from 'lucide-react'
-
 function LinkedInIcon({ size = 24 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -14,7 +12,7 @@ export function Footer() {
   return (
     <footer className="bg-black px-5 py-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:px-10 md:py-[44px] lg:px-[84px]">
       <p className="font-medium text-muted text-[14px] md:text-[16px] lg:text-[20px]">
-        © 2025 DESIGNSNACK GmbH – Powered by coffee &amp; curiosity
+        © 2026 DESIGNSNACK GmbH
       </p>
 
       <div className="flex items-center gap-6">
@@ -33,14 +31,6 @@ export function Footer() {
           className="text-muted hover:text-steel-mist transition-colors"
         >
           <LinkedInIcon size={24} />
-        </a>
-
-        <a
-          href="mailto:tommy@designsnack.ch"
-          aria-label="Email"
-          className="text-muted hover:text-steel-mist transition-colors"
-        >
-          <Mail size={24} />
         </a>
       </div>
     </footer>

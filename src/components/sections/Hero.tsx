@@ -73,8 +73,6 @@ export function Hero() {
           style={{ fontSize: 'clamp(17px, 2vw, 32px)' }}
         >
           Senior Design Engineer based in Switzerland.
-          <br />
-          17+ years of UX depth, frontend roots, and AI in the workflow.
           <br />I embed in your team and ship what I design.
         </motion.p>
 
