@@ -1,4 +1,4 @@
-function LinkedInIcon({ size = 24 }: { size?: number }) {
+function LinkedInIcon({ size = 20 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -10,28 +10,42 @@ function LinkedInIcon({ size = 24 }: { size?: number }) {
 
 export function Footer() {
   return (
-    <footer className="bg-black px-5 py-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:px-10 md:py-[44px] lg:px-[84px]">
-      <p className="font-medium text-muted text-[14px] md:text-[16px] lg:text-[20px]">
-        © 2026 DESIGNSNACK GmbH
-      </p>
+    <footer
+      className="px-5 pb-10 md:px-10 md:pb-12 lg:px-[84px] lg:pb-16"
+      style={{ backgroundColor: '#06080E' }}
+    >
+      <div className="border-t border-white/10 pt-8 md:pt-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
 
-      <div className="flex items-center gap-6">
-        <a
-          href="#"
-          className="font-medium text-muted hover:text-steel-mist transition-colors text-[14px] md:text-[16px] lg:text-[20px]"
-        >
-          Impressum
-        </a>
+        {/* Left: brand identity */}
+        <div>
+          <img
+            src="/assets/designsnack-logo.svg"
+            alt="DESIGNSNACK"
+            className="h-[14px] md:h-[18px] w-auto"
+          />
+        </div>
 
-        <a
-          href="https://www.linkedin.com/in/thomasveit"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className="text-muted hover:text-steel-mist transition-colors"
-        >
-          <LinkedInIcon size={24} />
-        </a>
+        {/* Right: status + links */}
+        <div className="flex items-center gap-6">
+
+          <a
+            href="#"
+            className="font-medium text-steel-mist hover:text-white transition-colors"
+            style={{ fontSize: '13px' }}
+          >
+            Impressum
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/thomasveit"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-steel-mist hover:text-white transition-colors"
+            style={{ fontSize: '13px' }}
+          >
+            Linkedin
+          </a>
+        </div>
       </div>
     </footer>
   )

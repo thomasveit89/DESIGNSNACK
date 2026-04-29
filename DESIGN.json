@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-04-27T00:00:00Z",
+  "title": "Design System: DESIGNSNACK",
+  "extensions": {
+    "colorMeta": {
+      "bg-primary":   { "role": "neutral",   "displayName": "Deep Ink Night",   "canonical": "oklch(24% 0.008 248)", "tonalRamp": ["oklch(10% 0.006 248)", "oklch(15% 0.007 248)", "oklch(20% 0.007 248)", "oklch(24% 0.008 248)", "oklch(35% 0.01 248)", "oklch(50% 0.012 248)", "oklch(65% 0.01 248)", "oklch(82% 0.006 248)"] },
+      "bg-deep":      { "role": "neutral",   "displayName": "Midnight Pitch",   "canonical": "oklch(8% 0.006 248)",  "tonalRamp": ["oklch(5% 0.004 248)", "oklch(8% 0.006 248)", "oklch(12% 0.007 248)", "oklch(18% 0.008 248)", "oklch(26% 0.009 248)", "oklch(40% 0.01 248)", "oklch(58% 0.01 248)", "oklch(76% 0.007 248)"] },
+      "text-primary": { "role": "neutral",   "displayName": "Stark White",      "canonical": "oklch(100% 0 0)",      "tonalRamp": ["oklch(20% 0 0)", "oklch(35% 0 0)", "oklch(50% 0 0)", "oklch(65% 0 0)", "oklch(78% 0 0)", "oklch(88% 0 0)", "oklch(95% 0 0)", "oklch(100% 0 0)"] },
+      "steel-mist":   { "role": "primary",   "displayName": "Overcast Steel",   "canonical": "oklch(58% 0.03 230)",  "tonalRamp": ["oklch(20% 0.02 230)", "oklch(30% 0.025 230)", "oklch(40% 0.028 230)", "oklch(50% 0.03 230)", "oklch(58% 0.03 230)", "oklch(68% 0.025 230)", "oklch(78% 0.018 230)", "oklch(90% 0.01 230)"] },
+      "text-muted":   { "role": "neutral",   "displayName": "Ash Mist",         "canonical": "oklch(91% 0.002 248)", "tonalRamp": ["oklch(30% 0.003 248)", "oklch(45% 0.004 248)", "oklch(58% 0.004 248)", "oklch(70% 0.003 248)", "oklch(80% 0.002 248)", "oklch(88% 0.002 248)", "oklch(91% 0.002 248)", "oklch(96% 0.001 248)"] },
+      "card-light":   { "role": "neutral",   "displayName": "Bone Cream",       "canonical": "oklch(98% 0.003 95)",  "tonalRamp": ["oklch(70% 0.008 95)", "oklch(78% 0.007 95)", "oklch(84% 0.006 95)", "oklch(89% 0.005 95)", "oklch(93% 0.004 95)", "oklch(96% 0.004 95)", "oklch(98% 0.003 95)", "oklch(99.5% 0.001 95)"] },
+      "card-dark":    { "role": "neutral",   "displayName": "Dark Slate",       "canonical": "oklch(11% 0.007 248)", "tonalRamp": ["oklch(6% 0.005 248)", "oklch(9% 0.006 248)", "oklch(11% 0.007 248)", "oklch(16% 0.008 248)", "oklch(23% 0.009 248)", "oklch(38% 0.01 248)", "oklch(56% 0.01 248)", "oklch(74% 0.007 248)"] },
+      "available":    { "role": "tertiary",  "displayName": "Available Green",  "canonical": "oklch(82% 0.16 145)",  "tonalRamp": ["oklch(30% 0.12 145)", "oklch(42% 0.14 145)", "oklch(54% 0.15 145)", "oklch(64% 0.16 145)", "oklch(74% 0.16 145)", "oklch(82% 0.16 145)", "oklch(90% 0.12 145)", "oklch(96% 0.06 145)"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Hero headlines only. Two-line max. Tight leading and extreme negative tracking make the type architectural." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings, contact heading, mobile menu items. Same 900 weight as display, reduced scale." },
+      "body":     { "displayName": "Body",     "purpose": "Sublines, about copy, work card descriptions. Medium weight for legibility at fluid scale." },
+      "label":    { "displayName": "Label",    "purpose": "Footer meta, availability text, utility link labels. Fixed 13px — outside the fluid scale system." },
+      "tag":      { "displayName": "Tag",      "purpose": "Work card engagement chips. Semibold uppercase with wide tracking for clarity at small size." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "All Framer Motion transitions. Sharp exit exponential ease — responsive without bounce." },
+      { "name": "duration-enter", "value": "700ms", "purpose": "Scroll-triggered section entrances (opacity + y translate)." },
+      { "name": "duration-ui", "value": "350ms", "purpose": "Hamburger toggle, mobile menu open/close." },
+      { "name": "duration-colors", "value": "150ms (transition-colors)", "purpose": "Hover state colour shifts on links and buttons." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA. White fill, near-black text, full pill. Hover shifts text to Overcast Steel — fill stays white.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Let&apos;s chat &rarr;</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: #111827; border-radius: 9999px; font-family: 'Urbanist', ui-sans-serif, sans-serif; font-size: 32px; font-weight: 700; line-height: 1; padding: 24px 40px; text-decoration: none; white-space: nowrap; cursor: pointer; transition: color 150ms ease; border: none; } .ds-btn-primary:hover { color: #768B9B; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary CTA variant. Transparent fill with low-opacity white border. Hover shifts text and border to Overcast Steel.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">View project &rarr;</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #ffffff; border: 1px solid rgba(255,255,255,0.20); border-radius: 9999px; font-family: 'Urbanist', ui-sans-serif, sans-serif; font-size: 24px; font-weight: 700; line-height: 1; padding: 20px 32px; text-decoration: none; white-space: nowrap; cursor: pointer; transition: color 150ms ease, border-color 150ms ease; } .ds-btn-ghost:hover { color: #768B9B; border-color: #768B9B; }"
+    },
+    {
+      "name": "Work Card Tag",
+      "kind": "chip",
+      "refersTo": "tag-chip",
+      "description": "Engagement type label on work cards. Uppercase, wide tracking, pill shape. Dark-surface variant shown.",
+      "html": "<span class=\"ds-tag\">Embedded &middot; 1 year</span>",
+      "css": ".ds-tag { display: inline-block; background: rgba(255,255,255,0.08); color: #e5e5e5; border-radius: 9999px; font-family: 'Urbanist', ui-sans-serif, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; line-height: 1; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Desktop navigation. Plain text, no underline, no pill. Hover shifts to Overcast Steel.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\">Work</a><a class=\"ds-nav-link\" href=\"#\">About</a><a class=\"ds-nav-link\" href=\"#\">Laws &amp; Patterns</a><a class=\"ds-nav-link\" href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 24px; } .ds-nav-link { color: #ffffff; font-family: 'Urbanist', ui-sans-serif, sans-serif; font-size: 24px; font-weight: 600; line-height: 1; text-decoration: none; transition: color 150ms ease; } .ds-nav-link:hover { color: #768B9B; }"
+    },
+    {
+      "name": "Work Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Signature full-viewport stacking scroll card. Shown here as a static snapshot: dark variant (Finnova).",
+      "html": "<div class=\"ds-work-card ds-work-card--dark\"><div class=\"ds-work-card__image\"><span class=\"ds-work-card__placeholder\">Core Banking Platform</span></div><div class=\"ds-work-card__footer\"><div class=\"ds-work-card__meta\"><span class=\"ds-work-card__tag\">Embedded &middot; 1 year &amp; counting</span><p class=\"ds-work-card__desc\">One year embedded as senior design partner on one of Switzerland&apos;s leading core banking platforms.</p></div><a class=\"ds-work-card__cta\" href=\"#\">View project &rarr;</a></div></div>",
+      "css": ".ds-work-card { width: 100%; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; background: #0e0e10; height: 540px; } .ds-work-card__image { flex: 1; display: flex; align-items: center; justify-content: center; background: #0e0e10; } .ds-work-card__placeholder { font-family: 'Urbanist', ui-sans-serif, sans-serif; font-weight: 900; font-size: 48px; color: #ffffff; opacity: 0.1; } .ds-work-card__footer { flex: none; display: flex; flex-direction: column; gap: 16px; padding: 24px; background: #0a0a0f; min-height: 120px; } .ds-work-card__meta { display: flex; flex-direction: column; gap: 8px; } .ds-work-card__tag { display: inline-block; background: rgba(255,255,255,0.08); color: #e5e5e5; border-radius: 9999px; font-family: 'Urbanist', ui-sans-serif, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; width: fit-content; } .ds-work-card__desc { font-family: 'Urbanist', ui-sans-serif, sans-serif; font-size: 16px; font-weight: 500; line-height: 1.5; color: #e5e5e5; margin: 0; } .ds-work-card__cta { display: inline-flex; align-items: center; gap: 8px; background: #ffffff; color: #111827; border-radius: 9999px; font-family: 'Urbanist', ui-sans-serif, sans-serif; font-size: 16px; font-weight: 700; padding: 12px 20px; text-decoration: none; transition: color 150ms ease; align-self: flex-start; } .ds-work-card__cta:hover { color: #768B9B; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Proof of Work",
+    "overview": "This is a portfolio where the site itself is the argument. Every design decision is a demonstration of what a Design Engineer does — the typography commands authority rather than requesting attention, the spacing is deliberate rather than templated, the motion is polite rather than performative. Nothing is given for free.\n\nThe system is built on a single dark base: near-black body (#111827) with a deeper accent surface (#06080E) that creates tonal depth without shadows. One accent colour, Overcast Steel (#768B9B), appears only on hover states, secondary labels, and utility chrome. Its restraint is the point — when it appears, it means something.\n\nThis is not a 'dark mode portfolio.' The physical scene: a senior partner at a Swiss bank opens a laptop in a meeting room, mid-afternoon, evaluating an engagement. The interface reads immediately and holds its ground. Nothing asks to be noticed. Everything rewards attention.",
+    "keyCharacteristics": [
+      "Single-font system (Urbanist) across all weights and scales",
+      "Tonal depth through surface layering, not shadows",
+      "Display type at 140px max — typography is the primary design element",
+      "One accent colour, appearing on ≤10% of any surface",
+      "Motion eases out sharply (cubic-bezier(0.22, 1, 0.36, 1)) — responsive, not theatrical",
+      "Geometric SVG shapes in #06080E float on #111827 as structural background texture"
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Overcast Steel (#768B9B) is used on ≤10% of any given screen. It appears on hover, on secondary labels, on utility chrome. It never competes with headlines. Its rarity is the mechanism.", "section": "colors" },
+      { "name": "The No-Warmth Rule", "body": "Every background surface has zero warm chroma. Light surfaces (#FAFAF9) appear only inside contained work cards, never as page grounds.", "section": "colors" },
+      { "name": "The Single-Face Rule", "body": "Urbanist everywhere, zero exceptions. No monospace sections, no fallback decorative faces. Typographic hierarchy comes from weight and scale contrast alone.", "section": "typography" },
+      { "name": "The Tight Display Rule", "body": "Display headings use letter-spacing: -0.05em and line-height: 0.86. These are intentional compressions that make the type feel architectural rather than set.", "section": "typography" },
+      { "name": "The Shadow-Free Rule", "body": "No box-shadow is permitted. Depth is structural, not atmospheric. If you are reaching for a shadow, reconsider whether a background tint change achieves the same depth.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Overcast Steel (#768B9B) exclusively for hover states, secondary labels, and utility chrome. Never for headlines or body copy.",
+      "Do use letter-spacing: -0.05em and line-height: 0.86 for Display-size type.",
+      "Do use cubic-bezier(0.22, 1, 0.36, 1) for all Framer Motion transitions.",
+      "Do let section headings break the left-flush convention when it creates visual rhythm.",
+      "Do use tonal surface layering (#06080E on #111827) to create depth — not shadows.",
+      "Do keep buttons to transition-colors only. No translateY, scale, or glow on hover.",
+      "Do vary section vertical padding for rhythm."
+    ],
+    "donts": [
+      "Don't use box-shadow anywhere. Use background tint changes for depth.",
+      "Don't add gradient text (background-clip: text + gradient). Explicitly banned.",
+      "Don't use Inter, system-ui, or any font other than Urbanist.",
+      "Don't use purple gradients, neon accents, or glassmorphism.",
+      "Don't build identical card grids (icon + heading + text, repeated).",
+      "Don't use border-left or border-right greater than 1px as a coloured accent stripe.",
+      "Don't use the hero-metric template (big number, small label, gradient accent).",
+      "Don't use standard agency portfolio structure: hero + work grid + contact form.",
+      "Don't use Tailwind UI defaults (shadcn components, zinc palette, standard rounded-lg cards).",
+      "Don't add motion that makes the user wait or fights their scroll.",
+      "Don't apply a generic container (max-w-7xl mx-auto) to sections."
+    ]
+  }
+}
