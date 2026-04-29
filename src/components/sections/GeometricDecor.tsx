@@ -58,7 +58,7 @@ export function GeometricDecor() {
         }
         .geo-bl {
           position: absolute;
-          top: calc(2900px + 200vh); left: -130px;
+          top: calc(2900px + 200vh); right: -130px; left: auto;
           width: 360px; height: 500px;
           animation: geo-bl-drift 15s ease-in-out infinite alternate;
           animation-delay: -5s;
@@ -77,7 +77,7 @@ export function GeometricDecor() {
           .geo-lc  { top: 1100px;  left: -340px;  width: 700px;  height: 700px; }
           .geo-rc  { top: 2000px;  right: -280px; width: 860px;  height: 480px; }
           .geo-cd  { top: calc(2900px + 200vh);  left: 38%;     width: 520px;  height: 520px; }
-          .geo-bl  { top: calc(3600px + 200vh);  left: -180px;  width: 500px;  height: 700px; }
+          .geo-bl  { top: calc(3600px + 200vh);  right: -180px; left: auto; width: 500px;  height: 700px; }
           .geo-fb  { top: calc(4500px + 200vh);  right: -120px; width: 300px;  height: 540px; }
         }
 
@@ -87,7 +87,7 @@ export function GeometricDecor() {
           .geo-lc  { top: 1300px;  left: -500px;  width: 1060px; height: 1060px; }
           .geo-rc  { top: 2500px;  right: -420px; width: 1300px; height: 740px;  }
           .geo-cd  { top: calc(3500px + 200vh);  left: 36%;     width: 820px;  height: 820px;  }
-          .geo-bl  { top: calc(4300px + 200vh);  left: -280px;  width: 760px;  height: 1060px; }
+          .geo-bl  { top: calc(4300px + 200vh);  right: -280px; left: auto; width: 760px;  height: 1060px; }
           .geo-fb  { top: calc(5400px + 200vh);  right: -180px; width: 440px;  height: 800px; }
         }
 

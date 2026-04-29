@@ -14,7 +14,7 @@ const projects = [
     tag: 'Self-initiated · 2025/26',
     bg: '#fafaf9',
     dark: false,
-    image: 'https://www.figma.com/api/mcp/asset/bc0e1842-c65f-497e-b265-78d8756448e7',
+    image: '/assets/work/joyo/joyo.png',
   },
   {
     id: 'finnova',
@@ -25,7 +25,7 @@ const projects = [
     tag: 'Embedded · 1 year & counting',
     bg: '#0e0e10',
     dark: true,
-    image: 'https://www.figma.com/api/mcp/asset/23305b17-50d2-4ba6-b3f4-5ae6ab759605',
+    image: '/assets/work/finnova/finnova.png',
   },
   {
     id: 'laws-and-patterns',
@@ -36,7 +36,7 @@ const projects = [
     tag: 'Self-initiated · 2025',
     bg: '#0d0d14',
     dark: true,
-    image: null,
+    image: '/assets/work/laws-and-patterns/laws-and-patterns.png',
   },
 ]
 

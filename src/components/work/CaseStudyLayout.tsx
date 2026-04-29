@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import type { CaseStudy, Section } from '@/data/work'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -10,19 +9,32 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as const },
 })
 
-const inView = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-80px' } as const,
-  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as const },
-})
+type Meta = {
+  role: string
+  duration: string
+  year: string
+  type: string
+}
 
-export function CaseStudyContent({
-  project,
+type NextProject = {
+  slug: string
+  title: string
+}
+
+export function CaseStudyLayout({
+  title,
+  oneLiner,
+  meta,
+  heroImage,
   nextProject,
+  children,
 }: {
-  project: CaseStudy
-  nextProject: CaseStudy | null
+  title: string
+  oneLiner: string
+  meta: Meta
+  heroImage?: string | null
+  nextProject: NextProject | null
+  children: React.ReactNode
 }) {
   return (
     <div className="min-h-screen bg-[#06080E] text-white font-sans">
@@ -39,12 +51,7 @@ export function CaseStudyContent({
       {/* Hero */}
       <section className="px-5 pt-8 pb-16 md:px-10 md:pt-12 md:pb-24 lg:px-[84px] lg:pt-16 lg:pb-32">
         <motion.div {...fadeUp(0)} className="flex flex-wrap gap-2 mb-8 md:mb-12">
-          {[
-            project.meta.role,
-            project.meta.duration,
-            project.meta.year,
-            project.meta.type,
-          ].map((tag) => (
+          {[meta.role, meta.duration, meta.year, meta.type].map((tag) => (
             <span
               key={tag}
               className="text-[11px] md:text-[12px] font-semibold uppercase tracking-[0.12em] px-3 py-1.5 rounded-full border border-white/10 text-steel-mist"
@@ -59,7 +66,7 @@ export function CaseStudyContent({
           className="font-black text-white leading-[0.95] mb-6 md:mb-8"
           style={{ fontSize: 'clamp(52px, 9vw, 140px)', letterSpacing: '-0.04em' }}
         >
-          {project.title}
+          {title}
         </motion.h1>
 
         <motion.p
@@ -67,18 +74,18 @@ export function CaseStudyContent({
           className="font-medium text-white/50 leading-relaxed max-w-2xl"
           style={{ fontSize: 'clamp(17px, 2vw, 26px)' }}
         >
-          {project.oneLiner}
+          {oneLiner}
         </motion.p>
 
-        {project.heroImage && (
+        {heroImage && (
           <motion.div
             {...fadeUp(0.28)}
             className="mt-12 md:mt-16 lg:mt-20 rounded-xl overflow-hidden w-full"
             style={{ height: 'clamp(260px, 50vw, 640px)' }}
           >
             <img
-              src={project.heroImage}
-              alt={project.title}
+              src={heroImage}
+              alt={title}
               className="w-full h-full object-cover object-top"
             />
           </motion.div>
@@ -87,11 +94,7 @@ export function CaseStudyContent({
 
       {/* Body */}
       <div className="px-5 md:px-10 lg:px-[84px] pb-24 md:pb-32 lg:pb-40">
-        <div className="flex flex-col gap-16 md:gap-20 lg:gap-24">
-          {project.sections.map((section, i) => (
-            <SectionBlock key={i} section={section} index={i} />
-          ))}
-        </div>
+        {children}
       </div>
 
       {/* Next project */}
@@ -126,57 +129,4 @@ export function CaseStudyContent({
       )}
     </div>
   )
-}
-
-function SectionBlock({ section, index }: { section: Section; index: number }) {
-  if (section.type === 'intro') {
-    return (
-      <motion.p
-        {...inView()}
-        className="font-medium text-white/75 leading-relaxed max-w-[760px]"
-        style={{ fontSize: 'clamp(17px, 1.8vw, 22px)' }}
-      >
-        {section.body}
-      </motion.p>
-    )
-  }
-
-  if (section.type === 'chapter') {
-    return (
-      <motion.div {...inView()} className="max-w-[860px]">
-        <h2
-          className="font-bold text-white leading-tight mb-4 md:mb-5"
-          style={{ fontSize: 'clamp(20px, 2.4vw, 32px)', letterSpacing: '-0.02em' }}
-        >
-          {section.heading}
-        </h2>
-        <p
-          className="font-medium text-white/65 leading-relaxed max-w-[720px]"
-          style={{ fontSize: 'clamp(16px, 1.6vw, 20px)' }}
-        >
-          {section.body}
-        </p>
-        {section.image && (
-          <div className="mt-8 md:mt-10 rounded-xl overflow-hidden">
-            <img src={section.image} alt={section.heading} className="w-full" />
-          </div>
-        )}
-      </motion.div>
-    )
-  }
-
-  if (section.type === 'closing') {
-    return (
-      <motion.div {...inView()} className="border-t border-white/8 pt-10 md:pt-12">
-        <p
-          className="font-medium text-white/35 leading-relaxed max-w-[640px]"
-          style={{ fontSize: 'clamp(14px, 1.4vw, 17px)' }}
-        >
-          {section.body}
-        </p>
-      </motion.div>
-    )
-  }
-
-  return null
 }
