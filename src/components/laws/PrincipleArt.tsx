@@ -50,6 +50,20 @@ function renderShape(s: ArtShape, i: number) {
       />
     )
   }
+  if (s.t === 'path') {
+    return (
+      <path
+        key={i}
+        d={s.d}
+        fill="none"
+        stroke={s.stroke}
+        strokeWidth={s.strokeWidth}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity={s.opacity}
+      />
+    )
+  }
   return null
 }
 

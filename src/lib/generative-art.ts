@@ -34,6 +34,7 @@ export type ArtShape =
   | { t: 'circle'; cx: number; cy: number; r: number; fill: string; stroke?: string; strokeWidth?: number; opacity: number }
   | { t: 'rect'; x: number; y: number; w: number; h: number; fill: string; stroke?: string; strokeWidth?: number; rx?: number; opacity: number; rotate?: number; rcx?: number; rcy?: number }
   | { t: 'poly'; pts: [number, number][]; stroke: string; strokeWidth: number; opacity: number }
+  | { t: 'path'; d: string; stroke: string; strokeWidth: number; opacity: number }
 
 export type ArtData = ArtShape[]
 
@@ -103,28 +104,52 @@ function memory(rng: Rng): ArtData {
   return out
 }
 
-// Decisions: branching polylines from a focal point
+// Decisions: two-level bezier branching tree
 function decisions(rng: Rng): ArtData {
-  const branches = pick(rng, 3, 6)
-  const sx = W * between(rng, 0.15, 0.25)
-  const sy = H * 0.5
-  const ex = W * between(rng, 0.75, 0.85)
-  const spread = H * between(rng, 0.65, 0.82)
-  const sw = between(rng, 4, 7)
+  const rootX = W * between(rng, 0.14, 0.22)
+  const rootY = H * 0.5
+  const midX = W * between(rng, 0.44, 0.54)
+  const endX = W * between(rng, 0.76, 0.86)
+  const branches = pick(rng, 2, 4)
+  const spread = H * between(rng, 0.58, 0.76)
+  const swRoot = between(rng, 4, 6)
   const mistB = pick(rng, 0, branches - 1)
   const out: ArtData = []
 
-  out.push({ t: 'circle', cx: sx, cy: sy, r: between(rng, 12, 18), fill: 'white', opacity: 0.75 })
+  out.push({ t: 'circle', cx: rootX, cy: rootY, r: between(rng, 10, 15), fill: 'white', opacity: 0.8 })
 
   for (let i = 0; i < branches; i++) {
     const t = branches === 1 ? 0.5 : i / (branches - 1)
-    const ey = sy - spread / 2 + spread * t
-    const mx = sx + (ex - sx) * between(rng, 0.4, 0.6)
-    const my = sy + (ey - sy) * between(rng, 0.3, 0.7)
+    const midY = rootY - spread / 2 + spread * t
     const mist = i === mistB
-    const op = mist ? 0.72 : between(rng, 0.2, 0.5)
-    out.push({ t: 'poly', pts: [[sx, sy], [mx, my], [ex, ey]], stroke: mist ? MIST : 'white', strokeWidth: sw, opacity: op })
-    out.push({ t: 'circle', cx: ex, cy: ey, r: between(rng, 8, 13), fill: mist ? MIST : 'white', opacity: op * 0.9 })
+    const op = mist ? 0.78 : between(rng, 0.22, 0.52)
+    const color = mist ? MIST : 'white'
+
+    // Bezier: root → mid node
+    const cp1x = rootX + (midX - rootX) * 0.45
+    const cp2x = midX - (midX - rootX) * 0.35
+    out.push({
+      t: 'path',
+      d: `M ${rootX.toFixed(1)},${rootY.toFixed(1)} C ${cp1x.toFixed(1)},${rootY.toFixed(1)} ${cp2x.toFixed(1)},${midY.toFixed(1)} ${midX.toFixed(1)},${midY.toFixed(1)}`,
+      stroke: color, strokeWidth: swRoot, opacity: op,
+    })
+    out.push({ t: 'circle', cx: midX, cy: midY, r: between(rng, 5, 8), fill: color, opacity: op * 0.85 })
+
+    // Bezier sub-branches: mid → endpoints
+    const subs = pick(rng, 1, 2)
+    const subSpread = (spread / branches) * between(rng, 0.55, 0.85)
+    for (let j = 0; j < subs; j++) {
+      const st = subs === 1 ? 0.5 : j / (subs - 1)
+      const endY = midY - subSpread / 2 + subSpread * st
+      const scp1x = midX + (endX - midX) * 0.4
+      const scp2x = endX - (endX - midX) * 0.3
+      out.push({
+        t: 'path',
+        d: `M ${midX.toFixed(1)},${midY.toFixed(1)} C ${scp1x.toFixed(1)},${midY.toFixed(1)} ${scp2x.toFixed(1)},${endY.toFixed(1)} ${endX.toFixed(1)},${endY.toFixed(1)}`,
+        stroke: color, strokeWidth: swRoot * 0.55, opacity: op * 0.65,
+      })
+      out.push({ t: 'circle', cx: endX, cy: endY, r: between(rng, 3.5, 6), fill: color, opacity: op * 0.6 })
+    }
   }
   return out
 }
@@ -252,6 +277,9 @@ export function artToSvgString(slug: string, category: string): string {
     if (s.t === 'poly') {
       const pts = s.pts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' ')
       return `<polyline points="${pts}" fill="none" stroke="${s.stroke}" stroke-width="${s.strokeWidth.toFixed(1)}" stroke-linecap="round" stroke-linejoin="round" opacity="${s.opacity.toFixed(3)}"/>`
+    }
+    if (s.t === 'path') {
+      return `<path d="${s.d}" fill="none" stroke="${s.stroke}" stroke-width="${s.strokeWidth.toFixed(1)}" stroke-linecap="round" stroke-linejoin="round" opacity="${s.opacity.toFixed(3)}"/>`
     }
     return ''
   }).join('')

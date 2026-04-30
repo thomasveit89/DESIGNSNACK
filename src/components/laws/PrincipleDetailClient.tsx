@@ -94,7 +94,7 @@ export function PrincipleDetailClient({
           <PrincipleArt
             slug={principle.slug}
             category={principle.category}
-            className="w-full aspect-[8/5]"
+            className="w-full aspect-[16/7]"
           />
         </motion.div>
       </section>
