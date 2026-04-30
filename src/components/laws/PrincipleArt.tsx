@@ -78,6 +78,7 @@ export function PrincipleArt({ slug, category, className }: PrincipleArtProps) {
   return (
     <svg
       viewBox="0 0 960 600"
+      preserveAspectRatio="xMidYMid slice"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
