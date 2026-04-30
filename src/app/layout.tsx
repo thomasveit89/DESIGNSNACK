@@ -10,6 +10,7 @@ const urbanist = Urbanist({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://designsnack.ch'),
   title: 'DESIGNSNACK',
   description:
     'Senior Design Engineer based in Switzerland. 17+ years of UX depth, frontend roots, and AI in the workflow. I embed in your team and ship what I design.',
