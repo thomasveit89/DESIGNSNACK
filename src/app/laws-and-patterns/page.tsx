@@ -24,21 +24,19 @@ export default async function LawsAndPatternsPage() {
 
   return (
     <div className="min-h-screen bg-[#06080E] text-white font-sans">
-      {/* Back nav */}
-      <div className="px-5 py-6 md:px-10 lg:px-[84px]">
-        <Link
-          href="/"
-          className="text-[16px] font-semibold uppercase tracking-[0.12em] text-steel-mist hover:text-white transition-colors"
-        >
-          ← designsnack.ch
+      {/* Logo nav */}
+      <div className="px-5 py-6 md:px-10 md:py-8 lg:px-[84px] lg:py-[52px]">
+        <Link href="/" className="block">
+          <img
+            src="/assets/designsnack-logo.svg"
+            alt="DESIGNSNACK"
+            className="h-[14px] md:h-[18px] w-auto"
+          />
         </Link>
       </div>
 
       {/* Hero */}
       <section className="px-5 pt-8 pb-16 md:px-10 md:pt-12 md:pb-20 lg:px-[84px] lg:pt-16 lg:pb-24">
-        <p className="text-[14px] font-semibold uppercase tracking-[0.12em] text-steel-mist mb-6">
-          Reference tool
-        </p>
         <h1
           className="font-black text-white leading-[0.86] mb-8"
           style={{ fontSize: 'clamp(52px, 9vw, 140px)', letterSpacing: '-0.05em' }}
