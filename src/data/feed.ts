@@ -39,4 +39,34 @@ export const feedItems: FeedItem[] = [
     title: 'Laws & Patterns',
     src: '/assets/feed/laws-and-patterns.mp4',
   },
+  {
+    id: 'cvsnack',
+    type: 'image',
+    title: 'CV Snack',
+    src: '/assets/feed/cvsnack.png',
+  },
+  {
+    id: 'design-system',
+    type: 'image',
+    title: 'Design System',
+    src: '/assets/feed/design-system.png',
+  },
+  {
+    id: 'football-app-design',
+    type: 'image',
+    title: 'Football App Design',
+    src: '/assets/feed/football-app-design.png',
+  },
+  {
+    id: 'landing-page-design',
+    type: 'image',
+    title: 'Landing Page Design',
+    src: '/assets/feed/landing-page-design.png',
+  },
+  {
+    id: 'scouting-app-design',
+    type: 'image',
+    title: 'Scouting App Design',
+    src: '/assets/feed/scouting-app-design.png',
+  },
 ]
