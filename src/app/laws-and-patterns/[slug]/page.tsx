@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import {
   fetchAllPrinciplesSafe,
-  fetchPrincipleBySlug,
+  fetchAllPrinciples,
 } from '@/lib/principles'
+import type { PrincipleWithSlug } from '@/lib/principles-types'
 import { PrincipleDetailClient } from '@/components/laws/PrincipleDetailClient'
 
 export const dynamicParams = true
@@ -19,7 +20,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
   const { slug } = await params
-  const principle = await fetchPrincipleBySlug(slug)
+  const principles = await fetchAllPrinciplesSafe()
+  const principle = principles.find((p) => p.slug === slug)
   if (!principle) return {}
 
   const title = `${principle.title} — Laws & Patterns — DESIGNSNACK`
@@ -47,8 +49,21 @@ export default async function PrincipleDetailPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const principle = await fetchPrincipleBySlug(slug)
-  if (!principle) notFound()
+  const principles = await fetchAllPrinciples()
+  const index = principles.findIndex((p) => p.slug === slug)
+  if (index === -1) notFound()
 
-  return <PrincipleDetailClient principle={principle} />
+  const principle = principles[index]
+  const nextPrinciple: PrincipleWithSlug | null = principles[index + 1] ?? null
+  const similarPrinciples: PrincipleWithSlug[] = principles
+    .filter((p) => p.slug !== slug && p.category === principle.category)
+    .slice(0, 3)
+
+  return (
+    <PrincipleDetailClient
+      principle={principle}
+      nextPrinciple={nextPrinciple}
+      similarPrinciples={similarPrinciples}
+    />
+  )
 }

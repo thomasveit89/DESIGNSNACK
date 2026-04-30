@@ -8,6 +8,7 @@ import {
   type PrincipleType,
 } from '@/lib/principles-types'
 import { PrincipleArt } from './PrincipleArt'
+import { PrincipleCard } from './PrincipleCard'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -35,7 +36,15 @@ function typeBadgeClass(type: PrincipleType) {
   }
 }
 
-export function PrincipleDetailClient({ principle }: { principle: PrincipleWithSlug }) {
+export function PrincipleDetailClient({
+  principle,
+  nextPrinciple,
+  similarPrinciples,
+}: {
+  principle: PrincipleWithSlug
+  nextPrinciple: PrincipleWithSlug | null
+  similarPrinciples: PrincipleWithSlug[]
+}) {
   return (
     <div className="min-h-screen bg-[#06080E] text-white font-sans">
       {/* Back nav */}
@@ -190,6 +199,20 @@ export function PrincipleDetailClient({ principle }: { principle: PrincipleWithS
           </motion.section>
         )}
 
+        {/* Similar principles */}
+        {similarPrinciples.length > 0 && (
+          <motion.section {...fadeInView} className="pt-8 border-t border-white/8">
+            <h2 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-steel-mist mb-8">
+              Similar principles
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {similarPrinciples.map((p) => (
+                <PrincipleCard key={p.slug} principle={p} />
+              ))}
+            </div>
+          </motion.section>
+        )}
+
         {/* iOS App CTA */}
         <motion.div {...fadeInView} className="pt-8 border-t border-white/8">
           <p className="text-white/40 text-[16px] mb-5">Have this and 100+ more in your pocket.</p>
@@ -206,6 +229,37 @@ export function PrincipleDetailClient({ principle }: { principle: PrincipleWithS
           </a>
         </motion.div>
       </div>
+
+      {/* Next principle */}
+      {nextPrinciple && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="border-t border-white/8"
+        >
+          <Link
+            href={`/laws-and-patterns/${nextPrinciple.slug}`}
+            className="group flex flex-col md:flex-row md:items-center md:justify-between gap-4 px-5 py-12 md:px-10 md:py-16 lg:px-[84px] lg:py-20 hover:bg-white/[0.02] transition-colors"
+          >
+            <div>
+              <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-steel-mist mb-2">
+                Next principle
+              </span>
+              <span
+                className="font-black text-white group-hover:text-steel-mist transition-colors leading-tight block"
+                style={{ fontSize: 'clamp(28px, 5vw, 72px)', letterSpacing: '-0.03em' }}
+              >
+                {nextPrinciple.title}
+              </span>
+            </div>
+            <span className="text-steel-mist text-[32px] md:text-[48px] group-hover:translate-x-2 transition-transform inline-block">
+              →
+            </span>
+          </Link>
+        </motion.div>
+      )}
     </div>
   )
 }
