@@ -35,7 +35,7 @@ const LINE2_START = 3 * WORD_STAGGER + 0.05 // 0.35s — after last word of line
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 pt-[120px] pb-16 md:px-10 md:pt-[160px] md:pb-20 lg:pl-[280px] lg:pr-[84px] lg:pt-[200px] lg:pb-[120px]">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 pt-[120px] pb-16 md:px-10 md:pt-[160px] md:pb-20 lg:pl-[80px] lg:pr-[84px] lg:pt-[200px] lg:pb-[120px]">
 
       <div className="relative z-10">
         {/* Headline line 1 */}

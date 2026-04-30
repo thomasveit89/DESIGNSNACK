@@ -37,6 +37,7 @@ const projects = [
     bg: '#0d0d14',
     dark: true,
     image: '/assets/work/laws-and-patterns/laws-and-patterns.png',
+    video: '/assets/work/laws-and-patterns/laws-and-patterns.mp4',
   },
 ]
 
@@ -95,7 +96,16 @@ function WorkCard({
       >
         {/* Screenshot area */}
         <div className="flex-1 relative overflow-hidden">
-          {project.image ? (
+          {'video' in project && project.video ? (
+            <video
+              src={project.video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover object-top"
+            />
+          ) : project.image ? (
             <img
               src={project.image}
               alt={project.title}

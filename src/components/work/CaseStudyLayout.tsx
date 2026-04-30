@@ -26,6 +26,7 @@ export function CaseStudyLayout({
   oneLiner,
   meta,
   heroImage,
+  heroVideo,
   nextProject,
   children,
 }: {
@@ -33,6 +34,7 @@ export function CaseStudyLayout({
   oneLiner: string
   meta: Meta
   heroImage?: string | null
+  heroVideo?: string | null
   nextProject: NextProject | null
   children: React.ReactNode
 }) {
@@ -77,17 +79,23 @@ export function CaseStudyLayout({
           {oneLiner}
         </motion.p>
 
-        {heroImage && (
+        {(heroVideo || heroImage) && (
           <motion.div
             {...fadeUp(0.28)}
             className="mt-12 md:mt-16 lg:mt-20 rounded-xl overflow-hidden w-full"
-            style={{ height: 'clamp(260px, 50vw, 640px)' }}
           >
-            <img
-              src={heroImage}
-              alt={title}
-              className="w-full h-full object-cover object-top"
-            />
+            {heroVideo ? (
+              <video
+                src={heroVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full"
+              />
+            ) : (
+              <img src={heroImage!} alt={title} className="w-full" />
+            )}
           </motion.div>
         )}
       </section>
