@@ -36,7 +36,7 @@ function renderShape(s: ArtShape, i: number) {
     )
   }
   if (s.t === 'poly') {
-    const pts = s.pts.map(([x, y]) => `${x},${y}`).join(' ')
+    const pts = s.pts.map(([x, y]) => `${x.toFixed(2)},${y.toFixed(2)}`).join(' ')
     return (
       <polyline
         key={i}
