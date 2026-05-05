@@ -94,7 +94,7 @@ export function PrincipleDetailClient({
           <PrincipleArt
             slug={principle.slug}
             category={principle.category}
-            className="w-full aspect-[16/7]"
+            className="w-full aspect-[16/4]"
           />
         </motion.div>
       </section>
@@ -107,7 +107,7 @@ export function PrincipleDetailClient({
           <h2 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-steel-mist mb-5">
             Definition
           </h2>
-          <p className="text-white/70 leading-[1.65] max-w-[68ch]" style={{ fontSize: 'clamp(17px, 1.5vw, 22px)' }}>
+          <p className="text-white/70 leading-[1.65] max-w-[68ch]" style={{ fontSize: 'clamp(18px, 1.5vw, 22px)' }}>
             {principle.definition}
           </p>
         </motion.section>
@@ -118,12 +118,12 @@ export function PrincipleDetailClient({
             <div className="grid md:grid-cols-2 gap-10 md:gap-16">
               {principle.do.length > 0 && (
                 <div>
-                  <h2 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-[#72b494] mb-5">
+                  <h2 className="text-[15px] font-semibold uppercase tracking-[0.12em] text-[#72b494] mb-5">
                     Do
                   </h2>
                   <ul className="space-y-4">
                     {principle.do.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-[17px] text-white/70 leading-[1.6]">
+                      <li key={i} className="flex items-start gap-3 text-[18px] text-white/70 leading-[1.6]">
                         <span className="text-[#72b494] mt-[3px] shrink-0">
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                             <path d="M2.5 8.5L6 12L13.5 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
@@ -137,12 +137,12 @@ export function PrincipleDetailClient({
               )}
               {principle.dont.length > 0 && (
                 <div className="md:border-l md:border-white/[0.06] md:pl-12">
-                  <h2 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-[#d47a7a] mb-5">
+                  <h2 className="text-[15px] font-semibold uppercase tracking-[0.12em] text-[#d47a7a] mb-5">
                     Avoid
                   </h2>
                   <ul className="space-y-4">
                     {principle.dont.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-[17px] text-white/70 leading-[1.6]">
+                      <li key={i} className="flex items-start gap-3 text-[18px] text-white/70 leading-[1.6]">
                         <span className="text-[#d47a7a] mt-[3px] shrink-0">
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                             <path d="M4 4L12 12M12 4L4 12" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
@@ -161,12 +161,12 @@ export function PrincipleDetailClient({
         {/* When to apply */}
         {principle.appliesWhen.length > 0 && (
           <motion.section {...fadeInView} className="mb-12 md:mb-16">
-            <h2 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-steel-mist mb-5">
+            <h2 className="text-[15px] font-semibold uppercase tracking-[0.12em] text-steel-mist mb-5">
               When to apply
             </h2>
             <ul className="space-y-3">
               {principle.appliesWhen.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-[17px] text-white/70 leading-[1.6]">
+                <li key={i} className="flex items-start gap-3 text-[18px] text-white/70 leading-[1.6]">
                   <span className="text-steel-mist mt-[4px] shrink-0">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                       <path d="M4 3L9 7L4 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -182,7 +182,7 @@ export function PrincipleDetailClient({
         {/* Tags */}
         {principle.tags.length > 0 && (
           <motion.section {...fadeInView} className="mb-12 md:mb-16">
-            <h2 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-steel-mist mb-5">
+            <h2 className="text-[15px] font-semibold uppercase tracking-[0.12em] text-steel-mist mb-5">
               Related topics
             </h2>
             <div className="flex flex-wrap gap-2">
@@ -190,7 +190,7 @@ export function PrincipleDetailClient({
                 <Link
                   key={i}
                   href={`/laws-and-patterns?tag=${encodeURIComponent(tag)}`}
-                  className="px-3 py-1.5 rounded-full border border-white/8 bg-white/[0.03] text-white/40 text-[13px] font-medium tracking-[0.04em] hover:border-white/20 hover:text-white/70 transition-colors"
+                  className="px-3 py-1.5 rounded-full border border-white/8 bg-white/[0.03] text-white/40 text-[15px] font-medium tracking-[0.04em] hover:border-white/20 hover:text-white/70 transition-colors"
                 >
                   {tag}
                 </Link>

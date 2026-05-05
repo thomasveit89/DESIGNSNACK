@@ -95,34 +95,36 @@ function attentionRadial(rng: Rng): ArtData {
   return out
 }
 
-// A2: precision crosshair — sparse rings + perpendicular axis lines
-function attentionCrosshair(rng: Rng): ArtData {
+// A2: signal arcs — scattered arcs at varying radii suggesting broadcast / focus waves
+function attentionArcs(rng: Rng): ArtData {
   const cx = between(rng, W * 0.42, W * 0.58)
-  const cy = between(rng, H * 0.40, H * 0.60)
-  const rings = pick(rng, 3, 5)
-  const maxR = between(rng, H * 0.28, H * 0.42)
+  const cy = between(rng, H * 0.42, H * 0.58)
+  const arcCount = pick(rng, 7, 11)
+  const maxR = between(rng, H * 0.30, H * 0.46)
   const sw = between(rng, 2.5, 4)
+  const mistIdx = pick(rng, 2, arcCount - 3)
   const out: ArtData = []
 
-  for (let i = rings; i >= 1; i--) {
-    const r = (i / rings) * maxR
-    out.push({
-      t: 'circle', cx, cy, r,
-      fill: 'none',
-      stroke: i === rings ? MIST : 'white',
-      strokeWidth: i === rings ? sw * 1.6 : sw,
-      opacity: (i / rings) * 0.38,
-    })
-  }
+  for (let i = 0; i < arcCount; i++) {
+    const t = (i + 1) / arcCount
+    const r = maxR * t
+    const baseAngle = between(rng, 0, Math.PI * 2)
+    const span = between(rng, Math.PI * 0.3, Math.PI * 1.4)
+    const mist = i === mistIdx
+    const op = 0.05 + t * t * 0.50
 
-  const gap = maxR * 0.18
-  const lineLen = maxR * between(rng, 0.72, 0.92)
-  const dirs: [number, number][] = [[1, 0], [-1, 0], [0, 1], [0, -1]]
-  for (const [dx, dy] of dirs) {
+    const x1 = cx + Math.cos(baseAngle) * r
+    const y1 = cy + Math.sin(baseAngle) * r
+    const x2 = cx + Math.cos(baseAngle + span) * r
+    const y2 = cy + Math.sin(baseAngle + span) * r
+    const largeArc = span > Math.PI ? 1 : 0
+
     out.push({
       t: 'path',
-      d: `M ${(cx + dx * gap).toFixed(1)},${(cy + dy * gap).toFixed(1)} L ${(cx + dx * lineLen).toFixed(1)},${(cy + dy * lineLen).toFixed(1)}`,
-      stroke: MIST, strokeWidth: sw * 1.4, opacity: 0.6,
+      d: `M ${x1.toFixed(1)},${y1.toFixed(1)} A ${r.toFixed(1)},${r.toFixed(1)} 0 ${largeArc},1 ${x2.toFixed(1)},${y2.toFixed(1)}`,
+      stroke: mist ? MIST : 'white',
+      strokeWidth: mist ? sw * 1.8 : sw,
+      opacity: mist ? 0.72 : op,
     })
   }
   out.push({ t: 'circle', cx, cy, r: between(rng, 5, 9), fill: 'white', opacity: 0.9 })
@@ -690,7 +692,7 @@ export function getArtData(slug: string, category: string): ArtData {
   switch (category) {
     case 'attention':
       return sub === 1 ? attentionRadial(rng)
-           : sub === 2 ? attentionCrosshair(rng)
+           : sub === 2 ? attentionArcs(rng)
            : attentionRings(rng)
 
     case 'memory':
