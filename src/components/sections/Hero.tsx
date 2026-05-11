@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
+import { HeroPhysics } from './HeroPhysics'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -37,7 +38,12 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 pt-[120px] pb-16 md:px-10 md:pt-[160px] md:pb-20 lg:pl-[80px] lg:pr-[84px] lg:pt-[200px] lg:pb-[120px]">
 
-      <div className="relative z-10">
+      {/* Physics background — full hero, desktop only */}
+      <div className="hidden lg:block absolute inset-0">
+        <HeroPhysics />
+      </div>
+
+      <div className="relative z-10 pointer-events-none">
         {/* Headline line 1 */}
         <h1
           className="font-black text-white leading-none"
@@ -81,7 +87,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease, delay: 1.25 }}
-          className="mt-12"
+          className="mt-12 pointer-events-auto w-fit"
         >
           <Button href="mailto:tommy@designsnack.ch">
             Let&apos;s chat →
