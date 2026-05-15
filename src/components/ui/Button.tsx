@@ -6,9 +6,11 @@ type ButtonProps = {
   onClick?: () => void
   variant?: 'white' | 'ghost'
   className?: string
+  target?: string
+  rel?: string
 }
 
-export function Button({ children, href, onClick, variant = 'white', className }: ButtonProps) {
+export function Button({ children, href, onClick, variant = 'white', className, target, rel }: ButtonProps) {
   const base = cn(
     'inline-flex items-center gap-2 rounded-full font-bold leading-none px-6 py-4 text-[18px] md:px-8 md:py-5 md:text-[24px] lg:px-10 lg:py-6 lg:text-[32px] transition-colors whitespace-nowrap cursor-pointer',
     variant === 'white' && 'bg-white text-[#111827] hover:bg-steel-mist hover:text-white',
@@ -18,7 +20,7 @@ export function Button({ children, href, onClick, variant = 'white', className }
 
   if (href) {
     return (
-      <a href={href} className={base}>
+      <a href={href} target={target} rel={rel} className={base}>
         {children}
       </a>
     )

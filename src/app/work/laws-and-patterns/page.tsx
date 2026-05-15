@@ -24,6 +24,9 @@ export default function LawsAndPatternsPage() {
       meta={project.meta}
       heroImage={null}
       heroVideo="/assets/work/laws-and-patterns/laws-and-patterns.mp4"
+      tools={project.tools}
+      url={project.url}
+      urlLabel={project.urlLabel}
       nextProject={nextProject}
     >
       <CaseStudyBody>

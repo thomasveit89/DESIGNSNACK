@@ -23,6 +23,9 @@ export default function FinnovaPage() {
       oneLiner={project.oneLiner}
       meta={project.meta}
       heroImage={project.heroImage}
+      tools={project.tools}
+      url={project.url}
+      urlLabel={project.urlLabel}
       nextProject={nextProject}
     >
       <CaseStudyBody>

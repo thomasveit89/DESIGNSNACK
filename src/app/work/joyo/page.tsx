@@ -23,6 +23,10 @@ export default function JoyoPage() {
       oneLiner={project.oneLiner}
       meta={project.meta}
       heroImage={project.heroImage}
+      heroVideo={project.heroVideo}
+      tools={project.tools}
+      url={project.url}
+      urlLabel={project.urlLabel}
       nextProject={nextProject}
     >
       <CaseStudyBody>
@@ -35,14 +39,14 @@ export default function JoyoPage() {
           experience.
         </Intro>
 
-        <Chapter heading="Making creation feel effortless">
+        <Chapter heading="Making creation feel effortless" image="/assets/work/joyo/joyo-create-experience.png">
           The hardest part wasn&apos;t the player – it was making the creator side feel easy enough
           that anyone would actually use it. My answer was AI-first: you describe your gift concept
           in a chat, and Claude generates a complete sequence of typed screens tailored to what you
           described. You land in the editor with something real to work with, not a blank canvas.
         </Chapter>
 
-        <Chapter heading="What a gift journey is made of">
+        <Chapter heading="What a gift journey is made of" image="/assets/work/joyo/joyo-editor.png">
           A journey is a sequence of typed screens: a hero screen sets the story, choice screens let
           the recipient engage, a text input lets them write something back, and a reveal screen is
           the emotional peak – full-screen, confetti, the whole thing. Themes shift the entire mood
@@ -52,7 +56,7 @@ export default function JoyoPage() {
           balance possible.
         </Chapter>
 
-        <Chapter heading="The moment it all has to land">
+        <Chapter heading="The moment it all has to land" image="/assets/work/joyo/joyo-player.png">
           The player is where everything has to work. Full-screen, no chrome, immersive. The
           recipient moves through each screen one at a time – making choices, answering – until the
           reveal. These animation and timing decisions only make sense when you feel them in the

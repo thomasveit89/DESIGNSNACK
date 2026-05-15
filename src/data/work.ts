@@ -9,6 +9,10 @@ export type CaseStudy = {
     type: string
   }
   heroImage?: string | null
+  heroVideo?: string | null
+  tools?: string[]
+  url?: string
+  urlLabel?: string
   nextSlug: string
 }
 
@@ -25,6 +29,10 @@ export const caseStudies: CaseStudy[] = [
       type: 'Self-initiated',
     },
     heroImage: '/assets/work/joyo/joyo.png',
+    heroVideo: '/assets/work/joyo/joyo-product-video.mp4',
+    tools: ['Figma', 'Next.js', 'Shadcn', 'Tailwind CSS', 'Supabase', 'Claude Code', 'Anthropic API', 'Unsplash API', 'Google OAuth', 'Vercel'],
+    url: 'https://www.joyo.ch',
+    urlLabel: 'Visit site',
     nextSlug: 'finnova',
   },
   {
@@ -39,6 +47,7 @@ export const caseStudies: CaseStudy[] = [
       type: 'Client work',
     },
     heroImage: '/assets/work/finnova/finnova.png',
+    tools: ['Figma', 'Design System', 'Jira', 'Confluence'],
     nextSlug: 'laws-and-patterns',
   },
   {
@@ -53,6 +62,24 @@ export const caseStudies: CaseStudy[] = [
       type: 'Self-initiated',
     },
     heroImage: '/assets/work/laws-and-patterns/laws-and-patterns.png',
+    tools: ['Figma', 'React Native', 'Nativewind', 'Custom CLI', 'Supabase', 'Vercel'],
+    url: 'https://apps.apple.com/ch/app/designsnack-laws-patterns/id6754067995',
+    urlLabel: 'App Store',
+    nextSlug: 'amboss',
+  },
+  {
+    slug: 'amboss',
+    title: 'AMBOSS Immobilien',
+    oneLiner:
+      'A premium website for a Swiss real estate firm – dark, gold-accented, fully CMS-driven, and built to convert.',
+    meta: {
+      role: 'Design Engineer',
+      duration: '1 month',
+      year: '2026',
+      type: 'Client work',
+    },
+    heroImage: '/assets/work/amboss/amboss-immobilien.png',
+    tools: ['Figma', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Sanity', 'Web3Forms', 'Vercel'],
     nextSlug: 'joyo',
   },
 ]

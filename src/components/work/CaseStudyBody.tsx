@@ -65,7 +65,7 @@ export function Closing({ children }: { children: React.ReactNode }) {
   return (
     <motion.div {...inView()} className="border-t border-white/8 pt-10 md:pt-12">
       <p
-        className="font-medium text-white/35 leading-relaxed max-w-[720px]"
+        className="font-medium text-white/65 leading-relaxed max-w-[720px]"
         style={{ fontSize: 'clamp(16px, 1.6vw, 20px)' }}
       >
         {children}

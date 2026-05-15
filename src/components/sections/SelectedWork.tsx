@@ -39,6 +39,17 @@ const projects = [
     image: '/assets/work/laws-and-patterns/laws-and-patterns.png',
     video: '/assets/work/laws-and-patterns/laws-and-patterns.mp4',
   },
+  {
+    id: 'amboss',
+    slug: '/work/amboss',
+    title: 'AMBOSS Immobilien',
+    description:
+      'Designed and built a premium website for a Swiss real estate firm – CMS-driven, animated, built to convert.',
+    tag: 'Client work · 2025',
+    bg: '#14161a',
+    dark: true,
+    image: '/assets/work/amboss/amboss-immobilien.png',
+  },
 ]
 
 type Project = (typeof projects)[0]
@@ -88,14 +99,11 @@ function WorkCard({
       className="w-full h-screen flex items-start pt-[60px] pb-[20px] px-4 md:pt-[70px] md:px-10 lg:pt-[80px] lg:pb-[40px] lg:px-[84px]"
     >
       <div
-        className="w-full rounded-[12px] overflow-hidden flex flex-col"
-        style={{
-          background: project.bg,
-          height: 'calc(100vh - 120px)',
-        }}
+        className="w-full rounded-[12px] overflow-hidden flex flex-col md:h-[calc(100vh-120px)]"
+        style={{ background: project.bg }}
       >
         {/* Screenshot area */}
-        <div className="flex-1 relative overflow-hidden">
+        <div className="relative overflow-hidden aspect-[16/10] md:aspect-auto md:flex-1">
           {'video' in project && project.video ? (
             <video
               src={project.video}

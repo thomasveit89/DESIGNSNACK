@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { Button } from '@/components/ui/Button'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -27,6 +28,9 @@ export function CaseStudyLayout({
   meta,
   heroImage,
   heroVideo,
+  tools,
+  url,
+  urlLabel,
   nextProject,
   children,
 }: {
@@ -35,6 +39,9 @@ export function CaseStudyLayout({
   meta: Meta
   heroImage?: string | null
   heroVideo?: string | null
+  tools?: string[]
+  url?: string
+  urlLabel?: string
   nextProject: NextProject | null
   children: React.ReactNode
 }) {
@@ -79,6 +86,19 @@ export function CaseStudyLayout({
           {oneLiner}
         </motion.p>
 
+        {url && (
+          <motion.div {...fadeUp(0.22)} className="mt-7 w-fit">
+            <Button
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 text-[14px] md:px-6 md:py-3 md:text-[15px] lg:px-6 lg:py-3 lg:text-[15px]"
+            >
+              {urlLabel ?? 'Visit site'} →
+            </Button>
+          </motion.div>
+        )}
+
         {(heroVideo || heroImage) && (
           <motion.div
             {...fadeUp(0.28)}
@@ -102,7 +122,27 @@ export function CaseStudyLayout({
 
       {/* Body */}
       <div className="px-5 md:px-10 lg:px-[84px] pb-24 md:pb-32 lg:pb-40">
-        {children}
+        {tools?.length ? (
+          <div className="lg:grid lg:grid-cols-[1fr_200px] lg:gap-16 xl:gap-20">
+            <div>{children}</div>
+            <div className="hidden lg:block">
+              <div className="sticky top-16">
+                <span className="block text-[13px] font-semibold uppercase tracking-[0.12em] text-steel-mist mb-5">
+                  Built with
+                </span>
+                <ul className="flex flex-col gap-3.5">
+                  {tools.map((tool) => (
+                    <li key={tool} className="text-[18px] font-medium text-white/50 leading-none">
+                      {tool}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ) : (
+          children
+        )}
       </div>
 
       {/* Next project */}
