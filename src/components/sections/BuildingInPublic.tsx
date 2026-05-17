@@ -67,23 +67,23 @@ function FeedCard({ item, index }: { item: FeedItem; index: number }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
+  const href = item.type === 'youtube'
+    ? `https://www.youtube.com/watch?v=${item.youtubeId}`
+    : item.href
+
   const card = (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: (index % 3) * 0.06 }}
-      className="break-inside-avoid mb-4 rounded-[10px] overflow-hidden bg-[#1a1f2e] group cursor-pointer"
+      className={`break-inside-avoid mb-4 rounded-[10px] overflow-hidden bg-[#1a1f2e] group${href ? ' cursor-pointer' : ''}`}
     >
       <div className="relative overflow-hidden">
         <MediaContent item={item} />
       </div>
     </motion.div>
   )
-
-  const href = item.type === 'youtube'
-    ? `https://www.youtube.com/watch?v=${item.youtubeId}`
-    : item.href
 
   if (href) {
     return (

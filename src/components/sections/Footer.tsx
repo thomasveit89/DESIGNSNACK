@@ -29,14 +29,6 @@ export function Footer() {
         <div className="flex items-center gap-6">
 
           <a
-            href="/legal-notice"
-            className="font-medium text-steel-mist hover:text-white transition-colors"
-            style={{ fontSize: '13px' }}
-          >
-            Legal Notice
-          </a>
-
-          <a
             href="https://www.linkedin.com/in/thomasveit"
             target="_blank"
             rel="noopener noreferrer"
@@ -45,6 +37,16 @@ export function Footer() {
           >
             Linkedin
           </a>
+
+          <a
+            href="/legal-notice"
+            className="font-medium text-steel-mist hover:text-white transition-colors"
+            style={{ fontSize: '13px' }}
+          >
+            Legal Notice
+          </a>
+
+
         </div>
       </div>
     </footer>
