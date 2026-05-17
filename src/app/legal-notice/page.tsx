@@ -65,7 +65,7 @@ export default function LegalNoticePage() {
             <h2 className="text-white/30 text-xs font-semibold uppercase tracking-widest mb-4">
               Representative
             </h2>
-            <p className="text-white/80">Thomas Veit, Managing Director</p>
+            <p className="text-white/80">Thomas Veit, Founder & Owner</p>
           </section>
 
           <section>
