@@ -32,12 +32,12 @@ export default function LegalNoticePage() {
         >
           Legal Notice
         </h1>
-        <p className="text-white/40 text-base font-medium mb-16">
+        <p className="text-white/40 text-[17px] font-medium mb-16">
           Hi, I&apos;m Tommy. DESIGNSNACK is my solo design studio. Here&apos;s the legal stuff you&apos;re probably looking for.
         </p>
 
         {/* Details */}
-        <div className="space-y-10 text-[15px]">
+        <div className="space-y-10 text-[17px]">
 
           <section>
             <h2 className="text-white/30 text-xs font-semibold uppercase tracking-widest mb-4">
@@ -116,7 +116,7 @@ export default function LegalNoticePage() {
           >
             Interested in working together?
           </h2>
-          <p className="text-white/50 text-base leading-relaxed mb-6">
+          <p className="text-white/50 text-[17px] leading-relaxed mb-6">
             Whether you need a designer embedded in your product team, or prefer the flexibility of a design subscription – let&apos;s talk.
           </p>
           <a

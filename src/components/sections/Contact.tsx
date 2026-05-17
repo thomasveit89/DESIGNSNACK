@@ -68,7 +68,7 @@ export function Contact() {
                 {/* Core dot */}
                 <span className="absolute inset-0 rounded-full" style={{ backgroundColor: '#4ade80' }} />
               </div>
-              <span className="font-medium text-muted" style={{ fontSize: '16px' }}>
+              <span className="font-medium text-muted" style={{ fontSize: '18px' }}>
                 Available for new projects
               </span>
             </div>

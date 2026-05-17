@@ -81,7 +81,7 @@ export function CaseStudyLayout({
         <motion.p
           {...fadeUp(0.16)}
           className="font-medium text-white/50 leading-relaxed max-w-2xl"
-          style={{ fontSize: 'clamp(17px, 2vw, 26px)' }}
+          style={{ fontSize: 'clamp(18px, 2vw, 28px)' }}
         >
           {oneLiner}
         </motion.p>

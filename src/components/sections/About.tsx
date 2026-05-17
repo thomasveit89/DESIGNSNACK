@@ -42,7 +42,7 @@ export function About() {
 
           <div
             className="font-medium text-muted space-y-6"
-            style={{ fontSize: 'clamp(17px, 1.6vw, 26px)', lineHeight: 1.55 }}
+            style={{ fontSize: 'clamp(18px, 1.6vw, 26px)', lineHeight: 1.6 }}
           >
             <p>
               I started as a frontend developer. Then I crossed into UX and UI design and spent the

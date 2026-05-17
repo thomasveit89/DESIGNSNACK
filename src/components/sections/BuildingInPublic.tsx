@@ -155,7 +155,7 @@ function CommitCardItem({ commit, index }: { commit: CommitData; index: number }
       </div>
 
       {/* commit message */}
-      <p className="text-white/90 text-[16px] leading-snug font-medium mb-5 line-clamp-3">
+      <p className="text-white/90 text-[17px] leading-snug font-medium mb-5 line-clamp-3">
         {commit.message}
       </p>
 

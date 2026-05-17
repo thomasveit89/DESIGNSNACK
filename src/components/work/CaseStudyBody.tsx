@@ -22,7 +22,7 @@ export function Intro({ children }: { children: React.ReactNode }) {
     <motion.p
       {...inView()}
       className="font-medium text-white/75 leading-relaxed max-w-[760px]"
-      style={{ fontSize: 'clamp(17px, 1.8vw, 22px)' }}
+      style={{ fontSize: 'clamp(18px, 1.8vw, 24px)' }}
     >
       {children}
     </motion.p>
@@ -48,7 +48,7 @@ export function Chapter({
       </h2>
       <p
         className="font-medium text-white/65 leading-relaxed max-w-[720px]"
-        style={{ fontSize: 'clamp(16px, 1.6vw, 20px)' }}
+        style={{ fontSize: 'clamp(17px, 1.6vw, 22px)' }}
       >
         {children}
       </p>
@@ -66,7 +66,7 @@ export function Closing({ children }: { children: React.ReactNode }) {
     <motion.div {...inView()} className="border-t border-white/8 pt-10 md:pt-12">
       <p
         className="font-medium text-white/65 leading-relaxed max-w-[720px]"
-        style={{ fontSize: 'clamp(16px, 1.6vw, 20px)' }}
+        style={{ fontSize: 'clamp(17px, 1.6vw, 22px)' }}
       >
         {children}
       </p>

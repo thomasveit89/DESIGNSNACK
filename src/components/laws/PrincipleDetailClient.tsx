@@ -215,7 +215,7 @@ export function PrincipleDetailClient({
 
         {/* iOS App CTA */}
         <motion.div {...fadeInView} className="pt-8 border-t border-white/8">
-          <p className="text-white/40 text-[16px] mb-5">Have this and 100+ more in your pocket.</p>
+          <p className="text-white/40 text-[17px] mb-5">Have this and 100+ more in your pocket.</p>
           <a
             href="https://apps.apple.com/us/app/designsnack-laws-patterns/id6754067995"
             target="_blank"

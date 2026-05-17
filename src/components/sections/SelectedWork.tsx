@@ -148,7 +148,7 @@ function WorkCard({
             </span>
             <p
               className="font-medium leading-snug"
-              style={{ fontSize: 'clamp(15px, 1.8vw, 28px)', color: mutedColor }}
+              style={{ fontSize: 'clamp(17px, 1.8vw, 28px)', color: mutedColor }}
             >
               {project.description}
             </p>
@@ -157,7 +157,7 @@ function WorkCard({
           <a
             href={project.slug}
             className={`flex-none self-start md:self-auto flex items-center gap-2 rounded-full font-bold px-5 py-3 md:px-8 md:py-5 transition-colors hover:text-steel-mist ${project.dark ? 'text-[#111827]' : 'text-white'}`}
-            style={{ background: btnBg, fontSize: 'clamp(14px, 1.4vw, 24px)' }}
+            style={{ background: btnBg, fontSize: 'clamp(16px, 1.4vw, 24px)' }}
           >
             View project →
           </a>

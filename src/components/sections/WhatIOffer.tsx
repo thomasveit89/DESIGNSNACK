@@ -38,7 +38,7 @@ export function WhatIOffer() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
         >
-          <div className="font-medium text-muted space-y-6" style={{ fontSize: 'clamp(17px, 2vw, 32px)' }}>
+          <div className="font-medium text-muted space-y-6" style={{ fontSize: 'clamp(18px, 2vw, 32px)' }}>
             <p>
               Most handoffs lose something – designs that are technically awkward to build,
               developers interpreting specs in ways no one intended. I close that gap. One person
