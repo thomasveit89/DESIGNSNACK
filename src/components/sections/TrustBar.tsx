@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const logos = [
@@ -25,13 +25,23 @@ function LogoCard({ logo }: { logo: (typeof logos)[0] }) {
 }
 
 export function TrustBar() {
+  const [duration, setDuration] = useState(20)
+
+  useEffect(() => {
+    const update = () => setDuration(window.innerWidth < 768 ? 6 : 20)
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
+
   return (
     <section className="py-16 overflow-hidden">
       <div className="relative flex">
         <motion.div
+          key={duration}
           className="flex items-center"
           animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 20, ease: 'linear', repeat: Infinity }}
+          transition={{ duration, ease: 'linear', repeat: Infinity }}
         >
           {/* Two sets for seamless loop */}
           {[...logos, ...logos].map((logo, i) => (

@@ -45,7 +45,7 @@ const projects = [
     title: 'AMBOSS Immobilien',
     description:
       'Designed and built a premium website for a Swiss real estate firm – CMS-driven, animated, built to convert.',
-    tag: 'Client work · 2025',
+    tag: 'Client work · 2026',
     bg: '#14161a',
     dark: true,
     image: '/assets/work/amboss/amboss-immobilien.png',

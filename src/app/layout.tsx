@@ -26,6 +26,7 @@ export const metadata: Metadata = {
     siteName: 'DESIGNSNACK',
     locale: 'en_US',
     type: 'website',
+    images: [{ url: '/assets/og-designsnack.png', width: 1200, height: 630 }],
   },
 }
 

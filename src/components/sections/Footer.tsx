@@ -29,11 +29,11 @@ export function Footer() {
         <div className="flex items-center gap-6">
 
           <a
-            href="#"
+            href="/legal-notice"
             className="font-medium text-steel-mist hover:text-white transition-colors"
             style={{ fontSize: '13px' }}
           >
-            Impressum
+            Legal Notice
           </a>
 
           <a
