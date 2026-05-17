@@ -37,6 +37,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={urbanist.variable}>
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-V3N7VQ35VG" />
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-V3N7VQ35VG');
+        `}} />
+      </head>
       <body>{children}</body>
     </html>
   )
